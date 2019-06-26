@@ -935,7 +935,7 @@ LANG:1 5 Start
     
     // Archive configuration
   
-    string archiveClassName = \"TBSCS_Archive\";
+    string archiveClassName = \"ValueArchive_0000\";
     int archiveType = DPATTR_ARCH_PROC_SIMPLESM;
     int smoothProcedure = DPATTR_TIME_AND_VALUE_SMOOTH;
     dyn_string exceptionInfo;
