@@ -228,7 +228,7 @@ LANG:1 0
 
 10
 "orientation" "enum 0"
-"maxValue" "int 2"
+"maxValue" "int 3"
 "value" "int 2"
 "invertedAppearance" "bool FALSE"
 "tickPosition" "enum 1"
@@ -327,7 +327,7 @@ LANG:1 4 Type
 2 27
 "PRIMITIVE_TEXT5"
 ""
-1 887 6 E E E 1 E 1 E N "_WindowText" E N "_Window" E E
+1 854 6 E E E 1 E 1 E N "_WindowText" E N "_Window" E E
  E E
 27 0 0 0 0 0
 E E E
@@ -340,8 +340,8 @@ LANG:1 0
 "dashclr"N "_Transparent"
 "antiAliased" "0"
 "transformable" "0"
-E E 2 1 3 2 1 E U  0 E 887 6 947 24
-0 2 2 "0s" 0 0 0 192 0 0  887 6 1
+E E 2 1 3 2 1 E U  0 E 854 6 914 24
+0 2 2 "0s" 0 0 0 192 0 0  854 6 1
 1
 LANG:1 27 Utopia,-1,16,5,75,0,0,0,0,0
 0 1
@@ -349,7 +349,7 @@ LANG:1 7 Voltage
 2 29
 "PRIMITIVE_TEXT7"
 ""
-1 986 6 E E E 1 E 1 E N "_WindowText" E N "_Window" E E
+1 924 6 E E E 1 E 1 E N "_WindowText" E N "_Window" E E
  E E
 29 0 0 0 0 0
 E E E
@@ -362,8 +362,8 @@ LANG:1 0
 "dashclr"N "_Transparent"
 "antiAliased" "0"
 "transformable" "0"
-E E 2 1 3 2 1 E U  0 E 986 6 1032 24
-0 2 2 "0s" 0 0 0 192 0 0  986 6 1
+E E 2 1 3 2 1 E U  0 E 924 6 970 24
+0 2 2 "0s" 0 0 0 192 0 0  924 6 1
 1
 LANG:1 27 Utopia,-1,16,5,75,0,0,0,0,0
 0 1
@@ -904,7 +904,7 @@ LANG:1 5 Start
     
     // Archive configuration
   
-    string archiveClassName = \"ValueArchive_0000\";
+    string archiveClassName = \"TBSCS_Archive\";
     int archiveType = DPATTR_ARCH_PROC_SIMPLESM;
     int smoothProcedure = DPATTR_TIME_AND_VALUE_SMOOTH;
     dyn_string exceptionInfo;
@@ -1095,6 +1095,28 @@ E E 2 1 3 2 1 E 1.684210526315789 0 0.8450704225352113 -939.3684210526314 -68.60
 LANG:1 27 Utopia,-1,12,5,75,0,0,0,0,0
 0 1
 LANG:1 7 Archive
+2 165
+"PRIMITIVE_TEXT12"
+""
+1 982 6 E E E 1 E 1 E N "_WindowText" E N "_Window" E E
+ E E
+165 0 0 0 0 0
+E E E
+0
+1
+LANG:1 0 
+
+4
+"layoutAlignment" "AlignNone"
+"dashclr"N "_Transparent"
+"antiAliased" "0"
+"transformable" "0"
+E E 2 1 3 2 1 E U  0 E 982 6 1037 24
+0 2 2 "0s" 0 0 0 192 0 0  982 6 1
+1
+LANG:1 27 Utopia,-1,16,5,75,0,0,0,0,0
+0 1
+LANG:1 6 SCA ID
 0
 LAYER, 1 
 1

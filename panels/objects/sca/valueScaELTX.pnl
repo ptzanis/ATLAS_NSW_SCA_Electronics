@@ -22,7 +22,9 @@ PANEL,-1 -1 149 48 N "_3DFace" 9
   if(modeSlider.value()==1)
     mode=\"Voltage\";
   if(modeSlider.value()==2)
-    mode=\"Temperature\";  
+    mode=\"Temperature\"; 
+  if(modeSlider.value()==3)
+    mode=\"SCA\";  
   
   string dpeBoardPlace;
   
@@ -109,6 +111,16 @@ PANEL,-1 -1 149 48 N "_3DFace" 9
  string voltageParameter, temperatureParameter; 
  dpGet(detector+\"-S1-Settings.\"+type+\".Voltage\",voltageParameter);
  dpConnect(\"updateStatus\",channel+\".online\",channel+voltageParameter+\".value\"); 
+ 
+ string scaID;
+ 
+   if(mode==\"SCA\")
+ {
+   dpGet(channel+\".id\",scaID);    
+   value.text(scaID);
+   value.toolTipText(channel+\".id\");
+  }
+ 
   
   if(mode==\"Type\")
  {
