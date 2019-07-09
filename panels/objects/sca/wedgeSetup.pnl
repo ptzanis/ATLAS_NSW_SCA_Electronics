@@ -940,7 +940,7 @@ LANG:1 8 Auto Set
   for(int i=1;i<=dynlen(detectorAllChannels);i++)
   {  
    detectorAllChannelsTrim[i]=strltrim(detectorAllChannels[i],getSystemName());   
-   if(strlen(detectorAllChannelsTrim[i])==9)   
+   if(strlen(detectorAllChannelsTrim[i])==15)   
    {
      mmfe8Channels[mmfe8Counter++]=detectorAllChannelsTrim[i];
    }
@@ -952,6 +952,8 @@ LANG:1 8 Auto Set
   
      for(int i=1;i<=dynlen(mmfe8Channels);i++)
   {
+    
+        strreplace(mmfe8Channels[i],\"MMFE8_\",\"\");
         layerPosition=substr(mmfe8Channels[i],2,1);
         pcbPosition=substr(mmfe8Channels[i],4,1);
         sidePosition=substr(mmfe8Channels[i],6,2);
