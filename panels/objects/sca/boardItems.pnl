@@ -58,7 +58,7 @@ LANG:1 27 Utopia,-1,13,5,75,0,0,0,0,0
 0  6 36 296.9999999999999 414
 "main()
 {
-  itemsTable.deleteAllLines();
+
   string channel;
   dpGet(detector+\"-S1.\"+boardPlace+\".Channel\",channel);
   
@@ -234,15 +234,9 @@ void EP_setBackColor()
 void EP_setBackColorCB(string dpSource, bool boNewValue)
 {
   if (!boNewValue)
-  {
     setValue(\"\", \"backCol\", \"Red\");
-    boardStatus.text(\"Offline\");
-  }
   else
-  {
     setValue(\"\", \"backCol\", \"FwStateOKPhysics\");
-    boardStatus.text(\"Online\");
-  }
 }
 
 // SimpleCtrlScript {EP_setBackColor}
@@ -260,7 +254,7 @@ void EP_setBackColorCB(string dpSource, bool boNewValue)
 // Color2 {FwStateOKPhysics}
 // SimpleCtrlScriptEnd {EP_setBackColor}
 " 0
- E 0 1 3 2 1 E 0.9999999999999999 0 1 -186.4999999999999 5.5 1 E 656.5 51.5 13.5 13.5
+ E 0 1 3 2 1 E 1 0 1 -244.5 5.5 1 E 656.5 51.5 13.5 13.5
 2 9
 "PRIMITIVE_TEXT5"
 ""
@@ -277,12 +271,12 @@ LANG:1 0
 "dashclr"N "_Transparent"
 "antiAliased" "0"
 "transformable" "0"
-E E 2 1 3 2 1 E U  0 E 335 45 452 67
+E E 2 1 3 2 1 E U  0 E 335 45 394 67
 0 2 2 "0s" 0 0 0 192 0 0  335 45 1
 1
 LANG:1 27 Utopia,-1,19,5,75,0,0,0,0,0
 0 1
-LANG:1 12 Board Status
+LANG:1 6 Status
 30 10
 "FRAME1"
 ""
@@ -298,82 +292,11 @@ LANG:1 0
 "layoutAlignment" "AlignNone"
 "dashclr"N "_Transparent"
 "antiAliased" "0"
-E E 2 1 3 2 1 E 2.0546875 0 0.8461538461538461 -827.7343750000005 14.92307692307692 0 E 562 19 691 72
+E E 2 1 3 2 1 E 0.8203125 0 0.8461538461538461 -134.015625 14.92307692307692 0 E 562 19 691 72
 1
 LANG:1 27 Utopia,-1,12,5,50,0,0,0,0,0
 0 1
 LANG:1 0 
-13 11
-"PUSH_BUTTON1"
-""
-1 241 44.32098765432099 E E E 1 E 1 E N "_ButtonText" E N "_Button" E E
- E E
-10 0 0 0 0 0
-E E E
-8
-1
-LANG:1 0 
-
-1
-"layoutAlignment" "AlignNone"
-1
-LANG:1 27 Utopia,-1,12,5,50,0,0,0,0,0
-0  239 36 294 58.96296296296296
-
-T 
-1
-LANG:1 7 Refresh
-"main()
-{
-  itemsTable.deleteAllLines();
-  string channel;
-  dpGet(detector+\"-S1.\"+boardPlace+\".Channel\",channel);
-  
-  
-  dyn_string aiChannels=dpNames(channel+\"/ai/*\");
-  dyn_string gpioChannels=dpNames(channel+\"/gpio/*\");
-  
-  double value;
-
-  int numberOfItems=dynlen(aiChannels)+dynlen(gpioChannels);
-  int lenBytes;
-
-
-  for(int i=1;i<=numberOfItems;i++)
-  {
-    dpGet(aiChannels[i]+\".value\",value);
-    lenBytes=strlen(channel);    
-    strchange(aiChannels[i],0,lenBytes,\"\");
-    
-//  itemsTable.appendLine(\"Item\",strltrim(aiChannels[i],getSystemName()+channel),\"Value\",value);
-    itemsTable.appendLine(\"Item\",aiChannels[i],\"Value\",value);
-  }
-  
-                        
- 
-
-  
-  
- 
-}" 0
- E E E
-14 12
-"boardStatus"
-""
-1 489 50 E E E 1 E 1 E N "_WindowText" E N "_Window" E E
- E E
-11 0 0 0 0 0
-E E E
-0
-1
-LANG:1 0 
-
-1
-"layoutAlignment" "AlignNone"
-1
-LANG:1 27 Utopia,-1,15,5,75,0,0,0,0,0
-0  487 42 580 71
-2 "0s" 0 0 0 1 0 -1  E E E
 0
 LAYER, 1 
 1

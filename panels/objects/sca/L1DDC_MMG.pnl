@@ -572,7 +572,7 @@ void EP_textFieldIn()
 
 void EP_textFieldInCB(string dp, float fNewValue)
 {
-  setValue(\"\", \"text\",  2.0*fNewValue);
+  setValue(\"\", \"text\",  3.0*fNewValue);
 }
 
 // SimpleCtrlScript {EP_textFieldIn}
@@ -627,7 +627,7 @@ void EP_textFieldIn()
 
 void EP_textFieldInCB(string dp, float fNewValue)
 {
-  setValue(\"\", \"text\",  2.0*fNewValue);
+  setValue(\"\", \"text\",  5.0*fNewValue);
 }
 
 // SimpleCtrlScript {EP_textFieldIn}
@@ -1210,7 +1210,7 @@ LANG:1 0
 "dashclr"N "_Transparent"
 "antiAliased" "0"
 "transformable" "0"
-E E 2 1 3 2 1 E U  0 E 123 135.6388888888889 143 150.6388888888889
+E E 2 1 3 2 1 E U  0 E 123 135.6388888888889 143 151
 0 2 2 "0s" 0 0 0 192 0 0  123 135.6388888888889 1
 1
 LANG:1 27 Utopia,-1,13,5,75,0,0,0,0,0
