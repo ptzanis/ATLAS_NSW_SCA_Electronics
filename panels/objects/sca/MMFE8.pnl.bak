@@ -1,7 +1,7 @@
 V 14
 1
 LANG:1 0 
-PANEL,-1 -1 554 247 N "_3DFace" 2
+PANEL,-1 -1 561 249 N "_3DFace" 2
 "$boardPlace"
 "$detector"
 E E E E E 1 -1 -1 0  14 20
