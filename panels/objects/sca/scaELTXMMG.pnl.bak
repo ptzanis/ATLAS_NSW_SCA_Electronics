@@ -146,7 +146,7 @@ LANG:1 23 ELTX SCA-GBT Monitoring
 13 21
 "createSettingsDPTMMG"
 ""
-1 1710 -8 E E E 0 E 1 E N "_ButtonText" E N {236,236,236} E E
+1 1710 -8 E E E 1 E 1 E N "_ButtonText" E N {236,236,236} E E
  E E
 21 0 0 0 0 0
 E E E
@@ -592,7 +592,7 @@ LANG:1 2 HO
 13 151
 "mmgDPT"
 ""
-1 1709.956407563025 12 E E E 0 E 1 E N "_ButtonText" E N {236,236,236} E E
+1 1709.956407563025 12 E E E 1 E 1 E N "_ButtonText" E N {236,236,236} E E
  E E
 151 0 0 0 0 0
 E E E
