@@ -717,7 +717,24 @@ E
    if(this.text()==\"L1DDC\")
   {
     
+  voltBox_STG.appendItem(\"/ai/GBTX1_TEMP\");
+  voltBox_STG.appendItem(\"/ai/GBTX2_TEMP\");
+  voltBox_STG.appendItem(\"/ai/1V5_PTAT\"); 
+  voltBox_STG.appendItem(\"/ai/2V5_PTAT\");
+  voltBox_STG.appendItem(\"/ai/P1V5_SCA\");
+  voltBox_STG.appendItem(\"/ai/P2V5_SCA\");
+  voltBox_STG.appendItem(\"/ai/VTRX1_RSSI\"); 
+  voltBox_STG.appendItem(\"/ai/VTRX2_RSSI\");
   voltBox_STG.appendItem(\"/ai/internalTemperature\");
+  
+  tempBox_STG.appendItem(\"/ai/GBTX1_TEMP\");
+  tempBox_STG.appendItem(\"/ai/GBTX2_TEMP\");
+  tempBox_STG.appendItem(\"/ai/1V5_PTAT\"); 
+  tempBox_STG.appendItem(\"/ai/2V5_PTAT\");
+  tempBox_STG.appendItem(\"/ai/P1V5_SCA\");
+  tempBox_STG.appendItem(\"/ai/P2V5_SCA\");
+  tempBox_STG.appendItem(\"/ai/VTRX1_RSSI\"); 
+  tempBox_STG.appendItem(\"/ai/VTRX2_RSSI\");
   tempBox_STG.appendItem(\"/ai/internalTemperature\");
   
   }  

@@ -1137,6 +1137,31 @@ LANG:1 14 Auto Set L1DDC
   
 }" 0
  E E E
+13 37
+"closeButton"
+""
+1 733.875 727 E E E 1 E 1 E N "_ButtonText" E N "_Button" E E
+ E E
+37 0 0 0 0 0
+E E E
+8
+1
+LANG:1 0 
+
+1
+"layoutAlignment" "AlignNone"
+1
+LANG:1 27 Utopia,-1,16,5,75,0,0,0,0,0
+0  731.875 717.3 794.125 743.3
+
+T 
+1
+LANG:1 5 Close
+"main(mapping event)
+{
+  PanelOff();
+}" 0
+ E E E
 0
 LAYER, 1 
 1
