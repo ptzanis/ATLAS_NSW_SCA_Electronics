@@ -7,6 +7,7 @@ E E E E E 1 -1 -1 0  -191.3149253731343 0
 E "dyn_int
 getChildNodesWithName (int docNum, int parentNode, string name)
 {
+//   DebugN(\"Inside \"+name,docNum);
   dyn_int result;
   int node = xmlFirstChild (docNum, parentNode);
   while (node >= 0)
@@ -16,7 +17,212 @@ getChildNodesWithName (int docNum, int parentNode, string name)
       node = xmlNextSibling (docNum, node);
     }
   return result;
-}" 0
+}
+
+void assignPWVoltDPEs(string dpe)
+{
+      string address;
+      dyn_string dsExceptionInfo;
+
+       address = dpe;		// address can be generated from dpe after some mods ...
+       strreplace (address, \"/\", \".\");
+       
+       fwPeriphAddress_setOPCUA (dpe /*dpe */ ,
+ 				\"OpcUaScaServer\" /* server name */ ,
+ 				15,
+ 				\"ns=2;s=\" + address,
+ 				\"OpcUaScaServerSub\" /* subscription */ ,
+ 				1 /* kind */ ,
+ 				1 /* variant */ ,
+ 				750 /* datatype */ ,
+ 				DPATTR_ADDR_MODE_INPUT_SPONT /* mode */ ,
+ 				\"\" /*poll group */ ,
+ 				dsExceptionInfo);
+        
+        
+      
+}
+
+#uses \"CtrlXml\"
+
+dyn_string analogItemsWithCalculatedVariable()
+{
+  string errMsg;
+  int errLine;
+  int errColumn;
+  string configFileName=\"/home/bb5user/Documents/ATLNSWELTX/scripts/examples/ScaOpcUa/config16L1DDC16MMFE8_new.xml\";
+  int docNum =
+    xmlDocumentFromFile (configFileName, errMsg, errLine, errColumn);
+  
+  
+  
+ int firstNode = xmlFirstChild (docNum);
+  if (firstNode < 0)
+    {
+      DebugN (\"Cant get the first child of the config file.\");
+      return -1;
+    }
+  while (xmlNodeName (docNum, firstNode) != \"configuration\")
+    {
+      firstNode = xmlNextSibling (docNum, firstNode);
+      if (firstNode < 0)
+	{
+	  DebugTN (\"configuration node not found, sorry.\");
+	  return -1;
+	}
+    }
+  // now firstNode holds configuration node   
+  dyn_int numberOfBoards = getChildNodesWithName (docNum, firstNode, \"SCA\");
+  dyn_int numberOfAnalogInput;
+  
+  int AnalogInputSystemChild;
+  int AnalogInputChild;
+  int CalculatedVariableChild;
+  
+  string name;
+  string boardName;
+  dyn_string AnalogInputChildItem;
+  dyn_string CalculatedVariableItem;
+  int CalculatedVariableItemCounter=1;
+  
+  dyn_string finalDpesWithCalculatedVariable;
+  
+  
+  for (int i = 1; i <= dynlen (numberOfBoards); i++)
+    {
+       xmlGetElementAttribute (docNum,numberOfBoards[i], \"name\", boardName);    
+    
+       AnalogInputSystemChild=xmlFirstChild (docNum, numberOfBoards[i]);
+       AnalogInputChild=xmlFirstChild (docNum, AnalogInputSystemChild);
+       
+       numberOfAnalogInput=getChildNodesWithName(docNum, AnalogInputSystemChild, \"AnalogInput\");
+      
+       dynClear(AnalogInputChildItem); 
+       dynClear(CalculatedVariableItem); 
+       
+
+       for(int j=1;j<=dynlen(numberOfAnalogInput);j++)
+       {
+         xmlGetElementAttribute (docNum,numberOfAnalogInput[j], \"name\", name);       
+         AnalogInputChildItem[j]=name;   
+    
+         CalculatedVariableChild=xmlFirstChild (docNum, numberOfAnalogInput[j]);
+         
+         
+         if(CalculatedVariableChild!=-1)
+         {
+           xmlGetElementAttribute (docNum,CalculatedVariableChild, \"name\", CalculatedVariableItem[j]); 
+           dynAppend(finalDpesWithCalculatedVariable,boardName+\"/ai/\"+AnalogInputChildItem[j]+\".\"+CalculatedVariableItem[j]);
+          }
+          else
+          {
+             CalculatedVariableItem[j]=\"\";
+          }
+     
+       } //numberOfAnalogInput
+              
+    } //numberOfBoards
+  
+  
+//   DebugN(finalDpesWithCalculatedVariable);
+  
+  return finalDpesWithCalculatedVariable;
+    
+}
+
+dyn_string analogItemsTotal()
+{
+  string errMsg;
+  int errLine;
+  int errColumn;
+  string configFileName=\"/home/bb5user/Documents/ATLNSWELTX/scripts/examples/ScaOpcUa/config16L1DDC16MMFE8_new.xml\";
+  int docNum =
+    xmlDocumentFromFile (configFileName, errMsg, errLine, errColumn);
+  
+  
+  
+ int firstNode = xmlFirstChild (docNum);
+  if (firstNode < 0)
+    {
+      DebugN (\"Cant get the first child of the config file.\");
+      return -1;
+    }
+  while (xmlNodeName (docNum, firstNode) != \"configuration\")
+    {
+      firstNode = xmlNextSibling (docNum, firstNode);
+      if (firstNode < 0)
+	{
+	  DebugTN (\"configuration node not found, sorry.\");
+	  return -1;
+	}
+    }
+  // now firstNode holds configuration node   
+  dyn_int numberOfBoards = getChildNodesWithName (docNum, firstNode, \"SCA\");
+  dyn_int numberOfAnalogInput;
+  
+  int AnalogInputSystemChild;
+  int AnalogInputChild;
+  
+  string name;
+  string boardName;
+  dyn_string AnalogInputChildItem;
+  
+  dyn_string allAnalogItems;
+  
+  
+  for (int i = 1; i <= dynlen (numberOfBoards); i++)
+    {
+       xmlGetElementAttribute (docNum,numberOfBoards[i], \"name\", boardName);    
+    
+       AnalogInputSystemChild=xmlFirstChild (docNum, numberOfBoards[i]);
+       AnalogInputChild=xmlFirstChild (docNum, AnalogInputSystemChild);
+       
+       numberOfAnalogInput=getChildNodesWithName(docNum, AnalogInputSystemChild, \"AnalogInput\");
+      
+       dynClear(AnalogInputChildItem); 
+       
+
+       for(int j=1;j<=dynlen(numberOfAnalogInput);j++)
+       {
+         xmlGetElementAttribute (docNum,numberOfAnalogInput[j], \"name\", name);       
+         AnalogInputChildItem[j]=name; 
+         dynAppend(allAnalogItems,boardName+\"/ai/\"+AnalogInputChildItem[j]);
+    
+       } //numberOfAnalogInput
+              
+    } //numberOfBoards
+  
+  
+//   DebugN(finalDpesWithCalculatedVariable);
+  
+  return allAnalogItems;
+}
+  
+ void assignOPCUAAdress(string dpe,string type)
+  {
+      string address;
+      dyn_string dsExceptionInfo;
+
+      dpe = dpe + \".\"+type;
+      address = dpe;		// address can be generated from dpe after some mods ...
+      strreplace (address, \"/\", \".\");
+      fwPeriphAddress_setOPCUA (dpe /*dpe */ ,
+				\"OpcUaScaServer\" /* server name */ ,
+				15,
+				\"ns=2;s=\" + address,
+				\"OpcUaScaServerSub\" /* subscription */ ,
+				1 /* kind */ ,
+				1 /* variant */ ,
+				750 /* datatype */ ,
+				DPATTR_ADDR_MODE_INPUT_SPONT /* mode */ ,
+				\"\" /*poll group */ ,
+				dsExceptionInfo);  
+        
+    
+  }
+  
+  
+" 0
  3
 "CBRef" "1"
 "EClose" E
@@ -68,7 +274,7 @@ LANG:1 12 XML->DPT Fix
 13 2
 "PUSH_BUTTON1"
 ""
-1 50.84253731343279 123 E E E 1 E 1 E N "_ButtonText" E N "_Button" E E
+1 50.68999533582075 125 E E E 1 E 1 E N "_ButtonText" E N "_Button" E E
  E E
 2 0 0 0 0 0
 E E E
@@ -80,7 +286,7 @@ LANG:1 0
 "layoutAlignment" "AlignNone"
 1
 LANG:1 31 Sans Serif,-1,12,5,50,0,0,0,0,0
-0  48.84253731343279 109 222.8425373134328 143
+0  48.68999533582075 111 222.6899953358208 145
 
 T 
 1
@@ -114,22 +320,59 @@ main(mapping event)
 	}
     }
   // now firstNode holds configuration node   
-  dyn_int children;
-
-  dyn_int children = getChildNodesWithName (docNum, firstNode, \"SCA\");
+  dyn_int numberOfBoards = getChildNodesWithName (docNum, firstNode, \"SCA\");
+  dyn_int numberOfAnalogInput;
+  
+  int AnalogInputSystemChild;
+  int AnalogInputChild;
+  int CalculatedVariableChild;
   
   string name;
-  for (int i = 1; i <= dynlen (children); i++)
+  string boardName;
+  dyn_string AnalogInputChildItem;
+  dyn_string CalculatedVariableItem;
+  int CalculatedVariableItemCounter=1;
+  
+  dyn_string finalDpesWithCalculatedVariable;
+  
+  
+  for (int i = 1; i <= dynlen (numberOfBoards); i++)
     {
-//      childChild[i]= getChildNodesWithName (docNum, children[i], \"CalculatedVariable\");
-//      xmlGetElementAttribute (docNum, childChild[i], \"name\", name);
-//      DebugN(children[i],name);
-      xmlGetElementAttribute (docNum, children[i], \"name\", name);
-      DebugN(name);    
-    }
+       xmlGetElementAttribute (docNum,numberOfBoards[i], \"name\", boardName);    
+    
+       AnalogInputSystemChild=xmlFirstChild (docNum, numberOfBoards[i]);
+       AnalogInputChild=xmlFirstChild (docNum, AnalogInputSystemChild);
+       
+       numberOfAnalogInput=getChildNodesWithName(docNum, AnalogInputSystemChild, \"AnalogInput\");
+      
+       dynClear(AnalogInputChildItem); 
+       dynClear(CalculatedVariableItem); 
+       
+
+       for(int j=1;j<=dynlen(numberOfAnalogInput);j++)
+       {
+         xmlGetElementAttribute (docNum,numberOfAnalogInput[j], \"name\", name);       
+         AnalogInputChildItem[j]=name;   
+    
+         CalculatedVariableChild=xmlFirstChild (docNum, numberOfAnalogInput[j]);
+         
+         
+         if(CalculatedVariableChild!=-1)
+         {
+           xmlGetElementAttribute (docNum,CalculatedVariableChild, \"name\", CalculatedVariableItem[j]); 
+           dynAppend(finalDpesWithCalculatedVariable,boardName+\"/ai/\"+AnalogInputChildItem[j]+\".\"+CalculatedVariableItem[j]);
+          }
+          else
+          {
+             CalculatedVariableItem[j]=\"\";
+          }
+     
+       } //numberOfAnalogInput
+              
+    } //numberOfBoards
   
   
-  
+  DebugN(finalDpesWithCalculatedVariable);
   
   
   
@@ -161,6 +404,159 @@ LANG:1 5 Close
 "main(mapping event)
 {
   PanelOff();
+}" 0
+ E E E
+13 4
+"PUSH_BUTTON2"
+""
+1 50.76749650186555 178 E E E 1 E 1 E N "_ButtonText" E N "_Button" E E
+ E E
+4 0 0 0 0 0
+E E E
+8
+1
+LANG:1 0 
+
+1
+"layoutAlignment" "AlignNone"
+1
+LANG:1 31 Sans Serif,-1,12,5,50,0,0,0,0,0
+0  49 168 223 202
+
+T 
+1
+LANG:1 23 Change Analog Input DPs
+"main(mapping event)
+{
+   
+dyn_dyn_string elements;
+dyn_dyn_int types;  
+
+     elements[1]=makeDynString(\"OpcUaScaServerAnalogInput\",\"\");
+     elements[2]=makeDynString(\"\",\"value\");
+     elements[3]=makeDynString(\"\",\"rawValue\");
+     elements[4]=makeDynString(\"\",\"power\");
+     elements[5]=makeDynString(\"\",\"temperature\");
+     
+     types[1]=makeDynInt(DPEL_STRUCT);
+     types[2]=makeDynInt(0,DPEL_FLOAT);
+     types[3]=makeDynInt(0,DPEL_UINT);
+     types[4]=makeDynInt(0,DPEL_FLOAT);
+     types[5]=makeDynInt(0,DPEL_FLOAT);     
+     
+    dpTypeChange(elements,types); 
+   
+}" 0
+ E E E
+13 5
+"PUSH_BUTTON3"
+""
+1 50.75 231 E E E 1 E 1 E N "_ButtonText" E N "_Button" E E
+ E E
+5 0 0 0 0 0
+E E E
+8
+1
+LANG:1 0 
+
+1
+"layoutAlignment" "AlignNone"
+1
+LANG:1 31 Sans Serif,-1,12,5,50,0,0,0,0,0
+0  48.75 221 221.75 255
+
+T 
+1
+LANG:1 14 Assign PW/Temp
+"main(mapping event)
+{
+    
+  dyn_string analogItemsWithCalculatedVariableList=analogItemsWithCalculatedVariable();
+
+  for(int i=1;i<=dynlen(analogItemsWithCalculatedVariableList);i++)
+  {   
+   assignPWVoltDPEs(analogItemsWithCalculatedVariableList[i]);             
+  }
+ 
+   
+  DebugTN(\"Assign of Power/Temperature OPC UA Address:\",\"READY\");
+  
+  
+
+  
+}" 0
+ E E E
+13 6
+"PUSH_BUTTON4"
+""
+1 260 178 E E E 1 E 1 E N "_ButtonText" E N "_Button" E E
+ E E
+6 0 0 0 0 0
+E E E
+8
+1
+LANG:1 0 
+
+1
+"layoutAlignment" "AlignNone"
+1
+LANG:1 31 Sans Serif,-1,12,5,50,0,0,0,0,0
+0  258 168 431 202
+
+T 
+1
+LANG:1 14 Assign PW/Temp
+"main(mapping event)
+{
+    
+  dyn_string analogItemsWithCalculatedVariableList=analogItemsWithCalculatedVariable();
+
+  for(int i=1;i<=dynlen(analogItemsWithCalculatedVariableList);i++)
+  {   
+   assignPWVoltDPEs(analogItemsWithCalculatedVariableList[i]);             
+  }
+ 
+   
+  DebugTN(\"Assign of Power/Temperature OPC UA Address:\",\"READY\");
+  
+  
+
+  
+}" 0
+ E E E
+13 7
+"PUSH_BUTTON5"
+""
+1 260 73 E E E 1 E 1 E N "_ButtonText" E N "_Button" E E
+ E E
+7 0 0 0 0 0
+E E E
+8
+1
+LANG:1 0 
+
+1
+"layoutAlignment" "AlignNone"
+1
+LANG:1 31 Sans Serif,-1,12,5,50,0,0,0,0,0
+0  258 58 402 102
+
+T 
+1
+LANG:1 13 Assign Adress
+"main(mapping event)
+{
+
+  dyn_string analogItemsTotalList=analogItemsTotal();
+  string dpElement=\"rawValue\";
+  
+  for(int i=1;i<=dynlen(analogItemsTotalList);i++)
+  {     
+  assignOPCUAAdress(analogItemsTotalList[i],dpElement);      
+  }
+  
+    DebugTN(\"Assign of \"+dpElement+\" OPC UA Address:\",\"READY\");
+  
 }" 0
  E E E
 0
