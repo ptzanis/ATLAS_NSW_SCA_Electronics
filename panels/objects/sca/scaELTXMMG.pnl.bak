@@ -1136,7 +1136,7 @@ LANG:1 27 Utopia,-1,15,5,75,0,0,0,0,0
 
 T 
 1
-LANG:1 6 OPC UA
+LANG:1 4 Calc
 "main(mapping event)
 {
         ChildPanelOnCentral(\"objects/sca/calculatedVariablesDPTfromXML.pnl\", \"Settings XML\", makeDynString(\"$detector:\"+\"MMG\"),500,500,0,1,1);

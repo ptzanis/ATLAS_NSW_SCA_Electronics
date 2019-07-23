@@ -110,7 +110,7 @@ LANG:1 27 Utopia,-1,13,5,75,0,0,0,0,0
 2 4
 "PRIMITIVE_TEXT3"
 ""
-1 79 11 E E E 1 E 1 E N "_WindowText" E N "_Window" E E
+1 401 41 E E E 1 E 1 E N "_WindowText" E N "_Window" E E
  E E
 3 0 0 0 0 0
 E E E
@@ -130,14 +130,14 @@ LANG:1 0
   
   this.text(channel);
 }" 0
- E 2 1 3 2 1 E U  0 E 79 11 172 50
-0 2 2 "0s" 0 0 0 192 0 0  79 11 2
+ E 2 1 3 2 1 E U  0 E 401 41 510 88
+0 2 2 "0s" 0 0 0 192 0 0  401 41 2
 1
-LANG:1 27 Utopia,-1,16,5,75,0,0,0,0,0
+LANG:1 27 Utopia,-1,19,5,75,0,0,0,0,0
 0 1
 LANG:1 9 BoardName
 1
-LANG:1 27 Utopia,-1,16,5,75,0,0,0,0,0
+LANG:1 27 Utopia,-1,19,5,75,0,0,0,0,0
 0 1
 LANG:1 0 
 13 5
@@ -168,7 +168,7 @@ LANG:1 5 Close
 2 6
 "PRIMITIVE_TEXT4"
 ""
-1 19 11 E E E 1 E 1 E N "_WindowText" E N "_Window" E E
+1 323 41 E E E 1 E 1 E N "_WindowText" E N "_Window" E E
  E E
 5 0 0 0 0 0
 E E E
@@ -181,14 +181,14 @@ LANG:1 0
 "dashclr"N "_Transparent"
 "antiAliased" "0"
 "transformable" "0"
-E E 2 1 3 2 1 E U  0 E 19 11 72 50
-0 2 2 "0s" 0 0 0 192 0 0  19 11 2
+E E 2 1 3 2 1 E U  0 E 323 41 393 88
+0 2 2 "0s" 0 0 0 192 0 0  323 41 2
 1
-LANG:1 27 Utopia,-1,16,5,75,0,0,0,0,0
+LANG:1 27 Utopia,-1,19,5,75,0,0,0,0,0
 0 1
-LANG:1 6 Board:
+LANG:1 8 Board  :
 1
-LANG:1 27 Utopia,-1,16,5,75,0,0,0,0,0
+LANG:1 27 Utopia,-1,19,5,75,0,0,0,0,0
 0 1
 LANG:1 0 
 7 8
@@ -254,11 +254,11 @@ void EP_setBackColorCB(string dpSource, bool boNewValue)
 // Color2 {FwStateOKPhysics}
 // SimpleCtrlScriptEnd {EP_setBackColor}
 " 0
- E 0 1 3 2 1 E 1 0 1 -244.5 5.5 1 E 656.5 51.5 13.5 13.5
+ E 0 1 3 2 1 E 1 0 1 200.5 11.5 1 E 656.5 51.5 13.5 13.5
 2 9
 "PRIMITIVE_TEXT5"
 ""
-1 335 45 E E E 1 E 1 E N "_WindowText" E N "_Window" E E
+1 780 51 E E E 1 E 1 E N "_WindowText" E N "_Window" E E
  E E
 8 0 0 0 0 0
 E E E
@@ -271,8 +271,8 @@ LANG:1 0
 "dashclr"N "_Transparent"
 "antiAliased" "0"
 "transformable" "0"
-E E 2 1 3 2 1 E U  0 E 335 45 394 67
-0 2 2 "0s" 0 0 0 192 0 0  335 45 1
+E E 2 1 3 2 1 E U  0 E 780 51 839 73
+0 2 2 "0s" 0 0 0 192 0 0  780 51 1
 1
 LANG:1 27 Utopia,-1,19,5,75,0,0,0,0,0
 0 1
@@ -292,11 +292,103 @@ LANG:1 0
 "layoutAlignment" "AlignNone"
 "dashclr"N "_Transparent"
 "antiAliased" "0"
-E E 2 1 3 2 1 E 0.8203125 0 0.8461538461538461 -134.015625 14.92307692307692 0 E 562 19 691 72
+E E 2 1 3 2 1 E 0.8203125 0 0.8461538461538461 310.984375 20.92307692307692 0 E 562 19 691 72
 1
 LANG:1 27 Utopia,-1,12,5,50,0,0,0,0,0
 0 1
 LANG:1 0 
+2 11
+"scaIDText"
+""
+1 401 67 E E E 1 E 1 E N "_WindowText" E N "_Window" E E
+ E E
+10 0 0 0 0 0
+E E E
+0
+1
+LANG:1 0 
+
+4
+"layoutAlignment" "AlignNone"
+"dashclr"N "_Transparent"
+"antiAliased" "0"
+"transformable" "0"
+"main()
+{
+
+ string scaID;
+ dpGet(returnValue()+\".id\",scaID); 
+ this.text(scaID);
+  
+}" 0
+ E 2 1 3 2 1 E U  0 E 401 67 426 89
+0 2 2 "0s" 0 0 0 192 0 0  401 67 1
+1
+LANG:1 27 Utopia,-1,19,5,75,0,0,0,0,0
+0 1
+LANG:1 2 ID
+2 12
+"PRIMITIVE_TEXT7"
+""
+1 323 67 E E E 1 E 1 E N "_WindowText" E N "_Window" E E
+ E E
+11 0 0 0 0 0
+E E E
+0
+1
+LANG:1 0 
+
+4
+"layoutAlignment" "AlignNone"
+"dashclr"N "_Transparent"
+"antiAliased" "0"
+"transformable" "0"
+E E 2 1 3 2 1 E U  0 E 323 67 393 114
+0 2 2 "0s" 0 0 0 192 0 0  323 67 2
+1
+LANG:1 27 Utopia,-1,19,5,75,0,0,0,0,0
+0 1
+LANG:1 7 SCA ID:
+1
+LANG:1 27 Utopia,-1,19,5,75,0,0,0,0,0
+0 1
+LANG:1 0 
+30 13
+"FRAME2"
+""
+1 562 19 E E E 1 E 1 E N "_WindowText" E N {0,0,0} E E
+ E E
+12 0 0 0 0 0
+E E E
+1
+1
+LANG:1 0 
+
+3
+"layoutAlignment" "AlignNone"
+"dashclr"N "_Transparent"
+"antiAliased" "0"
+E E 2 1 3 2 1 E 4.507812500000001 0 1.173076923076923 -2224.390625 7.711538461538458 0 E 562 19 691 72
+1
+LANG:1 27 Utopia,-1,12,5,50,0,0,0,0,0
+0 1
+LANG:1 0 
+6 14
+"titleBackground"
+""
+1 0 40 E E E 1 E 1 E N "STD_grey_dark" E N {255,255,255} E E
+ E E
+13 0 0 0 0 0
+E E E
+0
+1
+LANG:1 0 
+
+3
+"layoutAlignment" "AlignCenter"
+"dashclr"N "_Transparent"
+"antiAliased" "0"
+E E 0 1 2 0 1 E 1.45867899309423 0 1 -10.8562463800401 -31 4 "[conical,-1.18,1.23,153,0,{0,0,0},0.762,{255,255,255}]" E -1 60 669 20
 0
 LAYER, 1 
 1
