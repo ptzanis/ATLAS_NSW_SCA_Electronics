@@ -13,7 +13,6 @@ PANEL,-1 -1 149 48 N "_3DFace" 9
 "$sector"
 "main()
 {
- 
   
   string valueToChoose;
   string mode;
