@@ -630,9 +630,40 @@ string leftRight,side,upDownValue;
         }  
         
      }
+            
     }
   }
 }
+
+//ROUTER Board
+
+string sideName;
+for(int layer=1;layer<=4;layer++)
+{
+   for(int side=0;side<1;side++)
+    {
+      if(side==0)
+        sideName=\"IP\";
+      if(side==1)   
+        sideName=\"HO\";
+      
+     count++;   
+     elements[count]=makeDynString(\"\",\"RouterBoard_Side_\"+sideName+\"_Layer_\"+layer);
+     types[count]=makeDynInt(0,DPEL_STRUCT);
+     count++;
+     elements[count]=makeDynString(\"\",\"\",\"Visibility\");
+     types[count]=makeDynInt(0,0,DPEL_BOOL);
+     count++;
+     elements[count]=makeDynString(\"\",\"\",\"Channel\");
+     types[count]=makeDynInt(0,0,DPEL_STRING);
+     count++;
+     elements[count]=makeDynString(\"\",\"\",\"Type\");
+     types[count]=makeDynInt(0,0,DPEL_STRING);   
+   }    
+        
+}
+
+
 
      
 int x=dpTypeCreate(elements,types);

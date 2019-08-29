@@ -940,7 +940,7 @@ LANG:1 14 Auto Set MMFE8
   for(int i=1;i<=dynlen(detectorAllChannels);i++)
   {  
    detectorAllChannelsTrim[i]=strltrim(detectorAllChannels[i],getSystemName());   
-   if(strlen(detectorAllChannelsTrim[i])==15)   
+   if(substr(detectorAllChannelsTrim[i],0,4)==\"MMFE\")   
    {
      mmfe8Channels[mmfe8Counter++]=detectorAllChannelsTrim[i];
    }
@@ -954,10 +954,10 @@ LANG:1 14 Auto Set MMFE8
   {
     
 
-        layerPosition=substr(mmfe8Channels[i],8,1);
-        pcbPosition=substr(mmfe8Channels[i],10,1);
-        sidePosition=substr(mmfe8Channels[i],12,2);
-        leftRightPosition=substr(mmfe8Channels[i],14,1);
+        layerPosition=substr(mmfe8Channels[i],7,1);
+        pcbPosition=substr(mmfe8Channels[i],9,1);
+        sidePosition=substr(mmfe8Channels[i],11,2);
+        leftRightPosition=substr(mmfe8Channels[i],13,1);
         if(leftRightPosition==\"L\")
           leftRightPosition=\"Left\";
         if(leftRightPosition==\"R\")
@@ -1055,7 +1055,7 @@ LANG:1 14 Auto Set L1DDC
   {  
    detectorAllChannelsTrim[i]=strltrim(detectorAllChannelsExtra[i],getSystemName());           
    detectorAllChannels[i]=substr(detectorAllChannelsTrim[i],0,3);  
-   if(detectorAllChannels[i]==\"LTX\")   
+   if(detectorAllChannels[i]==\"L1D\")   
    {
      l1ddcChannels[l1ddcCounter++]=detectorAllChannelsTrim[i];
    }
@@ -1068,10 +1068,10 @@ LANG:1 14 Auto Set L1DDC
      for(int i=1;i<=dynlen(l1ddcChannels);i++)
   {
 
-        layerPosition=substr(l1ddcChannels[i],12,1);
-        pcbPosition=substr(l1ddcChannels[i],14,1);
-        sidePosition=substr(l1ddcChannels[i],7,2);
-        leftRightPosition=substr(l1ddcChannels[i],9,1);
+        layerPosition=substr(l1ddcChannels[i],7,1);
+        pcbPosition=substr(l1ddcChannels[i],9,1);
+        sidePosition=substr(l1ddcChannels[i],11,2);
+        leftRightPosition=substr(l1ddcChannels[i],13,1);
         
         DebugN(l1ddcChannels[i],layerPosition,pcbPosition,sidePosition,leftRightPosition);
         if(leftRightPosition==\"L\")
@@ -1165,7 +1165,7 @@ LANG:1 5 Close
 13 38
 "PUSH_BUTTON3"
 ""
-1 20 727.15 E E E 1 E 1 E N "_ButtonText" E N "_Button" E E
+1 20 727 E E E 1 E 1 E N "_ButtonText" E N "_Button" E E
  E E
 38 0 0 0 0 0
 E E E
@@ -1177,7 +1177,7 @@ LANG:1 0
 "layoutAlignment" "AlignNone"
 1
 LANG:1 27 Utopia,-1,12,5,75,0,0,0,0,0
-0  18 699 134 732
+0  18 698.85 134 731.85
 
 T 
 1
@@ -1196,7 +1196,7 @@ LANG:1 13 Auto Set ADDC
   {  
    detectorAllChannelsTrim[i]=strltrim(detectorAllChannelsExtra[i],getSystemName());           
    detectorAllChannels[i]=substr(detectorAllChannelsTrim[i],0,3);  
-   if(detectorAllChannels[i]==\"ATT\")   
+   if(detectorAllChannels[i]==\"ADD\")   
    {
      l1ddcChannels[l1ddcCounter++]=detectorAllChannelsTrim[i];
    }
@@ -1209,10 +1209,10 @@ LANG:1 13 Auto Set ADDC
      for(int i=1;i<=dynlen(l1ddcChannels);i++)
   {
 
-        layerPosition=substr(l1ddcChannels[i],12,1);
-        pcbPosition=substr(l1ddcChannels[i],14,1);
-        sidePosition=substr(l1ddcChannels[i],7,2);
-        leftRightPosition=substr(l1ddcChannels[i],9,1);
+        layerPosition=substr(l1ddcChannels[i],6,1);
+        pcbPosition=substr(l1ddcChannels[i],8,1);
+        sidePosition=substr(l1ddcChannels[i],10,2);
+        leftRightPosition=substr(l1ddcChannels[i],12,1);
         
         DebugN(l1ddcChannels[i],layerPosition,pcbPosition,sidePosition,leftRightPosition);
         if(leftRightPosition==\"L\")
@@ -1267,7 +1267,7 @@ LANG:1 13 Auto Set ADDC
         
         
   dpSet(detector+\"-S1.Side\"+sidePosition+\"PCB\"+pcbPosition+\"Layer\"+layerPosition+leftRightPosition+upDown+\".Channel\",l1ddcChannels[i]);
-  dpSet(detector+\"-S1.Side\"+sidePosition+\"PCB\"+pcbPosition+\"Layer\"+layerPosition+leftRightPosition+upDown+\".Type\",\"L1DDC\");  
+  dpSet(detector+\"-S1.Side\"+sidePosition+\"PCB\"+pcbPosition+\"Layer\"+layerPosition+leftRightPosition+upDown+\".Type\",\"ADDC\");  
   dpSet(detector+\"-S1.Side\"+sidePosition+\"PCB\"+pcbPosition+\"Layer\"+layerPosition+leftRightPosition+upDown+\".Visibility\",1);   
 
   } 
@@ -1278,6 +1278,26 @@ LANG:1 13 Auto Set ADDC
   
 }" 0
  E E E
+30 39
+"FRAME4"
+""
+1 6 609 E E E 1 E 1 E N "_WindowText" E N {0,0,0} E E
+ E E
+39 0 0 0 0 0
+E E E
+1
+1
+LANG:1 0 
+
+3
+"layoutAlignment" "AlignNone"
+"dashclr"N "_Transparent"
+"antiAliased" "0"
+E E 0 1 3 2 1 E 1 0 0.9694656488549618 2 22.59541984732829 0 E 6 609 143 741
+1
+LANG:1 30 Sans Serif,9,-1,5,50,0,0,0,0,0
+0 1
+LANG:1 3 MMG
 0
 LAYER, 1 
 1
