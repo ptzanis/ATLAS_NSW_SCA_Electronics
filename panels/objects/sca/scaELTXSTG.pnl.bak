@@ -467,7 +467,7 @@ LANG:1 2 HO
 13 152
 "createSettingsDPTSTG"
 ""
-1 1939 -13 E E E 0 E 1 E N "_ButtonText" E N {236,236,236} E E
+1 1939 -13 E E E 1 E 1 E N "_ButtonText" E N {236,236,236} E E
  E E
 152 0 0 0 0 0
 E E E
@@ -501,21 +501,46 @@ elements[3]=makeDynString(\"\",\"\",\"Voltage\");
 types[3]=makeDynInt(0,0,DPEL_STRING);
 elements[4]=makeDynString(\"\",\"\",\"Temperature\");
 types[4]=makeDynInt(0,0,DPEL_STRING);
+
 elements[5]=makeDynString(\"\",\"pFEB\",\"\");
 types[5]=makeDynInt(0,DPEL_STRUCT);
 elements[6]=makeDynString(\"\",\"\",\"Voltage\");
 types[6]=makeDynInt(0,0,DPEL_STRING);
 elements[7]=makeDynString(\"\",\"\",\"Temperature\");
 types[7]=makeDynInt(0,0,DPEL_STRING);
+
 elements[8]=makeDynString(\"\",\"L1DDC\",\"\");
 types[8]=makeDynInt(0,DPEL_STRUCT);
 elements[9]=makeDynString(\"\",\"\",\"Voltage\");
 types[9]=makeDynInt(0,0,DPEL_STRING);
 elements[10]=makeDynString(\"\",\"\",\"Temperature\");
 types[10]=makeDynInt(0,0,DPEL_STRING);
-elements[11]=makeDynString(\"\",\"Archiving\",\"\");
-types[11]=makeDynInt(0,DPEL_BOOL);
 
+
+elements[11]=makeDynString(\"\",\"RimL1DDC\",\"\");
+types[11]=makeDynInt(0,DPEL_STRUCT);
+elements[12]=makeDynString(\"\",\"\",\"Voltage\");
+types[12]=makeDynInt(0,0,DPEL_STRING);
+elements[13]=makeDynString(\"\",\"\",\"Temperature\");
+types[13]=makeDynInt(0,0,DPEL_STRING);
+
+
+elements[14]=makeDynString(\"\",\"PadTrigger\",\"\");
+types[14]=makeDynInt(0,DPEL_STRUCT);
+elements[15]=makeDynString(\"\",\"\",\"Voltage\");
+types[15]=makeDynInt(0,0,DPEL_STRING);
+elements[16]=makeDynString(\"\",\"\",\"Temperature\");
+types[16]=makeDynInt(0,0,DPEL_STRING);
+
+
+elements[17]=makeDynString(\"\",\"RouterBoard\",\"\");
+types[17]=makeDynInt(0,DPEL_STRUCT);
+elements[18]=makeDynString(\"\",\"\",\"Voltage\");
+types[18]=makeDynInt(0,0,DPEL_STRING);
+elements[19]=makeDynString(\"\",\"\",\"Temperature\");
+types[19]=makeDynInt(0,0,DPEL_STRING);
+elements[20]=makeDynString(\"\",\"Archiving\",\"\");
+types[20]=makeDynInt(0,DPEL_BOOL);
 
 
      
@@ -540,7 +565,7 @@ int x=dpTypeCreate(elements,types);
 13 153
 "stgDPT"
 ""
-1 1710 -15 E E E 0 E 1 E N "_ButtonText" E N {236,236,236} E E
+1 1710 -15 E E E 1 E 1 E N "_ButtonText" E N {236,236,236} E E
  E E
 153 0 0 0 0 0
 E E E
@@ -640,7 +665,7 @@ string leftRight,side,upDownValue;
 string sideName;
 for(int layer=1;layer<=4;layer++)
 {
-   for(int side=0;side<1;side++)
+   for(int side=0;side<=1;side++)
     {
       if(side==0)
         sideName=\"IP\";
@@ -663,7 +688,35 @@ for(int layer=1;layer<=4;layer++)
         
 }
 
+//Rim-L1DDC Board
 
+     count++;   
+     elements[count]=makeDynString(\"\",\"RimL1DDC\");
+     types[count]=makeDynInt(0,DPEL_STRUCT);
+     count++;
+     elements[count]=makeDynString(\"\",\"\",\"Visibility\");
+     types[count]=makeDynInt(0,0,DPEL_BOOL);
+     count++;
+     elements[count]=makeDynString(\"\",\"\",\"Channel\");
+     types[count]=makeDynInt(0,0,DPEL_STRING);
+     count++;
+     elements[count]=makeDynString(\"\",\"\",\"Type\");
+     types[count]=makeDynInt(0,0,DPEL_STRING);  
+     
+//Pad-Trigger Board
+     
+     count++;   
+     elements[count]=makeDynString(\"\",\"PadTrigger\");
+     types[count]=makeDynInt(0,DPEL_STRUCT);
+     count++;
+     elements[count]=makeDynString(\"\",\"\",\"Visibility\");
+     types[count]=makeDynInt(0,0,DPEL_BOOL);
+     count++;
+     elements[count]=makeDynString(\"\",\"\",\"Channel\");
+     types[count]=makeDynInt(0,0,DPEL_STRING);
+     count++;
+     elements[count]=makeDynString(\"\",\"\",\"Type\");
+     types[count]=makeDynInt(0,0,DPEL_STRING);  
 
      
 int x=dpTypeCreate(elements,types);
