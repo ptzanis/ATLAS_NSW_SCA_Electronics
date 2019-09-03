@@ -1,7 +1,7 @@
 V 14
 1
 LANG:1 0 
-PANEL,-1 -1 1838 486 N "_3DFace" 0
+PANEL,-1 -1 1838 486 N "FwAtlasBg" 0
 "main()
 {
   /*
@@ -105,6 +105,7 @@ LANG:1 2 IP
     }
  
 
+//  addSymbol(myModuleName(),myPanelName(),\"objects/sca/RIM.pnl\",\"RIM_STG\",makeDynString(\"$layer:\"+\"\",\"$sector:\"+1,\"$IPorHO:\"+\"\",\"$x:\"+x,\"$y:\"+y,\"$detector:\"+\"STG\",\"$configurationMode:\"+FALSE),x-70,y+200,0,1,1); 
   
 }" 0
  E E E
@@ -131,7 +132,7 @@ LANG:1 0
 2 20
 "TitleTBSCS"
 ""
-1 191 98 E E E 1 E 1 E N "FwAtlasBg" E N "FwAtlasBg" E E
+1 191 98 E E E 1 E 1 E N "white" E N "FwAtlasBg" E E
  E E
 20 0 0 0 0 0
 E E E
@@ -152,7 +153,7 @@ LANG:1 23 ELTX SCA-GBT Monitoring
 29 23
 "modeSlider"
 ""
-1 203 -11 E E E 1 E 1 E N "_3DText" E N "_3DFace" E E
+1 203 -11 E E E 1 E 1 E N "_3DText" E N "FwAtlasBg" E E
  E E
 23 0 0 0 0 0
 E E E
@@ -220,7 +221,7 @@ LANG:1 27 Utopia,-1,12,5,50,0,0,0,0,0
 E2 25
 "PRIMITIVE_TEXT3"
 ""
-1 722 33 E E E 1 E 1 E N "_WindowText" E N "_Window" E E
+1 722 33 E E E 1 E 1 E N "white" E N "_Window" E E
  E E
 25 0 0 0 0 0
 E E E
@@ -242,7 +243,7 @@ LANG:1 4 Mode
 2 142
 "PRIMITIVE_TEXT8"
 ""
-1 1250 21 E E E 1 E 1 E N "_WindowText" E N "_Window" E E
+1 1250 21 E E E 1 E 1 E N "white" E N "_Window" E E
  E E
 142 0 0 0 0 0
 E E E
@@ -456,7 +457,7 @@ LANG:1 2 HO
   
     for(int layer=1;layer<=4;layer++)
     {
-     addSymbol(myModuleName(),myPanelName(),\"objects/sca/layerOfSectorELTXSTG.pnl\",\"eltx\"+IPorHO+\"L\"+layer+\"STG\",makeDynString(\"$layer:\"+layer,\"$sector:\"+1,\"$IPorHO:\"+IPorHO,\"$x:\"+x,\"$y:\"+y,\"$detector:\"+\"STG\"),x,y,0,1,1); 
+     addSymbol(myModuleName(),myPanelName(),\"objects/sca/layerOfSectorELTXSTG.pnl\",\"eltx\"+IPorHO+\"L\"+layer+\"STG\",makeDynString(\"$layer:\"+layer,\"$sector:\"+1,\"$IPorHO:\"+IPorHO,\"$x:\"+x,\"$y:\"+y,\"$detector:\"+\"STG\",\"$configurationMode:\"+FALSE),x,y,0,1,1); 
     x=x+460;          
     }
  
@@ -759,7 +760,7 @@ P
 LANG:1 12 PUSH_BUTTON1
 "main(mapping event)
 {
-      ChildPanelOnCentral(\"objects/sca/modeSettings.pnl\", \"Mode Configuration\", makeDynString(\"$detector:\"+\"both\"),500,500,0,1,1);
+      ChildPanelOnCentral(\"objects/sca/modeSettings.pnl\", \"Mode Configuration\", makeDynString(\"$detector:\"+\"STG\"),500,500,0,1,1);
 }" 0
  E E E
 30 155
@@ -868,7 +869,7 @@ E E -1 1 3 2 1 E 1.084337349397592 0 0.9612832014851266 -1487.168674698797 -960.
 2 161
 "PRIMITIVE_TEXT11"
 ""
-1 1813 75 E E E 1 E 1 E N "_WindowText" E N "_Window" E E
+1 1813 75 E E E 1 E 1 E N "white" E N "_Window" E E
  E E
 161 0 0 0 0 0
 E E E
@@ -902,7 +903,7 @@ LANG:1 0
 "layoutAlignment" "AlignNone"
 "dashclr"N "_Transparent"
 "antiAliased" "1"
-E E -1 1 3 2 1 E 1 0 1 -1316 -16.99999999999932 2  1 0  "pictures/NTUA Logo/rsz_logo[80].png" 4294967295 E 1777 46 24 24
+E E -1 1 3 2 1 E 1 0 1 -1316 -16.99999999999932 2  1 0  "pictures/NTUA Logo/NTUA-white[2000].png" 4294967295 E 1777 46 24 24
 13 163
 "PUSH_BUTTON2"
 ""
@@ -1127,7 +1128,7 @@ void EP_setEnabledCB(string dp, bool boNewValue)
 30 165
 "FRAME5"
 ""
-1 1503 80 E E E 1 E 1 E N "_WindowText" E N {0,0,0} E E
+1 1503 80 E E E 1 E 1 E N "white" E N {0,0,0} E E
  E E
 165 0 0 0 0 0
 E E E
@@ -1147,7 +1148,7 @@ LANG:1 7 Archive
 2 167
 "PRIMITIVE_TEXT4"
 ""
-1 760 6 E E E 1 E 1 E N "_WindowText" E N "_Window" E E
+1 760 6 E E E 1 E 1 E N "white" E N "_Window" E E
  E E
 167 0 0 0 0 0
 E E E
@@ -1169,7 +1170,7 @@ LANG:1 4 Type
 2 168
 "PRIMITIVE_TEXT5"
 ""
-1 815 6 E E E 1 E 1 E N "_WindowText" E N "_Window" E E
+1 815 6 E E E 1 E 1 E N "white" E N "_Window" E E
  E E
 168 0 0 0 0 0
 E E E
@@ -1191,7 +1192,7 @@ LANG:1 7 Voltage
 2 169
 "PRIMITIVE_TEXT7"
 ""
-1 885 6 E E E 1 E 1 E N "_WindowText" E N "_Window" E E
+1 885 6 E E E 1 E 1 E N "white" E N "_Window" E E
  E E
 169 0 0 0 0 0
 E E E
@@ -1213,7 +1214,7 @@ LANG:1 4 Temp
 2 170
 "PRIMITIVE_TEXT12"
 ""
-1 943 6 E E E 1 E 1 E N "_WindowText" E N "_Window" E E
+1 943 6 E E E 1 E 1 E N "white" E N "_Window" E E
  E E
 170 0 0 0 0 0
 E E E
@@ -1261,10 +1262,4 @@ LAYER, 7
 1
 LANG:1 0 
 0
-1 1 "SHAPE_GROUP2" -1
-4 0 
-142 143 144 146 
-
-"layoutAlignment" "AlignNone"
-"" ""
 0
