@@ -1,7 +1,7 @@
 V 14
 1
 LANG:1 0 
-PANEL,-1 -1 775 567 N "FwAtlasBg" 0
+PANEL,-1 -1 710 567 N "FwAtlasBg" 0
 E E E E E 1 -1 -1 0  -191.3149253731343 0
 ""0  1
 E "#uses \"CtrlXml\"
@@ -1139,7 +1139,7 @@ LANG:1 27 Utopia,-1,12,5,50,0,0,0,0,0
 13 34
 "PUSH_BUTTON9"
 ""
-1 409 127 E E E 1 E 1 E N "_ButtonText" E N "_Button" E E
+1 398 133 E E E 1 E 1 E N "_ButtonText" E N "_Button" E E
  E E
 34 0 0 0 0 0
 E E E
@@ -1151,7 +1151,7 @@ LANG:1 0
 "layoutAlignment" "AlignNone"
 1
 LANG:1 31 Sans Serif,-1,12,5,50,0,0,0,0,0
-0  407 116 667 151
+0  396 122 656 157
 
 T 
 1
@@ -1159,7 +1159,7 @@ LANG:1 11 Create DPTs
 "#uses \"fwSca/fwScaConfigParser.ctl\"
 main(mapping event)
 {
-  fwSca_parseConfig(filePath.text(),TRUE, TRUE, FALSE);
+  fwSca_parseConfig(filePath.text(),TRUE, TRUE, TRUE);
 }" 0
  E E E
 0
