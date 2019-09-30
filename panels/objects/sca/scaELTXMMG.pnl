@@ -1203,6 +1203,50 @@ LANG:1 4 Calc
         ChildPanelOnCentral(\"objects/sca/calculatedVariablesDPTfromXML.pnl\", \"Settings XML\", makeDynString(\"$detector:\"+\"MMG\"),500,500,0,1,1);
 }" 0
  E E E
+13 167
+"PUSH_BUTTON5"
+""
+1 622 25 E E E 1 E 1 E N "_ButtonText" E N "_Button" E E
+ E E
+167 0 0 0 0 0
+E E E
+8
+1
+LANG:1 0 
+
+1
+"layoutAlignment" "AlignNone"
+1
+LANG:1 27 Utopia,-1,13,5,75,0,0,0,0,0
+0  620 15 713 48
+
+T 
+1
+LANG:1 12 Print SCA ID
+"main(mapping event)
+{
+  dyn_string boards=dpNames(\"*\",\"fwScaSCA\");
+  dyn_string scaIDList;
+  string scaID;
+  
+  file l1ddcFile,mmfe8File,addcFile; 
+mmfe8File=fopen(\"/home/bb5user/Desktop/mmfe8_sca_id.txt\",\"w+\");
+
+
+for(int i=1;i<=dynlen(boards);i++)
+  {
+  strreplace(boards[i],getSystemName(),\"\");
+  if(uniPatternMatch(\"*MMFE8*\",boards[i]))
+   {
+   dpGet(boards[i]+\".id\",scaID);
+   dynAppend(scaIDList,scaID);
+   fprintf (mmfe8File,\"%s %s\\n\",boards[i],scaID);   
+   }
+  }
+  
+  fclose(mmfe8File); 
+}" 0
+ E E E
 0
 LAYER, 1 
 1
