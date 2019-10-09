@@ -334,7 +334,7 @@ LANG:1 0
 "value" "int 2"
 "invertedAppearance" "bool FALSE"
 "tickPosition" "enum 1"
-"pageStep" "int 10"
+"pageStep" "int 1"
 "sliderPosition" "int 0"
 "tickInterval" "int 0"
 "invertedControls" "bool FALSE"

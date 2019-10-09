@@ -250,12 +250,13 @@ E E E
 1
 LANG:1 0 
 
-6
+7
 "orientation" "enum 0"
 "maxValue" "int 3"
 "value" "int 1"
 "invertedAppearance" "bool FALSE"
 "tickPosition" "enum 1"
+"pageStep" "int 1"
 "layoutAlignment" "AlignNone"
 1
 LANG:1 27 Utopia,-1,12,5,50,0,0,0,0,0
