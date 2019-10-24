@@ -1159,7 +1159,7 @@ LANG:1 11 Create DPTs
 "#uses \"fwSca/fwScaConfigParser.ctl\"
 main(mapping event)
 {
-  fwSca_parseConfig(filePath.text(),TRUE, TRUE, TRUE);
+  fwSca_parseConfig(filePath.text(),TRUE, TRUE, 0);
 }" 0
  E E E
 0
