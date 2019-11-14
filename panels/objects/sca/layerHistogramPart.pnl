@@ -167,12 +167,12 @@ void updateHisto( int itemNum, string dpSource, float value)
  dx1[itemNum]=itemNum;
  dx2[itemNum]=itemNum+1;
  
- if (dy2[itemNum]>50)
+ if (dy2[itemNum]>upLimit.text())
 {
   c1[itemNum] = \"FwStateAttention3\"; 
   c2[itemNum] = \"FwStateAttention3\";
 }
-else if ((dy2[itemNum]>=45) && (dy2[itemNum]<=50)) 
+else if ((dy2[itemNum]>=downLimit.text()) && (dy2[itemNum]<=upLimit.text())) 
 {
   c1[itemNum] = \"FwStateAttention2\"; 
   c2[itemNum] = \"FwStateAttention2\";

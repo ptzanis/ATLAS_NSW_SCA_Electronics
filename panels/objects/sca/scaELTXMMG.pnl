@@ -301,6 +301,12 @@ types[10]=makeDynInt(0,0,DPEL_STRING);
 elements[11]=makeDynString(\"\",\"Archiving\",\"\");
 types[11]=makeDynInt(0,DPEL_BOOL);
 
+elements[12]=makeDynString(\"\",\"Limits\",\"\");
+types[12]=makeDynInt(0,DPEL_STRUCT);
+elements[13]=makeDynString(\"\",\"\",\"upLimit\");
+types[13]=makeDynInt(0,0,DPEL_FLOAT);
+elements[14]=makeDynString(\"\",\"\",\"downLimit\");
+types[14]=makeDynInt(0,0,DPEL_FLOAT);
 
      
 int x=dpTypeCreate(elements,types);
