@@ -1,7 +1,7 @@
 V 14
 1
 LANG:1 0 
-PANEL,-1 -1 1837 305 N "FwAtlasBg" 3
+PANEL,-1 -1 1837 308 N "FwAtlasBg" 3
 "$side"
 "$xRef"
 "$yRef"
@@ -391,7 +391,18 @@ E
 {
  
   updateHisto();
-
+  
+  if(layerCombo.selectedPos()==1 || layerCombo.selectedPos()==2)
+  {
+    left.visible(1);
+    right.visible(0); 
+  }
+  if(layerCombo.selectedPos()==3 || layerCombo.selectedPos()==4)
+  {
+    right.visible(1); 
+    left.visible(0); 
+  }   
+    
 }" 0
 
 E
@@ -455,7 +466,7 @@ LANG:1 0
 "layoutAlignment" "AlignNone"
 "dashclr"N "_Transparent"
 "antiAliased" "0"
-E E 0 1 3 2 1 E 2.746626686656672 0 0.09411764705882353 -20.97301349325338 -9.992156862745096 0 E 8 7 676 93
+E E 0 1 3 2 1 E 2.746626686656672 0 0.09411764705882353 -20.97301349325338 -9.992156862745098 0 E 8 7 676 93
 1
 LANG:1 27 Utopia,-1,12,5,75,0,0,0,0,0
 0 1
@@ -676,41 +687,6 @@ void EP_textFieldInCB(string dp, float fNewValue)
 // SimpleCtrlScriptEnd {EP_textFieldIn}
 " 0
  E
-10 32
-"POLYGON1"
-""
-1 469.9999999999999 50 E E E 1 E 1 E N "white" E N {255,255,255} E E
- E E
-31 0 0 0 0 0
-E E E
-0
-1
-LANG:1 0 
-
-3
-"layoutAlignment" "AlignNone"
-"dashclr"N "_Transparent"
-"antiAliased" "1"
-E E 0 1 3 2 1 E 0.5777777777777803 0 0.25 1428.634920634919 3.976190476190474 1 E 3 469.9999999999999 50
-439.9999999999999 70
-469.9999999999999 90
- 1
-6 33
-"RECTANGLE3"
-""
-1 469.9999999999999 70 E E E 1 E 1 E N "white" E N {255,255,255} E E
- E E
-32 0 0 0 0 0
-E E E
-0
-1
-LANG:1 0 
-
-3
-"layoutAlignment" "AlignNone"
-"dashclr"N "_Transparent"
-"antiAliased" "0"
-E E 0 1 3 2 1 E 0.5777777777777803 0 0.25 1428.634920634919 2.726190476190474 1 E 469.9999999999999 70 530 80
 2 34
 "PRIMITIVE_TEXT10"
 ""
@@ -820,6 +796,54 @@ LANG:1 12 PUSH_BUTTON1
         ChildPanelOnCentral(\"objects/sca/layerHistogramInfo.pnl\", \"Temperature Histogram Info\", makeDynString(),500,500,0,1,1);
 }" 0
  E E E
+10 39
+"left"
+""
+1 1734.857142857142 20.22619047619047 E E E 1 E 1 E N "white" E N {255,255,255} E E
+ E E
+38 0 0 0 0 0
+E E E
+0
+1
+LANG:1 0 
+
+3
+"layoutAlignment" "AlignNone"
+"dashclr"N "_Transparent"
+"antiAliased" "1"
+E E 0 1 3 2 1 E 1 0 1 -3.857142857142435 -0.2261904761904745 1 E 8 1734.857142857142 20.22619047619047
+1700.190476190476 20.22619047619047
+1700.190476190476 16.47619047619047
+1682.857142857142 21.47619047619047
+1700.190476190476 26.47619047619047
+1700.190476190476 22.72619047619047
+1734.857142857142 22.72619047619047
+1734.857142857142 21.47619047619047
+ 1
+10 40
+"right"
+""
+1 1734.857142857142 20.22619047619047 E E E 1 E 0 E N "white" E N {255,255,255} E E
+ E E
+39 0 0 0 0 0
+E E E
+0
+1
+LANG:1 0 
+
+3
+"layoutAlignment" "AlignNone"
+"dashclr"N "_Transparent"
+"antiAliased" "1"
+E E 0 1 3 2 1 E -1 0 1 3414.107142857142 -0.2261904761904745 1 E 8 1734.857142857142 20.22619047619047
+1700.190476190476 20.22619047619047
+1700.190476190476 16.47619047619047
+1682.857142857142 21.47619047619047
+1700.190476190476 26.47619047619047
+1700.190476190476 22.72619047619047
+1734.857142857142 22.72619047619047
+1734.857142857142 21.47619047619047
+ 1
 0
 LAYER, 1 
 1
@@ -849,10 +873,4 @@ LAYER, 7
 1
 LANG:1 0 
 0
-1 0 "SHAPE_GROUP1" -1
-2 0 
-32 33 
-
-"layoutAlignment" "AlignNone"
-"" ""
 0
