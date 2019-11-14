@@ -197,7 +197,7 @@ void updateStatus(shape status,string dpSCAOnline, bool SCAOnline,string dpVolta
 {
     
    if(opcStatus!=1)
-     dpSet(dpSubStr(dpSource,DPSUB_DP_EL),0);
+     dpSet(dpSubStr(dpSCAOnline,DPSUB_DP_EL),0);
  
   if(SCAOnline && opcStatus==1)
     status.backCol(\"Green\");

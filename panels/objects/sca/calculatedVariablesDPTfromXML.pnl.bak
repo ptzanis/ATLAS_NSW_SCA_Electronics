@@ -1139,7 +1139,7 @@ LANG:1 27 Utopia,-1,12,5,50,0,0,0,0,0
 13 34
 "PUSH_BUTTON9"
 ""
-1 398 133 E E E 1 E 1 E N "_ButtonText" E N "_Button" E E
+1 396 132 E E E 1 E 1 E N "_ButtonText" E N "_Button" E E
  E E
 34 0 0 0 0 0
 E E E
@@ -1151,7 +1151,7 @@ LANG:1 0
 "layoutAlignment" "AlignNone"
 1
 LANG:1 31 Sans Serif,-1,12,5,50,0,0,0,0,0
-0  396 122 656 157
+0  394 121 654 156
 
 T 
 1
@@ -1159,7 +1159,16 @@ LANG:1 11 Create DPTs
 "#uses \"fwSca/fwScaConfigParser.ctl\"
 main(mapping event)
 {
-  fwSca_parseConfig(filePath.text(),TRUE, TRUE, 0);
+  mapping addressActive;
+  addressActive[\"AnalogInput\"] = \"value\";
+  addressActive[\"SpiSlave\"] = \"\";
+  addressActive[\"I2cMaster\"] = \"\";
+  addressActive[\"I2cSlave\"] = \"\";
+
+  
+  fwSca_parseConfig(filePath.text(),TRUE, TRUE, TRUE,addressActive);
+  
+  
 }" 0
  E E E
 0

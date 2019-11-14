@@ -1,7 +1,7 @@
 V 14
 1
 LANG:1 0 
-PANEL,-1 -1 1838 701 N "FwAtlasBg" 0
+PANEL,-1 -1 1838 1010 N "FwAtlasBg" 0
 E E E E E 1 -1 -1 0  -2 65
 ""0  1
 E "#uses \"CtrlXml\"
@@ -199,6 +199,10 @@ LANG:1 2 IP
     x=x+460;          
     }
 
+ 
+ //Histo Per Layer 
+  removeSymbol(myModuleName(),myPanelName(),\"HistoHO\");
+  addSymbol(myModuleName(),myPanelName(),\"objects/sca/layerHistogram.pnl\",\"HistoIP\",makeDynString(\"$xRef:\"+\"0\",\"$yRef:\"+\"700\",\"$side:\"+\"IP\"),0,700,0,1,1);
   
 }
  
@@ -219,7 +223,7 @@ LANG:1 0
 "layoutAlignment" "AlignNone"
 "dashclr"N "_Transparent"
 "antiAliased" "0"
-E E 2 1 3 2 1 E 2.910969793322734 0 1.127177700348432 -59.1303656597774 35.34668989547038 0 E 21 13 651 588
+E E 2 1 3 2 1 E 2.910969793322734 0 1.663763066202091 -59.1303656597774 28.3710801393728 0 E 21 13 651 588
 1
 LANG:1 27 Utopia,-1,19,5,75,0,0,0,0,0
 0 1
@@ -334,7 +338,7 @@ LANG:1 0
 "value" "int 2"
 "invertedAppearance" "bool FALSE"
 "tickPosition" "enum 1"
-"pageStep" "int 10"
+"pageStep" "int 1"
 "sliderPosition" "int 0"
 "tickInterval" "int 0"
 "invertedControls" "bool FALSE"
@@ -591,8 +595,8 @@ LANG:1 0
 "layoutAlignment" "AlignNone"
 1
 LANG:1 27 Utopia,-1,12,5,50,0,0,0,0,0
-0  1478 19 1577 43
-2 "0s" 0 0 0 0 0 -1  E "// SimpleCtrlScriptStart {valid}
+0  1478 19 1577 43.00000000000001
+2 "0s" 0 0 0 0 0 -1  E "// SimpleCtrlScriptStart {invalid}
 main()
 {
   EP_textFieldIn();
@@ -602,14 +606,14 @@ void EP_textFieldIn()
 {
   dyn_errClass err;
 
-  if( !dpExists( \"System1:_OpcUaScaServer.State.ServerState:_online.._value\"))
+  if( !dpExists( \"System1:_SCA_OPC_UA_SERVER.State.ServerState:_online.._value\"))
   {
     setValue(\"\", \"color\", \"_dpdoesnotexist\");
     return;
   }
 
   dpConnect(\"EP_textFieldInCB\",
-            \"System1:_OpcUaScaServer.State.ServerState:_online.._value\");
+            \"System1:_SCA_OPC_UA_SERVER.State.ServerState:_online.._value\");
   err = getLastError();
   if (dynlen(err) > 0)
     setValue(\"\", \"color\", \"_dpdoesnotexist\");
@@ -687,7 +691,11 @@ LANG:1 2 HO
      addSymbol(myModuleName(),myPanelName(),\"objects/sca/layerOfSectorELTXMMG.pnl\",\"eltx\"+IPorHO+\"L\"+layer+\"MMG\",makeDynString(\"$layer:\"+layer,\"$sector:\"+1,\"$IPorHO:\"+IPorHO,\"$x:\"+x,\"$y:\"+y,\"$detector:\"+\"MMG\",\"$configurationMode:\"+FALSE),x,y,0,1,1); 
     x=x+460;          
     }
-
+ 
+ 
+ //Histo Per Layer 
+  removeSymbol(myModuleName(),myPanelName(),\"HistoIP\");
+  addSymbol(myModuleName(),myPanelName(),\"objects/sca/layerHistogram.pnl\",\"HistoHO\",makeDynString(\"$xRef:\"+\"0\",\"$yRef:\"+\"700\",\"$side:\"+\"HO\"),0,700,0,1,1);
   
 }" 0
  E E E
@@ -1206,7 +1214,7 @@ LANG:1 4 Calc
 13 167
 "PUSH_BUTTON5"
 ""
-1 622 25 E E E 1 E 1 E N "_ButtonText" E N "_Button" E E
+1 622 25 E E E 1 E 0 E N "_ButtonText" E N "_Button" E E
  E E
 167 0 0 0 0 0
 E E E
