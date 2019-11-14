@@ -780,6 +780,29 @@ void EP_textFieldInCB(string dp, float fNewValue)
 // SimpleCtrlScriptEnd {EP_textFieldIn}
 " 0
  E
+13 38
+"PUSH_BUTTON1"
+""
+1 1119 9 E E E 1 E 1 E N "_ButtonText" E N "_Button" E E
+ E E
+37 0 0 0 0 0
+E E E
+8
+1
+LANG:1 0 
+
+1
+"layoutAlignment" "AlignNone"
+1
+LANG:1 30 Sans Serif,9,-1,5,50,0,0,0,0,0
+0  1117 2.636363636363635 1153 30.63636363636363
+
+P 
+4294967295
+"pictures/info_en.gif"
+1
+LANG:1 12 PUSH_BUTTON1
+E E E E
 0
 LAYER, 1 
 1
