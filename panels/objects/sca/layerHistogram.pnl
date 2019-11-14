@@ -5,7 +5,26 @@ PANEL,-1 -1 1837 305 N "FwAtlasBg" 3
 "$side"
 "$xRef"
 "$yRef"
-E E E E E 1 -1 -1 0  0 0
+"main()
+{
+ 
+   updateHisto();
+
+}" 0
+ "main()
+{
+   for(int i=1;i<=dynlen(listOfItemsToHist);i++)
+  {   
+   removeSymbol(myModuleName(), myPanelName(), \"HistoPart_\"+listOfItemsToHist[i]+\"_\"+\"VMM\");  
+   removeSymbol(myModuleName(), myPanelName(), \"HistoPart_\"+listOfItemsToHist[i]+\"_\"+\"SCA\");  
+   removeSymbol(myModuleName(), myPanelName(), \"HistoPart_\"+listOfItemsToHist[i]+\"_\"+\"FEAST_MMFE8\");  
+   removeSymbol(myModuleName(), myPanelName(), \"HistoPart_\"+listOfItemsToHist[i]+\"_\"+\"FEAST_ADDC\"); 
+   removeSymbol(myModuleName(), myPanelName(), \"HistoPart_\"+listOfItemsToHist[i]+\"_\"+\"FEAST_L1DDC\");  
+   removeSymbol(myModuleName(), myPanelName(), \"HistoPart_\"+listOfItemsToHist[i]+\"_\"+\"GBTX_ADDC\");  
+   removeSymbol(myModuleName(), myPanelName(), \"HistoPart_\"+listOfItemsToHist[i]+\"_\"+\"GBTX_L1DDC\");  
+  } 
+}" 0
+ E E E 1 -1 -1 0  0 0
 ""0  1
 E "// dyn_float dx1, dx2, dy1, dy2;
 // dyn_string c1, c2;
@@ -380,7 +399,7 @@ E
 19 12
 "boardTypeCombo"
 ""
-1 122 5 E E E 1 E 1 E N "white" E N "FwAtlasBg" E E
+1 122 4 E E E 1 E 1 E N "white" E N "FwAtlasBg" E E
  E E
 11 0 0 0 0 0
 E E E
@@ -393,7 +412,7 @@ LANG:1 0
 "horizontal" ""
 1
 LANG:1 27 Utopia,-1,16,5,75,0,0,0,0,0
-0  120 2.999999999999999 294.9999999999999 37.99999999999999
+0  120 1.999999999999999 294.9999999999999 36.99999999999999
 2
 T 
 1
@@ -414,13 +433,7 @@ LANG:1 0
 E E
 0 0 0 0 0
 1
-"main(mapping event)
-{
- 
-   updateHisto();
-
-}" 0
- "main(mapping event)
+E "main(mapping event)
 {
  
   updateHisto();
@@ -783,7 +796,7 @@ void EP_textFieldInCB(string dp, float fNewValue)
 13 38
 "PUSH_BUTTON1"
 ""
-1 1119 9 E E E 1 E 0 E N "_ButtonText" E N "_Button" E E
+1 1119 9 E E E 1 E 1 E N "_ButtonText" E N "_Button" E E
  E E
 37 0 0 0 0 0
 E E E
@@ -794,7 +807,7 @@ LANG:1 0
 1
 "layoutAlignment" "AlignNone"
 1
-LANG:1 30 Sans Serif,9,-1,5,50,0,0,0,0,0
+LANG:1 31 Sans Serif,-1,12,5,50,0,0,0,0,0
 0  1117 2.636363636363635 1153 30.63636363636363
 
 P 
@@ -802,7 +815,11 @@ P
 "pictures/info_en.gif"
 1
 LANG:1 12 PUSH_BUTTON1
-E E E E
+"main(mapping event)
+{
+        ChildPanelOnCentral(\"objects/sca/layerHistogramInfo.pnl\", \"Temperature Histogram Info\", makeDynString(),500,500,0,1,1);
+}" 0
+ E E E
 0
 LAYER, 1 
 1
