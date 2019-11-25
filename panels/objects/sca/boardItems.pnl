@@ -36,11 +36,8 @@ void updateTable()
   string channel=returnValue();
    
   dyn_string aiChannels=dpNames(channel+\"/ai/*\");
-//   dyn_string gpioChannels=dpNames(channel+\"/gpio/*\");
   
   double value;
-
-//   int numberOfItems=dynlen(aiChannels)+dynlen(gpioChannels);
   int lenBytes;
   
   itemsTable.deleteAllLines();
@@ -51,7 +48,7 @@ void updateTable()
   {
     dpGet(aiChannels[i]+\".value\",value);
     lenBytes=strlen(channel);    
-    strchange(aiChannels[i],0,lenBytes,\"\");
+    strreplace(aiChannels[i],getSystemName()+channel+\"/ai/\",\"\");
     
     itemsTable.appendLine(\"Item\",aiChannels[i],\"Value\",value);
   }

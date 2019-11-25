@@ -278,10 +278,20 @@ LANG:1 3 MMG
 this.enabled(0);
 STG.enabled(1);
 
-
+autoMMG.visible(1);
 auto1.visible(1);
 auto2.visible(1);
 auto3.visible(1);
+
+
+autoSTG.visible(0);
+autoPFEB.visible(0);
+autoSFEB.visible(0);
+
+
+
+
+
 }" 0
  E E E
 13 8
@@ -310,10 +320,18 @@ this.enabled(0);
 MMG.enabled(1);
 
 
-
+autoMMG.visible(0);
 auto1.visible(0);
 auto2.visible(0);
 auto3.visible(0);
+
+
+autoSTG.visible(1);
+autoPFEB.visible(1);
+autoSFEB.visible(1);
+
+
+
 
 }" 0
  E E E
@@ -1291,9 +1309,9 @@ LANG:1 13 Auto Set ADDC
 }" 0
  E E E
 30 39
-"FRAME4"
+"autoMMG"
 ""
-1 6 609 E E E 1 E 1 E N "white" E N {0,0,0} E E
+1 6 609 E E E 1 E 0 E N "white" E N {0,0,0} E E
  E E
 39 0 0 0 0 0
 E E E
@@ -1309,7 +1327,195 @@ E E 0 1 3 2 1 E 1 0 0.9694656488549618 2 22.59541984732829 0 E 6 609 143 741
 1
 LANG:1 31 Sans Serif,-1,12,5,50,0,0,0,0,0
 0 1
-LANG:1 4 Auto
+LANG:1 8 Auto MMG
+13 40
+"autoSFEB"
+""
+1 680 613 E E E 1 E 0 E N "_ButtonText" E N "_Button" E E
+ E E
+40 0 0 0 0 0
+E E E
+8
+1
+LANG:1 0 
+
+1
+"layoutAlignment" "AlignNone"
+1
+LANG:1 27 Utopia,-1,12,5,75,0,0,0,0,0
+0  678 596 794 629
+
+T 
+1
+LANG:1 13 Auto Set sFEB
+"main(mapping event)
+{
+  dyn_string detectorAllboards,boards;
+  int boardCounter=1;
+  string detector=\"STG\";
+  detectorAllboards=dpNames(\"*\",\"fwScaSCA\");
+  
+  
+  
+  for(int i=1;i<=dynlen(detectorAllboards);i++)
+  {  
+    strreplace(detectorAllboards[i],getSystemName(),\"\");
+    if(patternMatch(\"*SFEB*\",detectorAllboards[i]))
+       boards[boardCounter++]=detectorAllboards[i];
+      
+  }
+
+  
+  string layerPosition,pcbPosition,sidePosition,leftRightPosition;
+  string upDown;
+  
+     for(int i=1;i<=dynlen(boards);i++)
+  {
+    
+        layerPosition=substr(boards[i],6,1);
+        pcbPosition=substr(boards[i],8,1);
+                
+        if(layerPosition==\"1\")
+        {
+          leftRightPosition=\"Right\";
+          sidePosition=\"IP\";
+          upDown=\"Down\";
+        }
+        if(layerPosition==\"2\")
+        {
+          leftRightPosition=\"Left\";
+          sidePosition=\"IP\";
+          upDown=\"Up\";
+        }          
+        if(layerPosition==\"3\")
+        {
+          leftRightPosition=\"Right\";
+          sidePosition=\"IP\";
+          upDown=\"Down\";
+        }          
+        if(layerPosition==\"4\")
+        {
+          leftRightPosition=\"Left\";
+          sidePosition=\"IP\";
+          upDown=\"Up\";
+        }          
+
+        
+  dpSet(detector+\"-S1.Side\"+sidePosition+\"PCB\"+pcbPosition+\"Layer\"+layerPosition+leftRightPosition+upDown+\".Channel\",boards[i]);
+  dpSet(detector+\"-S1.Side\"+sidePosition+\"PCB\"+pcbPosition+\"Layer\"+layerPosition+leftRightPosition+upDown+\".Type\",\"SFEB\");  
+  dpSet(detector+\"-S1.Side\"+sidePosition+\"PCB\"+pcbPosition+\"Layer\"+layerPosition+leftRightPosition+upDown+\".Visibility\",1);   
+
+    }
+  
+  DebugTN(\"Auto Set SFEB ready!\");
+   
+  
+}" 0
+ E E E
+30 43
+"autoSTG"
+""
+1 6 609 E E E 1 E 0 E N "white" E N {0,0,0} E E
+ E E
+43 0 0 0 0 0
+E E E
+1
+1
+LANG:1 0 
+
+3
+"layoutAlignment" "AlignNone"
+"dashclr"N "_Transparent"
+"antiAliased" "0"
+E E 0 1 3 2 1 E 1 0 0.9694656488549618 662 -14.40458015267171 0 E 6 609 143 741
+1
+LANG:1 31 Sans Serif,-1,12,5,50,0,0,0,0,0
+0 1
+LANG:1 8 Auto STG
+13 44
+"autoPFEB"
+""
+1 681 649 E E E 1 E 0 E N "_ButtonText" E N "_Button" E E
+ E E
+44 0 0 0 0 0
+E E E
+8
+1
+LANG:1 0 
+
+1
+"layoutAlignment" "AlignNone"
+1
+LANG:1 27 Utopia,-1,12,5,75,0,0,0,0,0
+0  679 632 795 665
+
+T 
+1
+LANG:1 13 Auto Set pFeb
+"main(mapping event)
+{
+  dyn_string detectorAllboards,boards;
+  int boardCounter=1;
+  string detector=\"STG\";
+  detectorAllboards=dpNames(\"*\",\"fwScaSCA\");
+  
+  
+  
+  for(int i=1;i<=dynlen(detectorAllboards);i++)
+  {  
+    strreplace(detectorAllboards[i],getSystemName(),\"\");
+    if(patternMatch(\"*PFEB*\",detectorAllboards[i]))
+       boards[boardCounter++]=detectorAllboards[i];
+      
+  }
+
+  
+  string layerPosition,pcbPosition,sidePosition,leftRightPosition;
+  string upDown;
+  
+     for(int i=1;i<=dynlen(boards);i++)
+  {
+    
+        layerPosition=substr(boards[i],6,1);
+        pcbPosition=substr(boards[i],8,1);
+                
+        if(layerPosition==\"1\")
+        {
+          leftRightPosition=\"Left\";
+          sidePosition=\"IP\";
+          upDown=\"Up\";
+        }
+        if(layerPosition==\"2\")
+        {
+          leftRightPosition=\"Right\";
+          sidePosition=\"IP\";
+          upDown=\"Down\";
+        }          
+        if(layerPosition==\"3\")
+        {
+          leftRightPosition=\"Left\";
+          sidePosition=\"IP\";
+          upDown=\"Up\";
+        }          
+        if(layerPosition==\"4\")
+        {
+          leftRightPosition=\"Right\";
+          sidePosition=\"IP\";
+          upDown=\"Down\";
+        }          
+
+        
+  dpSet(detector+\"-S1.Side\"+sidePosition+\"PCB\"+pcbPosition+\"Layer\"+layerPosition+leftRightPosition+upDown+\".Channel\",boards[i]);
+  dpSet(detector+\"-S1.Side\"+sidePosition+\"PCB\"+pcbPosition+\"Layer\"+layerPosition+leftRightPosition+upDown+\".Type\",\"PFEB\");  
+  dpSet(detector+\"-S1.Side\"+sidePosition+\"PCB\"+pcbPosition+\"Layer\"+layerPosition+leftRightPosition+upDown+\".Visibility\",1);   
+
+    }
+  
+  DebugTN(\"Auto Set PFEB ready!\");
+   
+  
+}" 0
+ E E E
 0
 LAYER, 1 
 1

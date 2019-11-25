@@ -33,8 +33,8 @@ PANEL,-1 -1 396 424 N "FwAtlasBg" 1
   
   
   typeBox_STG.appendItem(\"\");   
-  typeBox_STG.appendItem(\"sFEB\");
-  typeBox_STG.appendItem(\"pFEB\");    
+  typeBox_STG.appendItem(\"SFEB\");
+  typeBox_STG.appendItem(\"PFEB\");    
   typeBox_STG.appendItem(\"L1DDC\");   
   typeBox_STG.appendItem(\"RouterBoard\");   
   typeBox_STG.appendItem(\"RimL1DDC\");  
@@ -628,7 +628,7 @@ LANG:1 5 Type:
 22 17
 "typeBox_STG"
 ""
-1 137.4898648648648 214.9090909090909 E E E 1 E 0 E N "_WindowText" E N "_Window" E E
+1 136 215 E E E 1 E 0 E N "_WindowText" E N "_Window" E E
  E E
 17 0 0 0 0 0
 E E E
@@ -640,7 +640,7 @@ LANG:1 0
 "layoutAlignment" "AlignNone"
 1
 LANG:1 27 Utopia,-1,13,5,75,0,0,0,0,0
-0  135.4898648648648 207 370 237
+0  134 207.0909090909091 368.5101351351352 237.0909090909091
 0
 
 E
@@ -670,7 +670,7 @@ E
   
   aiItems=dpNames(\"*/ai/*\",\"OpcUaScaServerAnalogInput\");
   
-  if(this.text()==\"sFEB\")
+  if(this.text()==\"SFEB\")
   {
   voltBox_STG.appendItem(\"/ai/vmmPdo0\");
   voltBox_STG.appendItem(\"/ai/vmmPdo1\");
@@ -698,19 +698,19 @@ E
      
   } 
   
-  if(this.text()==\"pFEB\")
+  if(this.text()==\"PFEB\")
   {
     
   voltBox_STG.appendItem(\"/ai/vmmPdo0\");
   voltBox_STG.appendItem(\"/ai/vmmPdo1\");
   voltBox_STG.appendItem(\"/ai/vmmPdo2\"); 
-  voltBox_STG.appendItem(\"/ai/ntcTemperature1\");
+  voltBox_STG.appendItem(\"/ai/ntcTemperature\");
   voltBox_STG.appendItem(\"/ai/internalTemperature\");
 
   tempBox_STG.appendItem(\"/ai/vmmPdo0\");
   tempBox_STG.appendItem(\"/ai/vmmPdo1\");
   tempBox_STG.appendItem(\"/ai/vmmPdo2\");
-  tempBox_STG.appendItem(\"/ai/ntcTemperature1\");
+  tempBox_STG.appendItem(\"/ai/ntcTemperature\");
   tempBox_STG.appendItem(\"/ai/internalTemperature\");
   
   } 

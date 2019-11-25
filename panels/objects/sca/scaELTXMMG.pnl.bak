@@ -973,7 +973,7 @@ E E -1 1 3 2 1 E 1 0 1 -1302 -15.99999999999932 2  1 0  "pictures/NTUA Logo/NTUA
 13 162
 "PUSH_BUTTON2"
 ""
-1 1610 15 E E E 1 E 0 E N "_ButtonText" E N "_Button" E E
+1 1730 81 E E E 1 E 0 E N "_ButtonText" E N "_Button" E E
  E E
 162 0 0 0 0 0
 E E E
@@ -985,7 +985,7 @@ LANG:1 0
 "layoutAlignment" "AlignNone"
 1
 LANG:1 27 Utopia,-1,12,5,75,0,0,0,0,0
-0  1608 9 1673 33
+0  1728 75 1793 99
 
 T 
 1
@@ -1077,7 +1077,7 @@ void EP_setEnabledCB(string dp, bool boNewValue)
 13 163
 "PUSH_BUTTON3"
 ""
-1 1609 37.2 E E E 1 E 0 E N "_ButtonText" E N "_Button" E E
+1 1729 103.2 E E E 1 E 0 E N "_ButtonText" E N "_Button" E E
  E E
 163 0 0 0 0 0
 E E E
@@ -1089,7 +1089,7 @@ LANG:1 0
 "layoutAlignment" "AlignNone"
 1
 LANG:1 27 Utopia,-1,12,5,75,0,0,0,0,0
-0  1607 31 1672 56
+0  1727 97 1792 122
 
 T 
 1
@@ -1165,7 +1165,7 @@ LANG:1 0
 "layoutAlignment" "AlignNone"
 "dashclr"N "_Transparent"
 "antiAliased" "0"
-E E 2 1 3 2 1 E 1.684210526315789 0 0.8450704225352113 -939.3684210526314 -68.60563380281691 0 E 1503 80 1561 152
+E E 2 1 3 2 1 E 1.684210526315789 0 0.8450704225352113 -819.3684210526314 -2.605633802816911 0 E 1503 80 1561 152
 1
 LANG:1 27 Utopia,-1,12,5,75,0,0,0,0,0
 0 1
@@ -1220,7 +1220,7 @@ LANG:1 4 Calc
 22 168
 "printIDCombo"
 ""
-1 625 26 E E E 1 E 1 E N "_WindowText" E N "_Window" E E
+1 1600 25 E E E 1 E 1 E N "_WindowText" E N "_Window" E E
  E E
 168 0 0 0 0 0
 E E E
@@ -1232,7 +1232,7 @@ LANG:1 0
 "layoutAlignment" "AlignNone"
 1
 LANG:1 27 Utopia,-1,15,5,75,0,0,0,0,0
-0  623 18 714 48
+0  1598 17 1689 47
 3
 1
 LANG:1 5 MMFE8
@@ -1293,7 +1293,7 @@ LANG:1 0
 "layoutAlignment" "AlignNone"
 "dashclr"N "_Transparent"
 "antiAliased" "0"
-E E 0 1 3 2 1 E 0.7983870967741933 0 1.314285714285714 126.9919354838712 -77.8 0 E 615 63 740 99
+E E 0 1 3 2 1 E 0.7983870967741933 0 1.314285714285714 1101.991935483871 -78.8 0 E 615 63 740 99
 1
 LANG:1 27 Utopia,-1,12,5,75,0,0,0,0,0
 0 1

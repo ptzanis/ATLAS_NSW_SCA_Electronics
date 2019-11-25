@@ -1,10 +1,12 @@
 V 14
 1
 LANG:1 0 
-PANEL,-1 -1 710 567 N "FwAtlasBg" 0
+PANEL,-1 -1 710 567 N "FwAtlasBg" 1
+"$detector"
 E E E E E 1 -1 -1 0  -191.3149253731343 0
 ""0  1
 E "#uses \"CtrlXml\"
+string detector=$detector;
 dyn_int getChildNodesWithName (int docNum, int parentNode, string name)
 {
 //   DebugN(\"Inside \"+name,docNum);
@@ -632,6 +634,9 @@ LANG:1 22 Display SCA-Boards IDs
    int addcCounter=0;
    int boardTypeCounter=0;
    
+   int sfebCounter=0;
+   int pfebCounter=0;
+   
    totalBoardList.deleteAllLines();
    boardSumTable.deleteAllLines();
        
@@ -639,14 +644,16 @@ LANG:1 22 Display SCA-Boards IDs
    
 
    int analogItems;
-   int digitalItems;
    
    for(int i=1;i<=dynlen(boards);i++)
     {
         analogItems=countInputItemsPerSystemPerBoard(path,\"AnalogInput\",boards[i]);
-        digitalItems=countInputItemsPerSystemPerBoard(path,\"DigitalIO\",boards[i]);
         
-        totalBoardList.appendLine(\"Num\",i,\"Boards\",boards[i],\"ai\",analogItems,\"gpio\",digitalItems); 
+        totalBoardList.appendLine(\"Num\",i,\"Boards\",boards[i],\"ai\",analogItems); 
+        
+      if(detector==\"MMG\")
+        {
+          
         if(uniPatternMatch(\"*MMFE8*\",boards[i]))
         {
           mmfe8Counter++;
@@ -669,8 +676,28 @@ LANG:1 22 Display SCA-Boards IDs
           boardCounter[3]=addcCounter;
           boardSum[3]=\"ADDC\";  
           flagBoard[3]=TRUE;                 
-        }        
+        }   
+          
+      } 
         
+     if(detector==\"STG\")
+        {
+                  if(uniPatternMatch(\"*SFEB*\",boards[i]))
+                  {
+                    sfebCounter++;
+                    boardCounter[1]=sfebCounter;
+                    boardSum[1]=\"SFEB\"; 
+                    flagBoard[1]=TRUE; 
+                  }
+          
+                  if(uniPatternMatch(\"*PFEB*\",boards[i]))
+                  {
+                    pfebCounter++;
+                    boardCounter[2]=pfebCounter;
+                    boardSum[2]=\"PFEB\"; 
+                    flagBoard[2]=TRUE; 
+                  }          
+        }       
     }
     
    totalBoards.text(dynlen(boards));  
@@ -888,8 +915,8 @@ LANG:1 0
 "layoutAlignment" "AlignNone"
 1
 LANG:1 27 Utopia,-1,12,5,50,0,0,0,0,0
-0  27 140 337.9999999999999 413.0000000000001
-EE 1 0 1 4 0 "Num" 2 1 0 "s" 1
+0  27 140 280.9999999999999 413.0000000000001
+EE 1 0 1 3 0 "Num" 2 1 0 "s" 1
 LANG:1 3 Num
 E
 1
@@ -903,12 +930,6 @@ LANG:1 0
 
 177 "ai" 2 1 0 "[0s,,,ALIGNMENT_CENTER]" 1
 LANG:1 2 ai
-E
-1
-LANG:1 0 
-
-40 "gpio" 2 1 0 "[0s,,,ALIGNMENT_CENTER]" 1
-LANG:1 4 gpio
 E
 1
 LANG:1 0 
@@ -1038,7 +1059,8 @@ LANG:1 27 Utopia,-1,12,5,50,0,0,0,0,0
 0  89 52 612 77
 3 "0s" 0 0 0 0 0 -1  E "main()
 {
-  this.text(\"/home/bb5user/Documents/ATLNSWELTX/scripts/examples/ScaOpcUa/small_sector_12.xml\");
+  this.text(PROJ_PATH+\"config/\");
+//   this.text(\"/home/bb5user/Documents/ATLNSWELTX/config/\");
 }" 0
  E
 13 28
