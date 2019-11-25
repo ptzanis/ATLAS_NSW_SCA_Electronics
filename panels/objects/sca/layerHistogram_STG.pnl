@@ -362,7 +362,11 @@ LANG:1 0
 E E
 0 0 0 0 0
 1
-E "main(mapping event)
+"main()
+{
+  this.itemEnabled(1,0);
+}" 0
+ "main(mapping event)
 {
  
   updateHisto();
