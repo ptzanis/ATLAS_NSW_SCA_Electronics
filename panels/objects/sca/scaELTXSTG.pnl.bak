@@ -56,7 +56,7 @@ LANG:1 0
 "layoutAlignment" "AlignNone"
 1
 LANG:1 27 Utopia,-1,19,5,75,0,0,0,0,0
-0  32 42 114 74
+0  32 41.99999999999999 114 73.99999999999999
 
 T 
 1
@@ -176,7 +176,7 @@ LANG:1 0
 "layoutAlignment" "AlignNone"
 1
 LANG:1 27 Utopia,-1,12,5,50,0,0,0,0,0
-0  772.9952 28.62489458593358 979.5152 52.9365828976219
+0  772.9951999999998 28.62489458593357 979.5151999999999 52.9365828976219
 12 SliderWidget
 1
 0 "Change" "(int value)"
@@ -261,7 +261,7 @@ LANG:1 0
 "layoutAlignment" "AlignNone"
 1
 LANG:1 27 Utopia,-1,19,5,75,0,0,0,0,0
-0  111 42 193 74
+0  111 41.99999999999999 193 73.99999999999999
 
 T 
 1
@@ -329,7 +329,7 @@ LANG:1 0
 "layoutAlignment" "AlignCenter"
 1
 LANG:1 27 Utopia,-1,11,5,50,0,0,0,0,0
-0  1708 29 1831 54
+0  1708 29 1831 53.99999999999999
 
 T 
 1
@@ -433,7 +433,7 @@ LANG:1 0
 "layoutAlignment" "AlignCenter"
 1
 LANG:1 27 Utopia,-1,11,5,50,0,0,0,0,0
-0  1708 3 1831 28
+0  1708 2.999999999999999 1831 28
 
 T 
 1
@@ -606,7 +606,7 @@ LANG:1 0
 "layoutAlignment" "AlignNone"
 1
 LANG:1 27 Utopia,-1,12,5,50,0,0,0,0,0
-0  1004 24 1039 52
+0  1004 24 1039 51.99999999999999
 
 P 
 4294967295
@@ -749,7 +749,7 @@ LANG:1 0
 "layoutAlignment" "AlignNone"
 1
 LANG:1 27 Utopia,-1,12,5,75,0,0,0,0,0
-0  1589 7 1654 31
+0  1589 6.999999999999998 1654 31
 
 T 
 1
@@ -873,7 +873,7 @@ LANG:1 0
 "layoutAlignment" "AlignNone"
 1
 LANG:1 27 Utopia,-1,12,5,75,0,0,0,0,0
-0  1589 30 1654 54
+0  1589 30 1654 53.99999999999999
 
 T 
 1
@@ -1185,7 +1185,7 @@ LANG:1 0
 1
 LANG:1 27 Utopia,-1,12,5,50,0,0,0,0,0
 0  1442 19 1541 43
-2 "0s" 0 0 0 0 0 -1  E "// SimpleCtrlScriptStart {valid}
+2 "0s" 0 0 0 0 0 -1  E "// SimpleCtrlScriptStart {invalid}
 main()
 {
   EP_textFieldIn();
@@ -1195,14 +1195,14 @@ void EP_textFieldIn()
 {
   dyn_errClass err;
 
-  if( !dpExists( \"System1:_OpcUaScaServer.State.ServerState:_online.._value\"))
+  if( !dpExists( \"System1:_SCA_OPC_UA_SERVER.State.ServerState:_online.._value\"))
   {
     setValue(\"\", \"color\", \"_dpdoesnotexist\");
     return;
   }
 
   dpConnect(\"EP_textFieldInCB\",
-            \"System1:_OpcUaScaServer.State.ServerState:_online.._value\");
+            \"System1:_SCA_OPC_UA_SERVER.State.ServerState:_online.._value\");
   err = getLastError();
   if (dynlen(err) > 0)
     setValue(\"\", \"color\", \"_dpdoesnotexist\");
@@ -1239,7 +1239,7 @@ LANG:1 0
 "layoutAlignment" "AlignNone"
 1
 LANG:1 27 Utopia,-1,15,5,75,0,0,0,0,0
-0  1069 13 1145 51
+0  1069 13 1145 50.99999999999999
 
 T 
 1
@@ -1264,7 +1264,7 @@ LANG:1 0
 "layoutAlignment" "AlignNone"
 1
 LANG:1 27 Utopia,-1,15,5,75,0,0,0,0,0
-0  1161 13 1238 51
+0  1161 13 1238 50.99999999999999
 
 T 
 1

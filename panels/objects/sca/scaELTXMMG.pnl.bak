@@ -201,7 +201,7 @@ LANG:1 2 IP
 
  
  //Histo Per Layer 
-  removeSymbol(myModuleName(),myPanelName(),\"HistoHO\");
+   removeSymbol(myModuleName(),myPanelName(),\"HistoHO\");
    addSymbol(myModuleName(),myPanelName(),\"objects/sca/layerHistogram.pnl\",\"HistoIP\",makeDynString(\"$xRef:\"+\"0\",\"$yRef:\"+\"700\",\"$side:\"+\"IP\"),0,700,0,1,1);
   
 }

@@ -100,8 +100,11 @@ LANG:1 33 MS Shell Dlg,-1,11,5,50,0,0,0,0,0
  }
   if(mode==\"BOARD2\")
  {
-   dpConnectUserData(\"updateHisto\",itemCounter,board+\"/ai/ntcTemperature1.temperature\");   
-   dpConnectUserData(\"updateHisto\",itemCounter,board+\"/ai/ntcTemperature2.temperature\");   
+     for(int j=1;j<=2;j++)
+    {
+       dpConnectUserData(\"updateHisto\",itemCounter,board+\"/ai/ntcTemperature\"+j+\".temperature\");   
+       itemCounter=itemCounter+1;
+    }
  }
      
  }
