@@ -1,7 +1,7 @@
 V 14
 1
 LANG:1 0 
-PANEL,-1 -1 1838 1105 N "_3DFace" 0
+PANEL,-1 -1 1838 1105 N "FwAtlasBg" 0
 "main()
 {
   /*
@@ -56,7 +56,7 @@ LANG:1 0
 "layoutAlignment" "AlignNone"
 1
 LANG:1 27 Utopia,-1,19,5,75,0,0,0,0,0
-0  32 42 114 74
+0  32 41.99999999999999 114 73.99999999999999
 
 T 
 1
@@ -147,366 +147,6 @@ E E 2 1 3 2 1 E 2.910969793322734 0 1.834494773519164 -59.1303656597774 26.15156
 LANG:1 27 Utopia,-1,19,5,75,0,0,0,0,0
 0 1
 LANG:1 0 
-2 20
-"TitleTBSCS"
-""
-1 191 98 E E E 1 E 1 E N "FwAtlasBg" E N "FwAtlasBg" E E
- E E
-20 0 0 0 0 0
-E E E
-0
-1
-LANG:1 0 
-
-3
-"layoutAlignment" "AlignCenter"
-"dashclr"N "_Transparent"
-"antiAliased" "0"
-E E 0 1 1 2 1 E U  0 E 30 12 334 39
-0 2 2 "0s" 0 0 0 193 0 0  182 12 1
-1
-LANG:1 27 Utopia,-1,24,5,75,0,0,0,0,0
-0 1
-LANG:1 23 ELTX SCA-GBT Monitoring
-13 21
-"createSettingsDPTMMG"
-""
-1 1637 -8 E E E 1 E 1 E N "_ButtonText" E N {236,236,236} E E
- E E
-21 0 0 0 0 0
-E E E
-0
-1
-LANG:1 0 
-
-1
-"layoutAlignment" "AlignCenter"
-1
-LANG:1 27 Utopia,-1,11,5,50,0,0,0,0,0
-0  1634.75 4.000000000000017 1757.75 28.99999999999998
-
-T 
-1
-LANG:1 16 MMG Settings DPT
-"main(mapping event)
-{
-  
-dyn_dyn_string elements;
-dyn_dyn_int types; 
-
-// elements
-
-elements[1]=makeDynString(\"SCAELTXSettings_MMG\",\"\");
-types[1]=makeDynInt(DPEL_STRUCT);
-
-elements[2]=makeDynString(\"\",\"ADDC\",\"\");
-types[2]=makeDynInt(0,DPEL_STRUCT);
-elements[3]=makeDynString(\"\",\"\",\"Voltage\");
-types[3]=makeDynInt(0,0,DPEL_STRING);
-elements[4]=makeDynString(\"\",\"\",\"Temperature\");
-types[4]=makeDynInt(0,0,DPEL_STRING);
-elements[5]=makeDynString(\"\",\"L1DDC\",\"\");
-types[5]=makeDynInt(0,DPEL_STRUCT);
-elements[6]=makeDynString(\"\",\"\",\"Voltage\");
-types[6]=makeDynInt(0,0,DPEL_STRING);
-elements[7]=makeDynString(\"\",\"\",\"Temperature\");
-types[7]=makeDynInt(0,0,DPEL_STRING);
-elements[8]=makeDynString(\"\",\"MMFE8\",\"\");
-types[8]=makeDynInt(0,DPEL_STRUCT);
-elements[9]=makeDynString(\"\",\"\",\"Voltage\");
-types[9]=makeDynInt(0,0,DPEL_STRING);
-elements[10]=makeDynString(\"\",\"\",\"Temperature\");
-types[10]=makeDynInt(0,0,DPEL_STRING);
-elements[11]=makeDynString(\"\",\"Archiving\",\"\");
-types[11]=makeDynInt(0,DPEL_BOOL);
-
-     
-int x=dpTypeCreate(elements,types);
-
- if (x == 0){
-    DebugN(\"Datapoint type creation succeeded!\");
-    this.enabled(FALSE);
-  }
-  else {
-    DebugN (\"Datapoint type creation returned an error!\");
-  } 
-
-
-  dpCreate(\"MMG-S1-Settings\",\"SCAELTXSettings_MMG\");
-  
-      
-
-
-}" 0
- E E E
-29 23
-"modeSlider"
-""
-1 185 -11 E E E 1 E 1 E N "_3DText" E N "_3DFace" E E
- E E
-23 0 0 0 0 0
-E E E
-0
-1
-LANG:1 0 
-
-6
-"orientation" "enum 0"
-"maxValue" "int 3"
-"value" "int 1"
-"invertedAppearance" "bool FALSE"
-"tickPosition" "enum 1"
-"layoutAlignment" "AlignNone"
-1
-LANG:1 27 Utopia,-1,12,5,50,0,0,0,0,0
-0  754.9952 28.62489458593358 961.5152 52.9365828976219
-12 SliderWidget
-1
-0 "Change" "(int value)"
-"
-   
-  string IPorHO;
-  
-  if(!ipButton.enabled())
-    IPorHO=\"IP\";  
-  if(!hoButton.enabled())
-    IPorHO=\"HO\"; 
-  
-  
-  int sector=1;
-  int x=10;
-  int y=100;
-
-   
-    for(int layer=1;layer<=4;layer++)
-    {
-        for(int pcb=1;pcb<=16;pcb++)
-   {
-
-    removeSymbol(myModuleName(),myPanelName(),\"Param_\"+\"Side\"+IPorHO+\"PCB\"+pcb+\"Layer\"+layer+\"Left\"+\"MMG\");   
-    removeSymbol(myModuleName(),myPanelName(),\"Param_\"+\"Side\"+IPorHO+\"PCB\"+pcb+\"Layer\"+layer+\"Right\"+\"MMG\");   
-    
-  //  removeSymbol(myModuleName(),myPanelName(),\"Sector\"+sector+\"PCB\"+pcb+\"Layer\"+layer+\"Side\"+\"HO\"+\"EtaSide\"+\"R\"+\"MMG\");
-    
-     if(pcb==1)
-    {
-    removeSymbol(myModuleName(),myPanelName(),\"L1Param_\"+\"Side\"+IPorHO+\"PCB\"+pcb+\"Layer\"+layer+\"Left\"+\"STG\");   
-    removeSymbol(myModuleName(),myPanelName(),\"L1Param_\"+\"Side\"+IPorHO+\"PCB\"+pcb+\"Layer\"+layer+\"Right\"+\"STG\");              
-    }
-        
-      if(pcb<=6)
-    {
-    removeSymbol(myModuleName(),myPanelName(),\"Param_\"+\"Side\"+IPorHO+\"PCB\"+pcb+\"Layer\"+layer+\"Left\"+\"STG\");   
-    removeSymbol(myModuleName(),myPanelName(),\"Param_\"+\"Side\"+IPorHO+\"PCB\"+pcb+\"Layer\"+layer+\"Right\"+\"STG\");          
-    }
-    
-   }
-       removeSymbol(myModuleName(),myPanelName(),\"eltx\"+IPorHO+\"L\"+layer+\"MMG\");
-       removeSymbol(myModuleName(),myPanelName(),\"eltx\"+IPorHO+\"L\"+layer+\"STG\");                
-  }
-
- 
-  
-    for(int layer=1;layer<=4;layer++)
-    {
-     addSymbol(myModuleName(),myPanelName(),\"objects/sca/layerOfSectorELTXSTG.pnl\",\"eltx\"+IPorHO+\"L\"+layer+\"STG\",makeDynString(\"$layer:\"+layer,\"$sector:\"+1,\"$IPorHO:\"+IPorHO,\"$x:\"+x,\"$y:\"+y,\"$detector:\"+\"STG\",\"$configurationMode:\"+FALSE),x,y,0,1,1); 
-    x=x+460;          
-    }
- 
- x=10;
- y=y+400;
- 
-     for(int layer=1;layer<=4;layer++)
-    {
-     addSymbol(myModuleName(),myPanelName(),\"objects/sca/layerOfSectorELTXMMG.pnl\",\"eltx\"+IPorHO+\"L\"+layer+\"MMG\",makeDynString(\"$layer:\"+layer,\"$sector:\"+1,\"$IPorHO:\"+IPorHO,\"$x:\"+x,\"$y:\"+y,\"$detector:\"+\"MMG\",\"$configurationMode:\"+FALSE),x,y,0,1,1); 
-    x=x+460;          
-    } 
-   
-  
-"
-E2 25
-"PRIMITIVE_TEXT3"
-""
-1 704 33 E E E 1 E 1 E N "_WindowText" E N "_Window" E E
- E E
-25 0 0 0 0 0
-E E E
-0
-1
-LANG:1 0 
-
-4
-"layoutAlignment" "AlignNone"
-"dashclr"N "_Transparent"
-"antiAliased" "0"
-"transformable" "0"
-E E 2 1 3 2 1 E U  0 E 704 33 746 50
-0 2 2 "0s" 0 0 0 192 0 0  704 33 1
-1
-LANG:1 27 Utopia,-1,15,5,50,0,0,0,0,0
-0 1
-LANG:1 4 Mode
-2 142
-"PRIMITIVE_TEXT8"
-""
-1 1242 21 E E E 1 E 1 E N "_WindowText" E N "_Window" E E
- E E
-142 0 0 0 0 0
-E E E
-0
-1
-LANG:1 0 
-
-4
-"layoutAlignment" "AlignNone"
-"dashclr"N "_Transparent"
-"antiAliased" "0"
-"transformable" "0"
-E E 2 1 3 2 1 E U  0 E 1242 21 1400 38
-0 2 2 "0s" 0 0 0 192 0 0  1242 21 1
-1
-LANG:1 27 Utopia,-1,15,5,50,0,0,0,0,0
-0 1
-LANG:1 21 SCA-OPC Server Status
-7 143
-"ELLIPSE1"
-""
-1 886 25 E E E 1 E 1 E N {0,0,0} E N {255,255,255} E E
- E E
-143 0 0 0 0 0
-E E E
-0
-1
-LANG:1 0 
-
-3
-"layoutAlignment" "AlignNone"
-"dashclr"N "_Transparent"
-"antiAliased" "1"
-"// SimpleCtrlScriptStart {valid}
-main()
-{
-  EP_setBackColor();
-}
-
-void EP_setBackColor()
-{
-  dyn_errClass err;
-
-  if( !dpExists( \"System1:_OpcUaScaServer.State.ConnState:_online.._value\"))
-  {
-    setValue(\"\", \"color\", \"_dpdoesnotexist\");
-    return;
-  }
-
-  dpConnect(\"EP_setBackColorCB\", 
-            \"System1:_OpcUaScaServer.State.ConnState:_online.._value\");
-  err = getLastError();
-  if (dynlen(err) > 0)
-    setValue(\"\", \"color\", \"_dpdoesnotexist\");
-
-}
-
-
-void EP_setBackColorCB(string dpSource, unsigned uNewValue)
-{
-  if (uNewValue == 1)
-    setValue(\"\", \"backCol\", \"FwStateOKPhysics\");
-  else
-    setValue(\"\", \"backCol\", \"Red\");
-}
-
-// SimpleCtrlScript {EP_setBackColor}
-// DP {System1:_OpcUaScaServer.State.ConnState}
-// DPConfig {:_online.._value}
-// DPType {unsigned}
-// AlertHdl {FALSE}
-// DPEInvalid {}
-// DPEConfigInvalid {}
-// Operator1 {equal}
-// Operant1 {1}
-// Color1 {FwStateOKPhysics}
-// Operator2 {else}
-// Operant2 {}
-// Color2 {Red}
-// SimpleCtrlScriptEnd {EP_setBackColor}
-" 0
- E 0 1 3 2 1 E 0.6785714285714286 0 0.7142857142857143 812.785714285714 12.14285714285714 1 E 886 25 14 14
-30 144
-"FRAME2"
-""
-1 703 0 E E E 1 E 1 E N "_WindowText" E N {0,0,0} E E
- E E
-144 0 0 0 0 0
-E E E
-1
-1
-LANG:1 0 
-
-3
-"layoutAlignment" "AlignNone"
-"dashclr"N "_Transparent"
-"antiAliased" "0"
-E E 2 1 3 2 1 E 1.475247524752475 0 0.7727272727272727 196.9009900990103 10 0 E 703 0 906 45
-1
-LANG:1 27 Utopia,-1,12,5,50,0,0,0,0,0
-0 1
-LANG:1 0 
-14 146
-"TEXT_FIELD1"
-""
-1 1432 22.35294117647059 E E E 1 E 1 E N "_WindowText" E N "_Window" E E
- E E
-146 0 0 0 0 0
-E E E
-0
-1
-LANG:1 0 
-
-1
-"layoutAlignment" "AlignNone"
-1
-LANG:1 27 Utopia,-1,12,5,50,0,0,0,0,0
-0  1430 18 1529 42
-2 "0s" 0 0 0 0 0 -1  E "// SimpleCtrlScriptStart {valid}
-main()
-{
-  EP_textFieldIn();
-}
-
-void EP_textFieldIn()
-{
-  dyn_errClass err;
-
-  if( !dpExists( \"System1:_OpcUaScaServer.State.ServerState:_online.._value\"))
-  {
-    setValue(\"\", \"color\", \"_dpdoesnotexist\");
-    return;
-  }
-
-  dpConnect(\"EP_textFieldInCB\",
-            \"System1:_OpcUaScaServer.State.ServerState:_online.._value\");
-  err = getLastError();
-  if (dynlen(err) > 0)
-    setValue(\"\", \"color\", \"_dpdoesnotexist\");
-
-}
-
-
-void EP_textFieldInCB(string dp, string sNewValue)
-{
-  setValue(\"\", \"text\", sNewValue);
-}
-
-// SimpleCtrlScript {EP_textFieldIn}
-// DP {System1:_OpcUaScaServer.State.ServerState}
-// DPConfig {:_online.._value}
-// DPType {string}
-// UseDPUnit {FALSE}
-// UseDPFormat {FALSE}
-// SimpleCtrlScriptEnd {EP_textFieldIn}
-" 0
- E
 13 150
 "hoButton"
 ""
@@ -522,7 +162,7 @@ LANG:1 0
 "layoutAlignment" "AlignNone"
 1
 LANG:1 27 Utopia,-1,19,5,75,0,0,0,0,0
-0  111 42 193 74
+0  111 41.99999999999999 193 73.99999999999999
 
 T 
 1
@@ -573,7 +213,7 @@ LANG:1 2 HO
   
     for(int layer=1;layer<=4;layer++)
     {
-     addSymbol(myModuleName(),myPanelName(),\"objects/sca/layerOfSectorELTXSTG.pnl\",\"eltx\"+IPorHO+\"L\"+layer+\"STG\",makeDynString(\"$layer:\"+layer,\"$sector:\"+1,\"$IPorHO:\"+IPorHO,\"$x:\"+x,\"$y:\"+y,\"$detector:\"+\"STG\"),x,y,0,1,1); 
+     addSymbol(myModuleName(),myPanelName(),\"objects/sca/layerOfSectorELTXSTG.pnl\",\"eltx\"+IPorHO+\"L\"+layer+\"STG\",makeDynString(\"$layer:\"+layer,\"$sector:\"+1,\"$IPorHO:\"+IPorHO,\"$x:\"+x,\"$y:\"+y,\"$detector:\"+\"STG\",\"$configurationMode:\"+FALSE),x,y,0,1,1); 
     x=x+460;          
     }
  
@@ -582,348 +222,17 @@ LANG:1 2 HO
  
      for(int layer=1;layer<=4;layer++)
     {
-     addSymbol(myModuleName(),myPanelName(),\"objects/sca/layerOfSectorELTXMMG.pnl\",\"eltx\"+IPorHO+\"L\"+layer+\"MMG\",makeDynString(\"$layer:\"+layer,\"$sector:\"+1,\"$IPorHO:\"+IPorHO,\"$x:\"+x,\"$y:\"+y,\"$detector:\"+\"MMG\"),x,y,0,1,1); 
+     addSymbol(myModuleName(),myPanelName(),\"objects/sca/layerOfSectorELTXMMG.pnl\",\"eltx\"+IPorHO+\"L\"+layer+\"MMG\",makeDynString(\"$layer:\"+layer,\"$sector:\"+1,\"$IPorHO:\"+IPorHO,\"$x:\"+x,\"$y:\"+y,\"$detector:\"+\"MMG\",\"$configurationMode:\"+FALSE),x,y,0,1,1); 
     x=x+460;          
     }
 
   
 }" 0
  E E E
-13 151
-"mmgDPT"
-""
-1 1760.974723713015 -14 E E E 1 E 1 E N "_ButtonText" E N {236,236,236} E E
- E E
-151 0 0 0 0 0
-E E E
-0
-1
-LANG:1 0 
-
-1
-"layoutAlignment" "AlignCenter"
-1
-LANG:1 27 Utopia,-1,11,5,50,0,0,0,0,0
-0  1759 4 1832 29
-
-T 
-1
-LANG:1 7 MMG DPT
-"main(mapping event)
-{
-  
-dyn_dyn_string elements;
-dyn_dyn_int types; 
-
-// elements
-
-int count=1;
-
-elements[count]=makeDynString(\"SCAELTX_MMG\",\"\");
-types[count]=makeDynInt(DPEL_STRUCT);
-
-string leftRight,side,upDownValue;
-  
- for(int sector=0;sector<=1;sector++)
- {
-        if(sector==0)
-          side=\"IP\";
-        if(sector==1)
-          side=\"HO\";  
-  
-  for(int pcb=1;pcb<=8;pcb++)
-  {
-    for(int layer=1;layer<=4;layer++)
-    {
-      for(int leftOrRight=0;leftOrRight<=1;leftOrRight++)
-      {
-        if(leftOrRight==0)
-          leftRight=\"Left\";
-        if(leftOrRight==1)
-          leftRight=\"Right\";
-        
-        for(int upDown=0;upDown<=1;upDown++)
-          {
-        if(upDown==0)
-          upDownValue=\"Up\";
-        if(upDown==1)
-          upDownValue=\"Down\";  
-                 
-     count++;   
-     elements[count]=makeDynString(\"\",\"Side\"+side+\"PCB\"+pcb+\"Layer\"+layer+leftRight+upDownValue);
-     types[count]=makeDynInt(0,DPEL_STRUCT);
-     count++;
-     elements[count]=makeDynString(\"\",\"\",\"Visibility\");
-     types[count]=makeDynInt(0,0,DPEL_BOOL);
-     count++;
-     elements[count]=makeDynString(\"\",\"\",\"Channel\");
-     types[count]=makeDynInt(0,0,DPEL_STRING);
-     count++;
-     elements[count]=makeDynString(\"\",\"\",\"Type\");
-     types[count]=makeDynInt(0,0,DPEL_STRING);
-    
-
-       }
-     }
-    }
-  }
-}
-
-     
-int x=dpTypeCreate(elements,types);
-
- if (x == 0){
-    DebugN(\"Datapoint type creation succeeded!\");
-    this.enabled(FALSE);
-  }
-  else {
-    DebugN (\"Datapoint type creation returned an error!\");
-  } 
-
-
-  dpCreate(\"MMG-S1\",\"SCAELTX_MMG\");
-  
-
-}" 0
- E E E
-13 152
-"createSettingsDPTSTG"
-""
-1 1866 -11 E E E 1 E 1 E N "_ButtonText" E N {236,236,236} E E
- E E
-152 0 0 0 0 0
-E E E
-0
-1
-LANG:1 0 
-
-1
-"layoutAlignment" "AlignCenter"
-1
-LANG:1 27 Utopia,-1,11,5,50,0,0,0,0,0
-0  1635 31 1758 56
-
-T 
-1
-LANG:1 16 STG Settings DPT
-"main(mapping event)
-{
-  
-dyn_dyn_string elements;
-dyn_dyn_int types; 
-
-// elements
-
-elements[1]=makeDynString(\"SCAELTXSettings_STG\",\"\");
-types[1]=makeDynInt(DPEL_STRUCT);
-
-elements[2]=makeDynString(\"\",\"sFEB\",\"\");
-types[2]=makeDynInt(0,DPEL_STRUCT);
-elements[3]=makeDynString(\"\",\"\",\"Voltage\");
-types[3]=makeDynInt(0,0,DPEL_STRING);
-elements[4]=makeDynString(\"\",\"\",\"Temperature\");
-types[4]=makeDynInt(0,0,DPEL_STRING);
-elements[5]=makeDynString(\"\",\"pFEB\",\"\");
-types[5]=makeDynInt(0,DPEL_STRUCT);
-elements[6]=makeDynString(\"\",\"\",\"Voltage\");
-types[6]=makeDynInt(0,0,DPEL_STRING);
-elements[7]=makeDynString(\"\",\"\",\"Temperature\");
-types[7]=makeDynInt(0,0,DPEL_STRING);
-elements[8]=makeDynString(\"\",\"L1DDC\",\"\");
-types[8]=makeDynInt(0,DPEL_STRUCT);
-elements[9]=makeDynString(\"\",\"\",\"Voltage\");
-types[9]=makeDynInt(0,0,DPEL_STRING);
-elements[10]=makeDynString(\"\",\"\",\"Temperature\");
-types[10]=makeDynInt(0,0,DPEL_STRING);
-elements[11]=makeDynString(\"\",\"Archiving\",\"\");
-types[11]=makeDynInt(0,DPEL_BOOL);
-
-
-
-     
-int x=dpTypeCreate(elements,types);
-
- if (x == 0){
-    DebugN(\"Datapoint type creation succeeded!\");
-    this.enabled(FALSE);
-  }
-  else {
-    DebugN (\"Datapoint type creation returned an error!\");
-  } 
-
-
-  dpCreate(\"STG-S1-Settings\",\"SCAELTXSettings_STG\");
-  
-      
-
-
-}" 0
- E E E
-13 153
-"stgDPT"
-""
-1 1761 13 E E E 1 E 1 E N "_ButtonText" E N {236,236,236} E E
- E E
-153 0 0 0 0 0
-E E E
-0
-1
-LANG:1 0 
-
-1
-"layoutAlignment" "AlignCenter"
-1
-LANG:1 27 Utopia,-1,11,5,50,0,0,0,0,0
-0  1759 31 1832 56
-
-T 
-1
-LANG:1 7 STG DPT
-"main(mapping event)
-{
-  
-dyn_dyn_string elements;
-dyn_dyn_int types; 
-
-// elements
-
-int count=1;
-
-elements[count]=makeDynString(\"SCAELTX_STG\",\"\");
-types[count]=makeDynInt(DPEL_STRUCT);
-
-string leftRight,side,upDownValue;
-  
- for(int sector=0;sector<=1;sector++)
- {
-        if(sector==0)
-          side=\"IP\";
-        if(sector==1)
-          side=\"HO\";  
-  
-  for(int pcb=1;pcb<=3;pcb++)
-  {
-    for(int layer=1;layer<=4;layer++)
-    {
-      for(int leftOrRight=0;leftOrRight<=1;leftOrRight++)
-      {
-        if(leftOrRight==0)
-          leftRight=\"Left\";
-        if(leftOrRight==1)
-          leftRight=\"Right\";
-        
-        for(int upDown=0;upDown<=1;upDown++)
-          {
-        if(upDown==0)
-          upDownValue=\"Up\";
-        if(upDown==1)
-          upDownValue=\"Down\";  
-                 
-     count++;   
-     elements[count]=makeDynString(\"\",\"Side\"+side+\"PCB\"+pcb+\"Layer\"+layer+leftRight+upDownValue);
-     types[count]=makeDynInt(0,DPEL_STRUCT);
-     count++;
-     elements[count]=makeDynString(\"\",\"\",\"Visibility\");
-     types[count]=makeDynInt(0,0,DPEL_BOOL);
-     count++;
-     elements[count]=makeDynString(\"\",\"\",\"Channel\");
-     types[count]=makeDynInt(0,0,DPEL_STRING);
-     count++;
-     elements[count]=makeDynString(\"\",\"\",\"Type\");
-     types[count]=makeDynInt(0,0,DPEL_STRING);
-    
-       }
-      
-      if(pcb==3)
-        {
-     count++;   
-     elements[count]=makeDynString(\"\",\"L1\"+\"Side\"+side+\"PCB\"+pcb+\"Layer\"+layer+leftRight);
-     types[count]=makeDynInt(0,DPEL_STRUCT);
-     count++;
-     elements[count]=makeDynString(\"\",\"\",\"Visibility\");
-     types[count]=makeDynInt(0,0,DPEL_BOOL);
-     count++;
-     elements[count]=makeDynString(\"\",\"\",\"Channel\");
-     types[count]=makeDynInt(0,0,DPEL_STRING);
-     count++;
-     elements[count]=makeDynString(\"\",\"\",\"Type\");
-     types[count]=makeDynInt(0,0,DPEL_STRING);
-   
-        }  
-        
-     }
-    }
-  }
-}
-
-     
-int x=dpTypeCreate(elements,types);
-
- if (x == 0){
-    DebugN(\"Datapoint type creation succeeded!\");
-    this.enabled(FALSE);
-  }
-  else {
-    DebugN (\"Datapoint type creation returned an error!\");
-  } 
-
-
-  dpCreate(\"STG-S1\",\"SCAELTX_STG\");
-  
-
-}" 0
- E E E
-13 154
-"PUSH_BUTTON1"
-""
-1 988 32 E E E 1 E 1 E N "_ButtonText" E N "_Button" E E
- E E
-154 0 0 0 0 0
-E E E
-8
-1
-LANG:1 0 
-
-1
-"layoutAlignment" "AlignNone"
-1
-LANG:1 27 Utopia,-1,12,5,50,0,0,0,0,0
-0  986 24 1021 52
-
-P 
-4294967295
-"pictures/config_params_24.png"
-1
-LANG:1 12 PUSH_BUTTON1
-"main(mapping event)
-{
-      ChildPanelOnCentral(\"objects/sca/modeSettings.pnl\", \"Mode Configuration\", makeDynString(\"$detector:\"+\"both\"),500,500,0,1,1);
-}" 0
- E E E
-30 155
-"FRAME3"
-""
-1 556 1 E E E 1 E 1 E N "_WindowText" E N {0,0,0} E E
- E E
-155 0 0 0 0 0
-E E E
-1
-1
-LANG:1 0 
-
-3
-"layoutAlignment" "AlignNone"
-"dashclr"N "_Transparent"
-"antiAliased" "0"
-E E 2 1 3 2 1 E 0.9702702702702702 0 1.071428571428571 141.5297297297298 -4.071428571428569 0 E 556 1 927 58
-1
-LANG:1 27 Utopia,-1,12,5,50,0,0,0,0,0
-0 1
-LANG:1 0 
 13 156
 "settingsButton"
 ""
-1 1092 24 E E E 1 E 1 E N "_ButtonText" E N "_Button" E E
+1 1076 12.44117647058823 E E E 1 E 1 E N "_ButtonText" E N "_Button" E E
  E E
 156 0 0 0 0 0
 E E E
@@ -935,7 +244,7 @@ LANG:1 0
 "layoutAlignment" "AlignNone"
 1
 LANG:1 27 Utopia,-1,15,5,75,0,0,0,0,0
-0  1090 11 1187 49
+0  1074 2.999999999999999 1171 30
 
 T 
 1
@@ -945,106 +254,10 @@ LANG:1 8 Settings
         ChildPanelOnCentral(\"objects/sca/wedgeSetup.pnl\", \"Settings\", makeDynString(\"$detector:\"+\"both\"),500,500,0,1,1);
 }" 0
  E E E
-2 157
-"PRIMITIVE_TEXT10"
-""
-1 343 11 E E E 1 E 1 E N "white" E N "FwAtlasBg" E E
- E E
-157 0 0 0 0 0
-E E E
-0
-1
-LANG:1 0 
-
-4
-"layoutAlignment" "AlignNone"
-"dashclr"N "_Transparent"
-"antiAliased" "0"
-"transformable" "0"
-E E 2 1 3 2 1 E U  1 E 343 11 391 42
-0 2 2 "0s" 0 0 0 192 0 0  343 11 1
-1
-LANG:1 27 Utopia,-1,27,5,75,0,0,0,0,0
-0 1
-LANG:1 3 191
-30 158
-"FRAME4"
-""
-1 556 767 E E E 1 E 1 E N "_WindowText" E N {0,0,0} E E
- E E
-158 0 0 0 0 0
-E E E
-1
-1
-LANG:1 0 
-
-3
-"layoutAlignment" "AlignNone"
-"dashclr"N "_Transparent"
-"antiAliased" "0"
-E E 2 1 3 2 1 E 1.125000000000001 0 1.035087719298253 -201.5000000000005 -796.9122807017601 0 E 556 767 701 825
-1
-LANG:1 27 Utopia,-1,12,5,50,0,0,0,0,0
-0 1
-LANG:1 0 
-6 159
-"RECTANGLE5"
-""
-1 1828 1004 E E E 1 E 1 E N {0,0,0} E N {255,255,255} E E
- E E
-159 0 0 0 0 0
-E E E
-0
-1
-LANG:1 0 
-
-3
-"layoutAlignment" "AlignNone"
-"dashclr"N "_Transparent"
-"antiAliased" "0"
-E E -1 1 3 2 1 E 1.084337349397592 0 0.9612832014851266 -1490.168674698797 -959.1283342910664 2  1 0  "pictures/Brookhaven Logo/BNL_bnllogo.gif" 4294967295 E 1828 1004 1911 1034
-2 160
-"PRIMITIVE_TEXT11"
-""
-1 1813 75 E E E 1 E 1 E N "_WindowText" E N "_Window" E E
- E E
-160 0 0 0 0 0
-E E E
-0
-1
-LANG:1 0 
-
-4
-"layoutAlignment" "AlignNone"
-"dashclr"N "_Transparent"
-"antiAliased" "0"
-"transformable" "0"
-E E 2 1 3 2 1 E 1 0 0.849444575253555 -1328 -25.83262430903864 0 E 1813 75 1915 93
-0 2 2 "0s" 0 0 0 192 0 0  1813 75 1
-1
-LANG:1 27 Utopia,-1,16,5,75,0,0,0,0,0
-0 1
-LANG:1 12 N.T.U.Athens
-7 161
-"ELLIPSE5"
-""
-1 1777 46 E E E 1 E 1 E N {0,0,0} E N {255,255,255} E E
- E E
-161 0 0 0 0 0
-E E E
-0
-1
-LANG:1 0 
-
-3
-"layoutAlignment" "AlignNone"
-"dashclr"N "_Transparent"
-"antiAliased" "1"
-E E -1 1 3 2 1 E 1 0 1 -1319 -15.99999999999932 2  1 0  "pictures/NTUA Logo/rsz_logo[80].png" 4294967295 E 1777 46 24 24
 13 162
 "PUSH_BUTTON2"
 ""
-1 1553 13 E E E 1 E 1 E N "_ButtonText" E N "_Button" E E
+1 1507 13 E E E 1 E 0 E N "_ButtonText" E N "_Button" E E
  E E
 162 0 0 0 0 0
 E E E
@@ -1056,7 +269,7 @@ LANG:1 0
 "layoutAlignment" "AlignNone"
 1
 LANG:1 27 Utopia,-1,12,5,75,0,0,0,0,0
-0  1551 7 1616 31
+0  1505 6.999999999999998 1570 31
 
 T 
 1
@@ -1224,7 +437,7 @@ void EP_setEnabledCB(string dp, bool boNewValue)
 13 163
 "PUSH_BUTTON3"
 ""
-1 1553 36 E E E 1 E 1 E N "_ButtonText" E N "_Button" E E
+1 1507 36 E E E 1 E 0 E N "_ButtonText" E N "_Button" E E
  E E
 163 0 0 0 0 0
 E E E
@@ -1236,7 +449,7 @@ LANG:1 0
 "layoutAlignment" "AlignNone"
 1
 LANG:1 27 Utopia,-1,12,5,75,0,0,0,0,0
-0  1551 30 1616 54
+0  1505 30 1570 53.99999999999999
 
 T 
 1
@@ -1365,7 +578,7 @@ void EP_setEnabledCB(string dp, bool boNewValue)
 30 164
 "FRAME5"
 ""
-1 1503 80 E E E 1 E 1 E N "_WindowText" E N {0,0,0} E E
+1 1503 80 E E E 1 E 0 E N "white" E N {0,0,0} E E
  E E
 164 0 0 0 0 0
 E E E
@@ -1377,17 +590,82 @@ LANG:1 0
 "layoutAlignment" "AlignNone"
 "dashclr"N "_Transparent"
 "antiAliased" "0"
-E E 2 1 3 2 1 E 1.684210526315789 0 0.8450704225352113 -996.3684210526314 -70.60563380281691 0 E 1503 80 1561 152
+E E 2 1 3 2 1 E 1.684210526315789 0 0.8450704225352113 -1042.368421052631 -70.60563380281691 0 E 1503 80 1561 152
 1
 LANG:1 27 Utopia,-1,12,5,75,0,0,0,0,0
 0 1
 LANG:1 7 Archive
-2 165
-"PRIMITIVE_TEXT4"
+29 169
+"modeSlider"
 ""
-1 741 6 E E E 1 E 1 E N "_WindowText" E N "_Window" E E
+1 210 -10 E E E 1 E 1 E N "white" E N "FwAtlasBg" E E
  E E
-165 0 0 0 0 0
+169 0 0 0 0 0
+E E E
+0
+1
+LANG:1 0 
+
+10
+"orientation" "enum 0"
+"maxValue" "int 3"
+"value" "int 2"
+"invertedAppearance" "bool FALSE"
+"tickPosition" "enum 1"
+"pageStep" "int 1"
+"sliderPosition" "int 0"
+"tickInterval" "int 0"
+"invertedControls" "bool FALSE"
+"layoutAlignment" "AlignNone"
+1
+LANG:1 27 Utopia,-1,12,5,50,0,0,0,0,0
+0  779.9999999999999 29.99999999999999 986.9999999999999 53.99999999999999
+12 SliderWidget
+1
+0 "Change" "(int value)"
+"
+   
+  string IPorHO;
+  
+  if(!ipButton.enabled())
+    IPorHO=\"IP\";  
+  if(!hoButton.enabled())
+    IPorHO=\"HO\"; 
+  
+  
+  int sector=1;
+  int x=10;
+  int y=100;
+
+   
+    for(int layer=1;layer<=4;layer++)
+    {
+        for(int pcb=1;pcb<=16;pcb++)
+   {
+
+    removeSymbol(myModuleName(),myPanelName(),\"Param_\"+\"Side\"+IPorHO+\"PCB\"+pcb+\"Layer\"+layer+\"Left\"+\"MMG\");   
+    removeSymbol(myModuleName(),myPanelName(),\"Param_\"+\"Side\"+IPorHO+\"PCB\"+pcb+\"Layer\"+layer+\"Right\"+\"MMG\");   
+    
+   }
+       removeSymbol(myModuleName(),myPanelName(),\"eltx\"+IPorHO+\"L\"+layer+\"MMG\");
+  }
+
+ 
+ 
+     for(int layer=1;layer<=4;layer++)
+    {
+     addSymbol(myModuleName(),myPanelName(),\"objects/sca/layerOfSectorELTXMMG.pnl\",\"eltx\"+IPorHO+\"L\"+layer+\"MMG\",makeDynString(\"$layer:\"+layer,\"$sector:\"+1,\"$IPorHO:\"+IPorHO,\"$x:\"+x,\"$y:\"+y,\"$detector:\"+\"MMG\",\"$configurationMode:\"+FALSE),x,y,0,1,1); 
+    x=x+460;          
+    } 
+   
+  
+"
+E2 170
+"PRIMITIVE_TEXT3"
+""
+1 729 33.99999999999999 E E E 1 E 1 E N "white" E N "_Window" E E
+ E E
+170 0 0 0 0 0
 E E E
 0
 1
@@ -1398,18 +676,40 @@ LANG:1 0
 "dashclr"N "_Transparent"
 "antiAliased" "0"
 "transformable" "0"
-E E 2 1 3 2 1 E U  0 E 741 6 781 24
-0 2 2 "0s" 0 0 0 192 0 0  741 6 1
+E E 2 1 3 2 1 E U  0 E 729 33.99999999999999 771 51
+0 2 2 "0s" 0 0 0 192 0 0  729 33.99999999999999 1
+1
+LANG:1 27 Utopia,-1,15,5,50,0,0,0,0,0
+0 1
+LANG:1 4 Mode
+2 171
+"PRIMITIVE_TEXT4"
+""
+1 769 7 E E E 1 E 1 E N "white" E N "_Window" E E
+ E E
+171 0 0 0 0 0
+E E E
+0
+1
+LANG:1 0 
+
+4
+"layoutAlignment" "AlignNone"
+"dashclr"N "_Transparent"
+"antiAliased" "0"
+"transformable" "0"
+E E 2 1 3 2 1 E U  0 E 769 7 809 25
+0 2 2 "0s" 0 0 0 192 0 0  769 7 1
 1
 LANG:1 27 Utopia,-1,16,5,75,0,0,0,0,0
 0 1
 LANG:1 4 Type
-2 166
+2 172
 "PRIMITIVE_TEXT5"
 ""
-1 796 6 E E E 1 E 1 E N "_WindowText" E N "_Window" E E
+1 824 7 E E E 1 E 1 E N "white" E N "_Window" E E
  E E
-166 0 0 0 0 0
+172 0 0 0 0 0
 E E E
 0
 1
@@ -1420,18 +720,18 @@ LANG:1 0
 "dashclr"N "_Transparent"
 "antiAliased" "0"
 "transformable" "0"
-E E 2 1 3 2 1 E U  0 E 796 6 856 24
-0 2 2 "0s" 0 0 0 192 0 0  796 6 1
+E E 2 1 3 2 1 E U  0 E 824 7 884 25
+0 2 2 "0s" 0 0 0 192 0 0  824 7 1
 1
 LANG:1 27 Utopia,-1,16,5,75,0,0,0,0,0
 0 1
 LANG:1 7 Voltage
-2 167
+2 173
 "PRIMITIVE_TEXT7"
 ""
-1 866 6 E E E 1 E 1 E N "_WindowText" E N "_Window" E E
+1 894 7 E E E 1 E 1 E N "white" E N "_Window" E E
  E E
-167 0 0 0 0 0
+173 0 0 0 0 0
 E E E
 0
 1
@@ -1442,18 +742,65 @@ LANG:1 0
 "dashclr"N "_Transparent"
 "antiAliased" "0"
 "transformable" "0"
-E E 2 1 3 2 1 E U  0 E 866 6 912 24
-0 2 2 "0s" 0 0 0 192 0 0  866 6 1
+E E 2 1 3 2 1 E U  0 E 894 7 940 25
+0 2 2 "0s" 0 0 0 192 0 0  894 7 1
 1
 LANG:1 27 Utopia,-1,16,5,75,0,0,0,0,0
 0 1
 LANG:1 4 Temp
-2 168
+13 174
+"PUSH_BUTTON1"
+""
+1 1013 33 E E E 1 E 1 E N "_ButtonText" E N "_Button" E E
+ E E
+174 0 0 0 0 0
+E E E
+8
+1
+LANG:1 0 
+
+1
+"layoutAlignment" "AlignNone"
+1
+LANG:1 27 Utopia,-1,12,5,50,0,0,0,0,0
+0  1011 25 1046 52.99999999999999
+
+P 
+4294967295
+"pictures/config_params_24.png"
+1
+LANG:1 12 PUSH_BUTTON1
+"main(mapping event)
+{
+      ChildPanelOnCentral(\"objects/sca/modeSettings.pnl\", \"Mode Configuration\", makeDynString(\"$detector:\"+\"MMG\"),500,500,0,1,1);
+}" 0
+ E E E
+30 175
+"FRAME3"
+""
+1 556 1 E E E 1 E 1 E N "_WindowText" E N {0,0,0} E E
+ E E
+175 0 0 0 0 0
+E E E
+1
+1
+LANG:1 0 
+
+3
+"layoutAlignment" "AlignNone"
+"dashclr"N "_Transparent"
+"antiAliased" "0"
+E E 2 1 3 2 1 E 0.9702702702702702 0 1.071428571428571 166.5297297297298 -3.071428571428566 0 E 556 1 927 58
+1
+LANG:1 27 Utopia,-1,12,5,50,0,0,0,0,0
+0 1
+LANG:1 0 
+2 176
 "PRIMITIVE_TEXT12"
 ""
-1 924 6 E E E 1 E 1 E N "_WindowText" E N "_Window" E E
+1 952 7 E E E 1 E 1 E N "white" E N "_Window" E E
  E E
-168 0 0 0 0 0
+176 0 0 0 0 0
 E E E
 0
 1
@@ -1464,12 +811,767 @@ LANG:1 0
 "dashclr"N "_Transparent"
 "antiAliased" "0"
 "transformable" "0"
-E E 2 1 3 2 1 E U  0 E 924 6 979 24
-0 2 2 "0s" 0 0 0 192 0 0  924 6 1
+E E 2 1 3 2 1 E U  0 E 952 7 1007 25
+0 2 2 "0s" 0 0 0 192 0 0  952 7 1
 1
 LANG:1 27 Utopia,-1,16,5,75,0,0,0,0,0
 0 1
 LANG:1 6 SCA ID
+2 177
+"TitleTBSCS"
+""
+1 183 98 E E E 1 E 1 E N "white" E N "white" E E
+ E E
+177 0 0 0 0 0
+E E E
+0
+1
+LANG:1 0 
+
+3
+"layoutAlignment" "AlignCenter"
+"dashclr"N "_Transparent"
+"antiAliased" "0"
+E E 0 1 1 2 1 E U  0 E 22 12 326 39
+0 2 2 "0s" 0 0 0 193 0 0  174 12 1
+1
+LANG:1 27 Utopia,-1,24,5,75,0,0,0,0,0
+0 1
+LANG:1 23 ELTX SCA-GBT Monitoring
+2 178
+"PRIMITIVE_TEXT10"
+""
+1 335 11 E E E 1 E 1 E N "FwAtlasBg" E N "white" E E
+ E E
+178 0 0 0 0 0
+E E E
+0
+1
+LANG:1 0 
+
+4
+"layoutAlignment" "AlignNone"
+"dashclr"N "_Transparent"
+"antiAliased" "0"
+"transformable" "0"
+E E 2 1 3 2 1 E U  1 E 335 11 383 42
+0 2 2 "0s" 0 0 0 192 0 0  335 11 1
+1
+LANG:1 27 Utopia,-1,27,5,75,0,0,0,0,0
+0 1
+LANG:1 3 191
+30 179
+"FRAME4"
+""
+1 556 767 E E E 1 E 1 E N "_WindowText" E N {0,0,0} E E
+ E E
+179 0 0 0 0 0
+E E E
+1
+1
+LANG:1 0 
+
+3
+"layoutAlignment" "AlignNone"
+"dashclr"N "_Transparent"
+"antiAliased" "0"
+E E 2 1 3 2 1 E 1.125000000000001 0 1.035087719298253 -192.5000000000005 -796.9122807017601 0 E 556 767 701 825
+1
+LANG:1 27 Utopia,-1,12,5,50,0,0,0,0,0
+0 1
+LANG:1 0 
+6 180
+"RECTANGLE5"
+""
+1 1828 1004 E E E 1 E 1 E N {0,0,0} E N {255,255,255} E E
+ E E
+180 0 0 0 0 0
+E E E
+0
+1
+LANG:1 0 
+
+3
+"layoutAlignment" "AlignNone"
+"dashclr"N "_Transparent"
+"antiAliased" "0"
+E E -1 1 3 2 1 E 1.084337349397592 0 0.9612832014851266 -1481.168674698797 -959.1283342910664 2  1 0  "pictures/Brookhaven Logo/BNL_bnllogo.gif" 4294967295 E 1828 1004 1911 1034
+2 181
+"PRIMITIVE_TEXT11"
+""
+1 1813 75 E E E 1 E 1 E N "white" E N "_Window" E E
+ E E
+181 0 0 0 0 0
+E E E
+0
+1
+LANG:1 0 
+
+4
+"layoutAlignment" "AlignNone"
+"dashclr"N "_Transparent"
+"antiAliased" "0"
+"transformable" "0"
+E E 2 1 3 2 1 E 1 0 0.849444575253555 -1319 -25.83262430903864 0 E 1813 75 1915 93
+0 2 2 "0s" 0 0 0 192 0 0  1813 75 1
+1
+LANG:1 27 Utopia,-1,16,5,75,0,0,0,0,0
+0 1
+LANG:1 12 N.T.U.Athens
+7 182
+"ELLIPSE5"
+""
+1 1777 46 E E E 1 E 1 E N {0,0,0} E N {255,255,255} E E
+ E E
+182 0 0 0 0 0
+E E E
+0
+1
+LANG:1 0 
+
+3
+"layoutAlignment" "AlignNone"
+"dashclr"N "_Transparent"
+"antiAliased" "1"
+E E -1 1 3 2 1 E 1 0 1 -1310 -15.99999999999932 2  1 0  "pictures/NTUA Logo/NTUA-white[2000].png" 4294967295 E 1777 46 24 24
+13 183
+"createSettingsDPTMMG"
+""
+1 1591.979035639413 -9 E E E 0 E 1 E N "_ButtonText" E N {236,236,236} E E
+ E E
+183 0 0 0 0 0
+E E E
+0
+1
+LANG:1 0 
+
+1
+"layoutAlignment" "AlignCenter"
+1
+LANG:1 27 Utopia,-1,11,5,50,0,0,0,0,0
+0  1589.75 3.000000000000016 1702.770964360587 27.99999999999998
+
+T 
+1
+LANG:1 16 MMG Settings DPT
+"main(mapping event)
+{
+  
+dyn_dyn_string elements;
+dyn_dyn_int types; 
+
+// elements
+
+elements[1]=makeDynString(\"SCAELTXSettings_MMG\",\"\");
+types[1]=makeDynInt(DPEL_STRUCT);
+
+elements[2]=makeDynString(\"\",\"ADDC\",\"\");
+types[2]=makeDynInt(0,DPEL_STRUCT);
+elements[3]=makeDynString(\"\",\"\",\"Voltage\");
+types[3]=makeDynInt(0,0,DPEL_STRING);
+elements[4]=makeDynString(\"\",\"\",\"Temperature\");
+types[4]=makeDynInt(0,0,DPEL_STRING);
+elements[5]=makeDynString(\"\",\"L1DDC\",\"\");
+types[5]=makeDynInt(0,DPEL_STRUCT);
+elements[6]=makeDynString(\"\",\"\",\"Voltage\");
+types[6]=makeDynInt(0,0,DPEL_STRING);
+elements[7]=makeDynString(\"\",\"\",\"Temperature\");
+types[7]=makeDynInt(0,0,DPEL_STRING);
+elements[8]=makeDynString(\"\",\"MMFE8\",\"\");
+types[8]=makeDynInt(0,DPEL_STRUCT);
+elements[9]=makeDynString(\"\",\"\",\"Voltage\");
+types[9]=makeDynInt(0,0,DPEL_STRING);
+elements[10]=makeDynString(\"\",\"\",\"Temperature\");
+types[10]=makeDynInt(0,0,DPEL_STRING);
+elements[11]=makeDynString(\"\",\"Archiving\",\"\");
+types[11]=makeDynInt(0,DPEL_BOOL);
+
+elements[12]=makeDynString(\"\",\"Limits\",\"\");
+types[12]=makeDynInt(0,DPEL_STRUCT);
+elements[13]=makeDynString(\"\",\"\",\"upLimit\");
+types[13]=makeDynInt(0,0,DPEL_FLOAT);
+elements[14]=makeDynString(\"\",\"\",\"downLimit\");
+types[14]=makeDynInt(0,0,DPEL_FLOAT);
+
+     
+int x=dpTypeCreate(elements,types);
+
+ if (x == 0){
+    DebugN(\"Datapoint type creation succeeded!\");
+    this.enabled(FALSE);
+  }
+  else {
+    DebugN (\"Datapoint type creation returned an error!\");
+  } 
+
+
+  dpCreate(\"MMG-S1-Settings\",\"SCAELTXSettings_MMG\");
+  
+      
+
+
+}" 0
+ E E E
+13 184
+"mmgDPT"
+""
+1 1591.939098752708 11 E E E 1 E 1 E N "_ButtonText" E N {236,236,236} E E
+ E E
+184 0 0 0 0 0
+E E E
+0
+1
+LANG:1 0 
+
+1
+"layoutAlignment" "AlignCenter"
+1
+LANG:1 27 Utopia,-1,11,5,50,0,0,0,0,0
+0  1589.979035639413 29 1703 53.99999999999999
+
+T 
+1
+LANG:1 7 MMG DPT
+"main(mapping event)
+{
+  
+dyn_dyn_string elements;
+dyn_dyn_int types; 
+
+// elements
+
+int count=1;
+
+elements[count]=makeDynString(\"SCAELTX_MMG\",\"\");
+types[count]=makeDynInt(DPEL_STRUCT);
+
+string leftRight,side,upDownValue;
+  
+ for(int sector=0;sector<=1;sector++)
+ {
+        if(sector==0)
+          side=\"IP\";
+        if(sector==1)
+          side=\"HO\";  
+  
+  for(int pcb=1;pcb<=8;pcb++)
+  {
+    for(int layer=1;layer<=4;layer++)
+    {
+      for(int leftOrRight=0;leftOrRight<=1;leftOrRight++)
+      {
+        if(leftOrRight==0)
+          leftRight=\"Left\";
+        if(leftOrRight==1)
+          leftRight=\"Right\";
+        
+        for(int upDown=0;upDown<=1;upDown++)
+          {
+        if(upDown==0)
+          upDownValue=\"Up\";
+        if(upDown==1)
+          upDownValue=\"Down\";  
+                 
+     count++;   
+     elements[count]=makeDynString(\"\",\"Side\"+side+\"PCB\"+pcb+\"Layer\"+layer+leftRight+upDownValue);
+     types[count]=makeDynInt(0,DPEL_STRUCT);
+     count++;
+     elements[count]=makeDynString(\"\",\"\",\"Visibility\");
+     types[count]=makeDynInt(0,0,DPEL_BOOL);
+     count++;
+     elements[count]=makeDynString(\"\",\"\",\"Channel\");
+     types[count]=makeDynInt(0,0,DPEL_STRING);
+     count++;
+     elements[count]=makeDynString(\"\",\"\",\"Type\");
+     types[count]=makeDynInt(0,0,DPEL_STRING);
+    
+
+       }
+     }
+    }
+  }
+}
+
+     
+int x=dpTypeCreate(elements,types);
+
+ if (x == 0){
+    DebugN(\"Datapoint type creation succeeded!\");
+    this.enabled(FALSE);
+  }
+  else {
+    DebugN (\"Datapoint type creation returned an error!\");
+  } 
+
+
+  dpCreate(\"MMG-S1\",\"SCAELTX_MMG\");
+  
+
+}" 0
+ E E E
+13 185
+"createSettingsDPTSTG"
+""
+1 1934 -39 E E E 0 E 1 E N "_ButtonText" E N {236,236,236} E E
+ E E
+185 0 0 0 0 0
+E E E
+0
+1
+LANG:1 0 
+
+1
+"layoutAlignment" "AlignCenter"
+1
+LANG:1 27 Utopia,-1,11,5,50,0,0,0,0,0
+0  1703 2.999999999999999 1826 27.99999999999999
+
+T 
+1
+LANG:1 16 STG Settings DPT
+"main(mapping event)
+{
+  
+dyn_dyn_string elements;
+dyn_dyn_int types; 
+
+// elements
+
+elements[1]=makeDynString(\"SCAELTXSettings_STG\",\"\");
+types[1]=makeDynInt(DPEL_STRUCT);
+
+elements[2]=makeDynString(\"\",\"SFEB\",\"\");
+types[2]=makeDynInt(0,DPEL_STRUCT);
+elements[3]=makeDynString(\"\",\"\",\"Voltage\");
+types[3]=makeDynInt(0,0,DPEL_STRING);
+elements[4]=makeDynString(\"\",\"\",\"Temperature\");
+types[4]=makeDynInt(0,0,DPEL_STRING);
+
+elements[5]=makeDynString(\"\",\"PFEB\",\"\");
+types[5]=makeDynInt(0,DPEL_STRUCT);
+elements[6]=makeDynString(\"\",\"\",\"Voltage\");
+types[6]=makeDynInt(0,0,DPEL_STRING);
+elements[7]=makeDynString(\"\",\"\",\"Temperature\");
+types[7]=makeDynInt(0,0,DPEL_STRING);
+
+elements[8]=makeDynString(\"\",\"L1DDC\",\"\");
+types[8]=makeDynInt(0,DPEL_STRUCT);
+elements[9]=makeDynString(\"\",\"\",\"Voltage\");
+types[9]=makeDynInt(0,0,DPEL_STRING);
+elements[10]=makeDynString(\"\",\"\",\"Temperature\");
+types[10]=makeDynInt(0,0,DPEL_STRING);
+
+
+elements[11]=makeDynString(\"\",\"RimL1DDC\",\"\");
+types[11]=makeDynInt(0,DPEL_STRUCT);
+elements[12]=makeDynString(\"\",\"\",\"Voltage\");
+types[12]=makeDynInt(0,0,DPEL_STRING);
+elements[13]=makeDynString(\"\",\"\",\"Temperature\");
+types[13]=makeDynInt(0,0,DPEL_STRING);
+
+
+elements[14]=makeDynString(\"\",\"PadTrigger\",\"\");
+types[14]=makeDynInt(0,DPEL_STRUCT);
+elements[15]=makeDynString(\"\",\"\",\"Voltage\");
+types[15]=makeDynInt(0,0,DPEL_STRING);
+elements[16]=makeDynString(\"\",\"\",\"Temperature\");
+types[16]=makeDynInt(0,0,DPEL_STRING);
+
+
+elements[17]=makeDynString(\"\",\"RouterBoard\",\"\");
+types[17]=makeDynInt(0,DPEL_STRUCT);
+elements[18]=makeDynString(\"\",\"\",\"Voltage\");
+types[18]=makeDynInt(0,0,DPEL_STRING);
+elements[19]=makeDynString(\"\",\"\",\"Temperature\");
+types[19]=makeDynInt(0,0,DPEL_STRING);
+elements[20]=makeDynString(\"\",\"Archiving\",\"\");
+types[20]=makeDynInt(0,DPEL_BOOL);
+
+elements[21]=makeDynString(\"\",\"Limits\",\"\");
+types[21]=makeDynInt(0,DPEL_STRUCT);
+elements[22]=makeDynString(\"\",\"\",\"upLimit\");
+types[22]=makeDynInt(0,0,DPEL_FLOAT);
+elements[23]=makeDynString(\"\",\"\",\"downLimit\");
+types[23]=makeDynInt(0,0,DPEL_FLOAT);
+
+     
+int x=dpTypeCreate(elements,types);
+
+ if (x == 0){
+    DebugN(\"Datapoint type creation succeeded!\");
+    this.enabled(FALSE);
+  }
+  else {
+    DebugN (\"Datapoint type creation returned an error!\");
+  } 
+
+
+  dpCreate(\"STG-S1-Settings\",\"SCAELTXSettings_STG\");
+  
+      
+
+
+}" 0
+ E E E
+13 186
+"stgDPT"
+""
+1 1705 11 E E E 1 E 1 E N "_ButtonText" E N {236,236,236} E E
+ E E
+186 0 0 0 0 0
+E E E
+0
+1
+LANG:1 0 
+
+1
+"layoutAlignment" "AlignCenter"
+1
+LANG:1 27 Utopia,-1,11,5,50,0,0,0,0,0
+0  1703 28.99999999999999 1826 53.99999999999999
+
+T 
+1
+LANG:1 7 STG DPT
+"main(mapping event)
+{
+  
+dyn_dyn_string elements;
+dyn_dyn_int types; 
+
+// elements
+
+int count=1;
+
+elements[count]=makeDynString(\"SCAELTX_STG\",\"\");
+types[count]=makeDynInt(DPEL_STRUCT);
+
+string leftRight,side,upDownValue;
+  
+ for(int sector=0;sector<=1;sector++)
+ {
+        if(sector==0)
+          side=\"IP\";
+        if(sector==1)
+          side=\"HO\";  
+  
+  for(int pcb=1;pcb<=3;pcb++)
+  {
+    for(int layer=1;layer<=4;layer++)
+    {
+      for(int leftOrRight=0;leftOrRight<=1;leftOrRight++)
+      {
+        if(leftOrRight==0)
+          leftRight=\"Left\";
+        if(leftOrRight==1)
+          leftRight=\"Right\";
+        
+        for(int upDown=0;upDown<=1;upDown++)
+          {
+        if(upDown==0)
+          upDownValue=\"Up\";
+        if(upDown==1)
+          upDownValue=\"Down\";  
+                 
+     count++;   
+     elements[count]=makeDynString(\"\",\"Side\"+side+\"PCB\"+pcb+\"Layer\"+layer+leftRight+upDownValue);
+     types[count]=makeDynInt(0,DPEL_STRUCT);
+     count++;
+     elements[count]=makeDynString(\"\",\"\",\"Visibility\");
+     types[count]=makeDynInt(0,0,DPEL_BOOL);
+     count++;
+     elements[count]=makeDynString(\"\",\"\",\"Channel\");
+     types[count]=makeDynInt(0,0,DPEL_STRING);
+     count++;
+     elements[count]=makeDynString(\"\",\"\",\"Type\");
+     types[count]=makeDynInt(0,0,DPEL_STRING);
+    
+       }
+      
+      if(pcb==3)
+        {
+     count++;   
+     elements[count]=makeDynString(\"\",\"L1\"+\"Side\"+side+\"PCB\"+pcb+\"Layer\"+layer+leftRight);
+     types[count]=makeDynInt(0,DPEL_STRUCT);
+     count++;
+     elements[count]=makeDynString(\"\",\"\",\"Visibility\");
+     types[count]=makeDynInt(0,0,DPEL_BOOL);
+     count++;
+     elements[count]=makeDynString(\"\",\"\",\"Channel\");
+     types[count]=makeDynInt(0,0,DPEL_STRING);
+     count++;
+     elements[count]=makeDynString(\"\",\"\",\"Type\");
+     types[count]=makeDynInt(0,0,DPEL_STRING);
+   
+        }  
+        
+     }
+            
+    }
+  }
+}
+
+//ROUTER Board
+
+string sideName;
+for(int layer=1;layer<=4;layer++)
+{
+   for(int side=0;side<=1;side++)
+    {
+      if(side==0)
+        sideName=\"IP\";
+      if(side==1)   
+        sideName=\"HO\";
+      
+     count++;   
+     elements[count]=makeDynString(\"\",\"RouterBoard_Side_\"+sideName+\"_Layer_\"+layer);
+     types[count]=makeDynInt(0,DPEL_STRUCT);
+     count++;
+     elements[count]=makeDynString(\"\",\"\",\"Visibility\");
+     types[count]=makeDynInt(0,0,DPEL_BOOL);
+     count++;
+     elements[count]=makeDynString(\"\",\"\",\"Channel\");
+     types[count]=makeDynInt(0,0,DPEL_STRING);
+     count++;
+     elements[count]=makeDynString(\"\",\"\",\"Type\");
+     types[count]=makeDynInt(0,0,DPEL_STRING);   
+   }    
+        
+}
+
+//Rim-L1DDC Board
+
+     count++;   
+     elements[count]=makeDynString(\"\",\"RimL1DDC\");
+     types[count]=makeDynInt(0,DPEL_STRUCT);
+     count++;
+     elements[count]=makeDynString(\"\",\"\",\"Visibility\");
+     types[count]=makeDynInt(0,0,DPEL_BOOL);
+     count++;
+     elements[count]=makeDynString(\"\",\"\",\"Channel\");
+     types[count]=makeDynInt(0,0,DPEL_STRING);
+     count++;
+     elements[count]=makeDynString(\"\",\"\",\"Type\");
+     types[count]=makeDynInt(0,0,DPEL_STRING);  
+     
+//Pad-Trigger Board
+     
+     count++;   
+     elements[count]=makeDynString(\"\",\"PadTrigger\");
+     types[count]=makeDynInt(0,DPEL_STRUCT);
+     count++;
+     elements[count]=makeDynString(\"\",\"\",\"Visibility\");
+     types[count]=makeDynInt(0,0,DPEL_BOOL);
+     count++;
+     elements[count]=makeDynString(\"\",\"\",\"Channel\");
+     types[count]=makeDynInt(0,0,DPEL_STRING);
+     count++;
+     elements[count]=makeDynString(\"\",\"\",\"Type\");
+     types[count]=makeDynInt(0,0,DPEL_STRING);  
+
+     
+int x=dpTypeCreate(elements,types);
+
+ if (x == 0){
+    DebugN(\"Datapoint type creation succeeded!\");
+    this.enabled(FALSE);
+  }
+  else {
+    DebugN (\"Datapoint type creation returned an error!\");
+  } 
+
+
+  dpCreate(\"STG-S1\",\"SCAELTX_STG\");
+  
+
+}" 0
+ E E E
+2 187
+"PRIMITIVE_TEXT8"
+""
+1 1191 21 E E E 1 E 1 E N "white" E N "_Window" E E
+ E E
+187 0 0 0 0 0
+E E E
+0
+1
+LANG:1 0 
+
+4
+"layoutAlignment" "AlignNone"
+"dashclr"N "_Transparent"
+"antiAliased" "0"
+"transformable" "0"
+E E 2 1 3 2 1 E U  0 E 1191 21 1349 38
+0 2 2 "0s" 0 0 0 192 0 0  1191 21 1
+1
+LANG:1 27 Utopia,-1,15,5,50,0,0,0,0,0
+0 1
+LANG:1 21 SCA-OPC Server Status
+7 188
+"ELLIPSE1"
+""
+1 886 25 E E E 1 E 1 E N {0,0,0} E N {255,255,255} E E
+ E E
+188 0 0 0 0 0
+E E E
+0
+1
+LANG:1 0 
+
+3
+"layoutAlignment" "AlignNone"
+"dashclr"N "_Transparent"
+"antiAliased" "1"
+"// SimpleCtrlScriptStart {invalid}
+main()
+{
+  EP_setBackColor();
+}
+
+void EP_setBackColor()
+{
+  dyn_errClass err;
+
+  if( !dpExists( \"System1:_SCA_OPC_UA_SERVER.State.ConnState:_online.._value\"))
+  {
+    setValue(\"\", \"color\", \"_dpdoesnotexist\");
+    return;
+  }
+
+  dpConnect(\"EP_setBackColorCB\", 
+            \"System1:_SCA_OPC_UA_SERVER.State.ConnState:_online.._value\");
+  err = getLastError();
+  if (dynlen(err) > 0)
+    setValue(\"\", \"color\", \"_dpdoesnotexist\");
+
+}
+
+
+void EP_setBackColorCB(string dpSource, unsigned uNewValue)
+{
+  if (uNewValue == 1)
+    setValue(\"\", \"backCol\", \"FwStateOKPhysics\");
+  else
+    setValue(\"\", \"backCol\", \"Red\");
+}
+
+// SimpleCtrlScript {EP_setBackColor}
+// DP {System1:_OpcUaScaServer.State.ConnState}
+// DPConfig {:_online.._value}
+// DPType {unsigned}
+// AlertHdl {FALSE}
+// DPEInvalid {}
+// DPEConfigInvalid {}
+// Operator1 {equal}
+// Operant1 {1}
+// Color1 {FwStateOKPhysics}
+// Operator2 {else}
+// Operant2 {}
+// Color2 {Red}
+// SimpleCtrlScriptEnd {EP_setBackColor}
+" 0
+ E 0 1 3 2 1 E 0.6785714285714286 0 0.7142857142857143 761.785714285714 12.14285714285714 1 E 886 25 14 14
+30 189
+"FRAME2"
+""
+1 703 0 E E E 1 E 1 E N "_WindowText" E N {0,0,0} E E
+ E E
+189 0 0 0 0 0
+E E E
+1
+1
+LANG:1 0 
+
+3
+"layoutAlignment" "AlignNone"
+"dashclr"N "_Transparent"
+"antiAliased" "0"
+E E 2 1 3 2 1 E 1.475247524752475 0 0.7727272727272727 145.9009900990103 10 0 E 703 0 906 45
+1
+LANG:1 27 Utopia,-1,12,5,50,0,0,0,0,0
+0 1
+LANG:1 0 
+14 190
+"TEXT_FIELD1"
+""
+1 1381 22.35294117647059 E E E 1 E 1 E N "_WindowText" E N "_Window" E E
+ E E
+190 0 0 0 0 0
+E E E
+0
+1
+LANG:1 0 
+
+1
+"layoutAlignment" "AlignNone"
+1
+LANG:1 27 Utopia,-1,12,5,50,0,0,0,0,0
+0  1379 18 1478 41.99999999999999
+2 "0s" 0 0 0 0 0 -1  E "// SimpleCtrlScriptStart {invalid}
+main()
+{
+  EP_textFieldIn();
+}
+
+void EP_textFieldIn()
+{
+  dyn_errClass err;
+
+  if( !dpExists( \"System1:_SCA_OPC_UA_SERVER.State.ServerState:_online.._value\"))
+  {
+    setValue(\"\", \"color\", \"_dpdoesnotexist\");
+    return;
+  }
+
+  dpConnect(\"EP_textFieldInCB\",
+            \"System1:_SCA_OPC_UA_SERVER.State.ServerState:_online.._value\");
+  err = getLastError();
+  if (dynlen(err) > 0)
+    setValue(\"\", \"color\", \"_dpdoesnotexist\");
+
+}
+
+
+void EP_textFieldInCB(string dp, string sNewValue)
+{
+  setValue(\"\", \"text\", sNewValue);
+}
+
+// SimpleCtrlScript {EP_textFieldIn}
+// DP {System1:_OpcUaScaServer.State.ServerState}
+// DPConfig {:_online.._value}
+// DPType {string}
+// UseDPUnit {FALSE}
+// UseDPFormat {FALSE}
+// SimpleCtrlScriptEnd {EP_textFieldIn}
+" 0
+ E
+13 191
+"PUSH_BUTTON4"
+""
+1 1077 38.44117647058824 E E E 1 E 1 E N "_ButtonText" E N "_Button" E E
+ E E
+191 0 0 0 0 0
+E E E
+8
+1
+LANG:1 0 
+
+1
+"layoutAlignment" "AlignNone"
+1
+LANG:1 27 Utopia,-1,15,5,75,0,0,0,0,0
+0  1075 29 1171 55.99999999999999
+
+T 
+1
+LANG:1 4 Calc
+"main(mapping event)
+{
+        ChildPanelOnCentral(\"objects/sca/calculatedVariablesDPTfromXML.pnl\", \"Settings XML\", makeDynString(\"$detector:\"+\"both\"),500,500,0,1,1);
+}" 0
+ E E E
 0
 LAYER, 1 
 1
@@ -1499,10 +1601,4 @@ LAYER, 7
 1
 LANG:1 0 
 0
-1 2 "SHAPE_GROUP9" -1
-4 0 
-158 159 160 161 
-
-"layoutAlignment" "AlignNone"
-"" ""
 0
