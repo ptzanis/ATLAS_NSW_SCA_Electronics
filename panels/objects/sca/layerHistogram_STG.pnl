@@ -42,7 +42,9 @@ void updateHisto()
    removeSymbol(myModuleName(), myPanelName(), \"HistoPart_\"+listOfItemsToHist[i]+\"_\"+\"VMM\");  
    removeSymbol(myModuleName(), myPanelName(), \"HistoPart_\"+listOfItemsToHist[i]+\"_\"+\"SCA\");   
    removeSymbol(myModuleName(), myPanelName(), \"HistoPart_\"+listOfItemsToHist[i]+\"_\"+\"BOARD\");   
-  } 
+   removeSymbol(myModuleName(), myPanelName(), \"HistoPart_\"+listOfItemsToHist[i]+\"_\"+\"FEAST_L1DDC\");  
+   removeSymbol(myModuleName(), myPanelName(), \"HistoPart_\"+listOfItemsToHist[i]+\"_\"+\"GBTX_L1DDC\"); 
+ } 
   
   int layer=layerCombo.selectedPos();
   
@@ -61,17 +63,17 @@ void updateHisto()
   {
   strreplace(totalListOfBoards[i],getSystemName(),\"\");
   
-  if(patternMatch(\"SFEB\"+\"_L\"+layer+\"*\",totalListOfBoards[i]))  
+  if(patternMatch(\"SFEB\"+\"_L\"+layer+\"Q*_\"+side+\"*\",totalListOfBoards[i]))  
    {
     dynAppend(listOfItemsToHist,totalListOfBoards[i]);
    }
-   if(patternMatch(\"PFEB\"+\"_L\"+layer+\"*\",totalListOfBoards[i]))  
+   if(patternMatch(\"PFEB\"+\"_L\"+layer+\"Q*_\"+side+\"*\",totalListOfBoards[i]))  
    {
     dynAppend(listOfItemsToHist,totalListOfBoards[i]);
    }   
   }
   
-   }
+   
   
   int x=1200;
   int y=yRef+50;
@@ -95,6 +97,7 @@ void updateHisto()
    hist2.text(\"SCA\");
   }
   
+  /*
   x=1200;
   y=y+80;
   for(int i=dynlen(listOfItemsToHist);i>0;i--)
@@ -107,6 +110,62 @@ void updateHisto()
    
    x=x-110;
    hist3.text(\"BOARD\");
+  }
+  */
+  hist3.visible(0);
+  FRAME3.visible(0);
+  boardText.position(6,y+80);
+  
+  }
+  // ************************************************************************************
+    if(boardTypeCombo.number()==1)
+  {      
+  dyn_string l1ddcListOfBoards;  
+  
+  dynClear(listOfItemsToHist);
+  
+  for(int i=1;i<=dynlen(totalListOfBoards);i++)
+  {
+  strreplace(totalListOfBoards[i],getSystemName(),\"\");
+  
+  if(patternMatch(\"L1DDC\"+\"_L\"+\"*\"+\"Q*_\"+side+\"*\",totalListOfBoards[i]))  
+   {
+    dynAppend(listOfItemsToHist,totalListOfBoards[i]);
+    dynAppend(l1ddcListOfBoards,totalListOfBoards[i]);
+   }
+  }
+  
+   int x=1200;
+  int y=yRef+50;
+  for(int i=dynlen(l1ddcListOfBoards);i>0;i--)
+  {
+   addSymbol(myModuleName(),myPanelName(),\"objects/sca/layerHistogramPart.pnl\",\"HistoPart_\"+l1ddcListOfBoards[i]+\"_\"+\"GBTX_L1DDC\",makeDynString(\"$board:\"+l1ddcListOfBoards[i],\"$mode:\"+\"GBTX_L1DDC\"),x,y,0,1,1);
+   x=x-110;
+   hist1.text(\"GBTX\");
+  }
+  
+  x=1200;
+  y=y+80;
+  for(int i=dynlen(l1ddcListOfBoards);i>0;i--)
+  {
+   addSymbol(myModuleName(),myPanelName(),\"objects/sca/layerHistogramPart.pnl\",\"HistoPart_\"+l1ddcListOfBoards[i]+\"_\"+\"SCA\",makeDynString(\"$board:\"+l1ddcListOfBoards[i],\"$mode:\"+\"SCA\"),x,y,0,1,1);
+   x=x-110;
+   hist2.text(\"SCA\");
+  }  
+  
+  x=1200;
+  y=y+80;
+  for(int i=dynlen(l1ddcListOfBoards);i>0;i--)
+  {
+   addSymbol(myModuleName(),myPanelName(),\"objects/sca/layerHistogramPart.pnl\",\"HistoPart_\"+listOfItemsToHist[i]+\"_\"+\"FEAST_L1DDC\",makeDynString(\"$board:\"+l1ddcListOfBoards[i],\"$mode:\"+\"FEAST_L1DDC\"),x,y,0,1,1);
+   x=x-110;
+   hist3.text(\"FEAST\");
+  }
+  
+  hist3.visible(1);
+  FRAME3.visible(1);
+  boardText.position(6,y+80);
+  
   }
     
  }
@@ -249,7 +308,7 @@ LANG:1 31 Sans Serif,-1,12,5,50,0,0,0,0,0
 0 1
 LANG:1 0 
 2 8
-"PRIMITIVE_TEXT4"
+"boardText"
 ""
 1 6 285 E E E 1 E 1 E N "white" E N "_Window" E E
  E E
@@ -362,11 +421,7 @@ LANG:1 0
 E E
 0 0 0 0 0
 1
-"main()
-{
-  this.itemEnabled(1,0);
-}" 0
- "main(mapping event)
+E "main(mapping event)
 {
  
   updateHisto();

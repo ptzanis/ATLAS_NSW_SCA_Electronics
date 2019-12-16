@@ -680,8 +680,6 @@ E
   voltBox_STG.appendItem(\"/ai/vmmPdo5\");
   voltBox_STG.appendItem(\"/ai/vmmPdo6\");
   voltBox_STG.appendItem(\"/ai/vmmPdo7\");  
-  voltBox_STG.appendItem(\"/ai/ntcTemperature1\");
-  voltBox_STG.appendItem(\"/ai/ntcTemperature2\");
   voltBox_STG.appendItem(\"/ai/internalTemperature\");
 
   tempBox_STG.appendItem(\"/ai/vmmPdo0\");
@@ -692,8 +690,6 @@ E
   tempBox_STG.appendItem(\"/ai/vmmPdo5\");
   tempBox_STG.appendItem(\"/ai/vmmPdo6\");
   tempBox_STG.appendItem(\"/ai/vmmPdo7\");  
-  tempBox_STG.appendItem(\"/ai/ntcTemperature1\");
-  tempBox_STG.appendItem(\"/ai/ntcTemperature2\");
   tempBox_STG.appendItem(\"/ai/internalTemperature\");
      
   } 
@@ -704,13 +700,11 @@ E
   voltBox_STG.appendItem(\"/ai/vmmPdo0\");
   voltBox_STG.appendItem(\"/ai/vmmPdo1\");
   voltBox_STG.appendItem(\"/ai/vmmPdo2\"); 
-  voltBox_STG.appendItem(\"/ai/ntcTemperature\");
   voltBox_STG.appendItem(\"/ai/internalTemperature\");
 
   tempBox_STG.appendItem(\"/ai/vmmPdo0\");
   tempBox_STG.appendItem(\"/ai/vmmPdo1\");
   tempBox_STG.appendItem(\"/ai/vmmPdo2\");
-  tempBox_STG.appendItem(\"/ai/ntcTemperature\");
   tempBox_STG.appendItem(\"/ai/internalTemperature\");
   
   } 

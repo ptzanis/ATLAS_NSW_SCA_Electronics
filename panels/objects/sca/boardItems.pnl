@@ -38,8 +38,7 @@ void updateTable()
   dyn_string aiChannels=dpNames(channel+\"/ai/*\");
   
   double value;
-  int lenBytes;
-  
+
   itemsTable.deleteAllLines();
   
   
@@ -47,8 +46,8 @@ void updateTable()
   for(int i=1;i<=dynlen(aiChannels);i++)
   {
     dpGet(aiChannels[i]+\".value\",value);
-    lenBytes=strlen(channel);    
-    strreplace(aiChannels[i],getSystemName()+channel+\"/ai/\",\"\");
+    strreplace(aiChannels[i],channel+\"/ai/\",\"\");
+
     
     itemsTable.appendLine(\"Item\",aiChannels[i],\"Value\",value);
   }

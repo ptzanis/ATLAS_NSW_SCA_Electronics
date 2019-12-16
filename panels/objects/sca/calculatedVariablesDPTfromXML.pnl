@@ -1186,11 +1186,20 @@ main(mapping event)
   addressActive[\"SpiSlave\"] = \"\";
   addressActive[\"I2cMaster\"] = \"\";
   addressActive[\"I2cSlave\"] = \"\";
-
+    
+  mapping connectionSettings1;
+  fwSca_parseConfig(filePath.text(),TRUE, TRUE, TRUE,addressActive,connectionSettings1);
+    
   
-  fwSca_parseConfig(filePath.text(),TRUE, TRUE, TRUE,addressActive);
+//   mapping connectionSettings1;
+//   fwSca_parseConfig(\"/home/bb5user/Documents/ATLNSWELTX/config/sector_A12_Simulation_MMG_BB5_1.xml\",TRUE, TRUE, TRUE,addressActive,connectionSettings1);
   
-  
+//   mapping connectionSettings2;
+//   connectionSettings2[CONNECTIONSETTING_KEY_DRIVER_NUMBER] = 66;
+//   connectionSettings2[CONNECTIONSETTING_KEY_SERVER_NAME] = \"SCA_OPC_UA_SERVER2\";
+//   connectionSettings2[CONNECTIONSETTING_KEY_SUBSCRIPTION_NAME] = \"SCA_OPC_UA_SUBSCRIPTION2\";
+//   fwSca_parseConfig(\"/home/bb5user/Documents/ATLNSWELTX/config/sector_A12_Simulation_MMG_BB5_2.xml\",TRUE, TRUE, TRUE,addressActive,connectionSettings2);
+          
 }" 0
  E E E
 0

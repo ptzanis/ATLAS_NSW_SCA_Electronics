@@ -287,7 +287,7 @@ auto3.visible(1);
 autoSTG.visible(0);
 autoPFEB.visible(0);
 autoSFEB.visible(0);
-
+autoL1DDC.visible(0);
 
 
 
@@ -329,6 +329,7 @@ auto3.visible(0);
 autoSTG.visible(1);
 autoPFEB.visible(1);
 autoSFEB.visible(1);
+autoL1DDC.visible(1);
 
 
 
@@ -1372,33 +1373,28 @@ LANG:1 13 Auto Set sFEB
      for(int i=1;i<=dynlen(boards);i++)
   {
     
+        //SFEB_L1Q1_IPL
+        //0123456789101112
+    
         layerPosition=substr(boards[i],6,1);
         pcbPosition=substr(boards[i],8,1);
+        sidePosition=substr(boards[i],10,2);
+        leftRightPosition=substr(boards[i],12,1);
+        if(leftRightPosition==\"L\")
+          leftRightPosition=\"Left\";
+        if(leftRightPosition==\"R\")
+          leftRightPosition=\"Right\";  
+        
                 
-        if(layerPosition==\"1\")
+        if(layerPosition==\"1\" || layerPosition==\"3\")
         {
-          leftRightPosition=\"Right\";
-          sidePosition=\"IP\";
           upDown=\"Down\";
         }
-        if(layerPosition==\"2\")
+        if(layerPosition==\"2\" || layerPosition==\"4\")
         {
-          leftRightPosition=\"Left\";
-          sidePosition=\"IP\";
           upDown=\"Up\";
         }          
-        if(layerPosition==\"3\")
-        {
-          leftRightPosition=\"Right\";
-          sidePosition=\"IP\";
-          upDown=\"Down\";
-        }          
-        if(layerPosition==\"4\")
-        {
-          leftRightPosition=\"Left\";
-          sidePosition=\"IP\";
-          upDown=\"Up\";
-        }          
+      
 
         
   dpSet(detector+\"-S1.Side\"+sidePosition+\"PCB\"+pcbPosition+\"Layer\"+layerPosition+leftRightPosition+upDown+\".Channel\",boards[i]);
@@ -1476,38 +1472,100 @@ LANG:1 13 Auto Set pFeb
      for(int i=1;i<=dynlen(boards);i++)
   {
     
+        //SFEB_L1Q1_IPL
+        //0123456789101112
+    
         layerPosition=substr(boards[i],6,1);
         pcbPosition=substr(boards[i],8,1);
+        sidePosition=substr(boards[i],10,2);
+        leftRightPosition=substr(boards[i],12,1);
+        if(leftRightPosition==\"L\")
+          leftRightPosition=\"Left\";
+        if(leftRightPosition==\"R\")
+          leftRightPosition=\"Right\";  
+        
                 
-        if(layerPosition==\"1\")
+        if(layerPosition==\"1\" || layerPosition==\"3\")
         {
-          leftRightPosition=\"Left\";
-          sidePosition=\"IP\";
-          upDown=\"Up\";
+          upDown=\"Down\";
         }
-        if(layerPosition==\"2\")
+        if(layerPosition==\"2\" || layerPosition==\"4\")
         {
-          leftRightPosition=\"Right\";
-          sidePosition=\"IP\";
-          upDown=\"Down\";
-        }          
-        if(layerPosition==\"3\")
-        {
-          leftRightPosition=\"Left\";
-          sidePosition=\"IP\";
           upDown=\"Up\";
         }          
-        if(layerPosition==\"4\")
-        {
-          leftRightPosition=\"Right\";
-          sidePosition=\"IP\";
-          upDown=\"Down\";
-        }          
+      
 
         
   dpSet(detector+\"-S1.Side\"+sidePosition+\"PCB\"+pcbPosition+\"Layer\"+layerPosition+leftRightPosition+upDown+\".Channel\",boards[i]);
   dpSet(detector+\"-S1.Side\"+sidePosition+\"PCB\"+pcbPosition+\"Layer\"+layerPosition+leftRightPosition+upDown+\".Type\",\"PFEB\");  
   dpSet(detector+\"-S1.Side\"+sidePosition+\"PCB\"+pcbPosition+\"Layer\"+layerPosition+leftRightPosition+upDown+\".Visibility\",1);   
+
+    }
+  
+  DebugTN(\"Auto Set PFEB ready!\");
+   
+  
+}" 0
+ E E E
+13 46
+"autoL1DDC"
+""
+1 681 684 E E E 1 E 0 E N "_ButtonText" E N "_Button" E E
+ E E
+46 0 0 0 0 0
+E E E
+8
+1
+LANG:1 0 
+
+1
+"layoutAlignment" "AlignNone"
+1
+LANG:1 27 Utopia,-1,12,5,75,0,0,0,0,0
+0  679 667 795 700
+
+T 
+1
+LANG:1 14 Auto Set L1DDC
+"main(mapping event)
+{
+  dyn_string detectorAllboards,boards;
+  int boardCounter=1;
+  string detector=\"STG\";
+  detectorAllboards=dpNames(\"*\",\"fwScaSCA\");
+  
+  
+  
+  for(int i=1;i<=dynlen(detectorAllboards);i++)
+  {  
+    strreplace(detectorAllboards[i],getSystemName(),\"\");
+    if(patternMatch(\"*L1DDC*\",detectorAllboards[i]))
+       boards[boardCounter++]=detectorAllboards[i];
+      
+  }
+
+  
+  string layerPosition,pcbPosition,sidePosition,leftRightPosition;
+  
+     for(int i=1;i<=dynlen(boards);i++)
+  {
+    
+        //L1DDC_L1Q1_IPL
+        //012345678910111213
+    
+        layerPosition=substr(boards[i],7,1);
+        pcbPosition=substr(boards[i],9,1);
+        sidePosition=substr(boards[i],11,2);
+        leftRightPosition=substr(boards[i],13,1);
+        if(leftRightPosition==\"L\")
+          leftRightPosition=\"Left\";
+        if(leftRightPosition==\"R\")
+          leftRightPosition=\"Right\";  
+        
+        
+  dpSet(detector+\"-S1.L1Side\"+sidePosition+\"PCB\"+pcbPosition+\"Layer\"+layerPosition+leftRightPosition+\".Channel\",boards[i]);
+  dpSet(detector+\"-S1.L1Side\"+sidePosition+\"PCB\"+pcbPosition+\"Layer\"+layerPosition+leftRightPosition+\".Type\",\"L1DDC\");  
+  dpSet(detector+\"-S1.L1Side\"+sidePosition+\"PCB\"+pcbPosition+\"Layer\"+layerPosition+leftRightPosition+\".Visibility\",1);   
 
     }
   
