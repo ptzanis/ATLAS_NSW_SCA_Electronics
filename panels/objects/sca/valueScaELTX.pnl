@@ -129,8 +129,8 @@ PANEL,-1 -1 149 48 N "FwAtlasBg" 10
  
  string voltageParameter, temperatureParameter; 
  dpGet(detector+\"-S1-Settings.\"+type+\".Voltage\",voltageParameter);
- dpConnectUserData(\"updateStatus\",shapeStatus,channel+\".online\",channel+voltageParameter+\".value\",\"_SCA_OPC_UA_SERVER.State.ConnState\"); 
- 
+ if(detector==\"MMG\") dpConnectUserData(\"updateStatus\",shapeStatus,channel+\".online\",channel+voltageParameter+\".value\",\"_SCA_OPC_UA_SERVER.State.ConnState\"); 
+ if(detector==\"STG\") dpConnectUserData(\"updateStatus\",shapeStatus,channel+\".online\",channel+voltageParameter+\".value\",\"_SCA_OPC_UA_SERVER2.State.ConnState\"); 
  
    if(mode==\"SCA\")
  {
