@@ -111,6 +111,7 @@ LANG:1 2 IP
  //Histo Per Layer 
    removeSymbol(myModuleName(),myPanelName(),\"HistoHO\");
    addSymbol(myModuleName(),myPanelName(),\"objects/sca/layerHistogram_STG.pnl\",\"HistoIP\",makeDynString(\"$xRef:\"+\"0\",\"$yRef:\"+\"500\",\"$side:\"+\"IP\"),0,500,0,1,1);
+   
  
 }" 0
  E E E
@@ -309,7 +310,7 @@ LANG:1 2 HO
 
  //Histo Per Layer 
    removeSymbol(myModuleName(),myPanelName(),\"HistoIP\");
-   addSymbol(myModuleName(),myPanelName(),\"objects/sca/layerHistogram_STG.pnl\",\"HistoHO\",makeDynString(\"$xRef:\"+\"0\",\"$yRef:\"+\"500\",\"$side:\"+\"H0\"),0,500,0,1,1);
+   addSymbol(myModuleName(),myPanelName(),\"objects/sca/layerHistogram_STG.pnl\",\"HistoHO\",makeDynString(\"$xRef:\"+\"0\",\"$yRef:\"+\"500\",\"$side:\"+\"HO\"),0,500,0,1,1);
  
   
 }" 0
