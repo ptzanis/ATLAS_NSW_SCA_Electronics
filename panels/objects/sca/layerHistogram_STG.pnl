@@ -139,7 +139,7 @@ void updateHisto()
   int y=yRef+50;
   for(int i=dynlen(l1ddcListOfBoards);i>0;i--)
   {
-   addSymbol(myModuleName(),myPanelName(),\"objects/sca/layerHistogramPart.pnl\",\"HistoPart_\"+l1ddcListOfBoards[i]+\"_\"+\"GBTX_L1DDC\",makeDynString(\"$board:\"+l1ddcListOfBoards[i],\"$mode:\"+\"GBTX_L1DDC\"),x,y,0,1,1);
+   addSymbol(myModuleName(),myPanelName(),\"objects/sca/layerHistogramPart_STG.pnl\",\"HistoPart_\"+l1ddcListOfBoards[i]+\"_\"+\"GBTX_L1DDC\",makeDynString(\"$board:\"+l1ddcListOfBoards[i],\"$mode:\"+\"GBTX_L1DDC\"),x,y,0,1,1);
    x=x-110;
    hist1.text(\"GBTX\");
   }
@@ -148,7 +148,7 @@ void updateHisto()
   y=y+80;
   for(int i=dynlen(l1ddcListOfBoards);i>0;i--)
   {
-   addSymbol(myModuleName(),myPanelName(),\"objects/sca/layerHistogramPart.pnl\",\"HistoPart_\"+l1ddcListOfBoards[i]+\"_\"+\"SCA\",makeDynString(\"$board:\"+l1ddcListOfBoards[i],\"$mode:\"+\"SCA\"),x,y,0,1,1);
+   addSymbol(myModuleName(),myPanelName(),\"objects/sca/layerHistogramPart_STG.pnl\",\"HistoPart_\"+l1ddcListOfBoards[i]+\"_\"+\"SCA\",makeDynString(\"$board:\"+l1ddcListOfBoards[i],\"$mode:\"+\"SCA\"),x,y,0,1,1);
    x=x-110;
    hist2.text(\"SCA\");
   }  
@@ -157,7 +157,7 @@ void updateHisto()
   y=y+80;
   for(int i=dynlen(l1ddcListOfBoards);i>0;i--)
   {
-   addSymbol(myModuleName(),myPanelName(),\"objects/sca/layerHistogramPart.pnl\",\"HistoPart_\"+listOfItemsToHist[i]+\"_\"+\"FEAST_L1DDC\",makeDynString(\"$board:\"+l1ddcListOfBoards[i],\"$mode:\"+\"FEAST_L1DDC\"),x,y,0,1,1);
+   addSymbol(myModuleName(),myPanelName(),\"objects/sca/layerHistogramPart_STG.pnl\",\"HistoPart_\"+listOfItemsToHist[i]+\"_\"+\"FEAST_L1DDC\",makeDynString(\"$board:\"+l1ddcListOfBoards[i],\"$mode:\"+\"FEAST_L1DDC\"),x,y,0,1,1);
    x=x-110;
    hist3.text(\"FEAST\");
   }

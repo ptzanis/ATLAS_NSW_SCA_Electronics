@@ -93,6 +93,24 @@ LANG:1 33 MS Shell Dlg,-1,11,5,50,0,0,0,0,0
    dpConnectUserData(\"updateHisto\",itemCounter,board+\"/ai/internalTemperature.temperature\");   
   }
  
+   if(mode==\"FEAST_L1DDC\")
+  {  
+   dpConnectUserData(\"updateHisto\",itemCounter,board+\"/ai/1V5_PTAT.temperature\");   
+   itemCounter=itemCounter+1;  
+   dpConnectUserData(\"updateHisto\",itemCounter,board+\"/ai/2V5_PTAT.temperature\");   
+   itemCounter=itemCounter+1;        
+  }
+ 
+   if(mode==\"GBTX_L1DDC\")
+  {  
+   dpConnectUserData(\"updateHisto\",itemCounter,board+\"/ai/GBTX1_TEMP.temperature\");   
+   itemCounter=itemCounter+1;  
+   dpConnectUserData(\"updateHisto\",itemCounter,board+\"/ai/GBTX2_TEMP.temperature\");   
+   itemCounter=itemCounter+1;    
+   
+  }
+ 
+ 
  /*
   if(mode==\"BOARD1\")
  {
@@ -125,6 +143,11 @@ void updateHisto( int itemNum, string dpSource, float value)
     bartrendDisplay.xRange=8;
   if(mode==\"SCA\")
     bartrendDisplay.xRange=1;
+  if(mode==\"FEAST_L1DDC\")
+    bartrendDisplay.xRange=2;  
+  if(mode==\"GBTX_L1DDC\")
+    bartrendDisplay.xRange=2;  
+  
   /*
   if(mode==\"BOARD1\")
     bartrendDisplay.xRange=1;
