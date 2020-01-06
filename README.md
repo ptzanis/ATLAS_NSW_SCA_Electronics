@@ -1,1 +1,1 @@
-First time you initialize the program do DPT creation and then restart program!
+DCS Software to monitor various voltage/temperature parameters of NSW(Micromegas+sTGC) eltx boards
