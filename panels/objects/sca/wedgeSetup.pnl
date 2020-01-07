@@ -77,7 +77,10 @@ string IPorHO,layer,detector;
   
    addSymbol(myModuleName(),myPanelName(),\"objects/sca/layerOfSectorELTX\"+detector+\".pnl\",\"eltx\"+IPorHO+\"L\"+layer+detector,makeDynString(\"$layer:\"+layer,\"$sector:\"+1,\"$IPorHO:\"+IPorHO,\"$x:\"+170,\"$y:\"+200,\"$detector:\"+detector,\"$configurationMode:\"+TRUE,\"$PadRouterException:\"+\"\"),170,200,0,1,1); 
 
- 
+   
+//    Rim Crate
+  if(detector==\"STG\")   
+     addSymbol(myModuleName(),myPanelName(),\"objects/sca/RIM.pnl\",\"RimPanel\",makeDynString(\"$xRef:\"+\"630\",\"$yRef:\"+\"200\",\"$configurationMode:\"+TRUE),630,200,0,1,1);
  }" 0
  3
 "CBRef" "1"

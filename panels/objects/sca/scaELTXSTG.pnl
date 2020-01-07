@@ -77,6 +77,9 @@ LANG:1 2 IP
    
     for(int layer=1;layer<=4;layer++)
     {
+       removeSymbol(myModuleName(),myPanelName(),\"ParamRouter_\"+\"Side\"+\"HO\"+\"Layer\"+layer);   
+     
+     
         for(int pcb=1;pcb<=6;pcb++)
    {
 
@@ -93,7 +96,8 @@ LANG:1 2 IP
    
        removeSymbol(myModuleName(),myPanelName(),\"eltx\"+\"HO\"+\"L\"+layer+\"STG\");                
   }
-
+       removeSymbol(myModuleName(),myPanelName(),\"ParamRim\");   
+       removeSymbol(myModuleName(),myPanelName(),\"ParamPad\");   
  }
  hoButton.enabled(TRUE); 
  
@@ -112,7 +116,8 @@ LANG:1 2 IP
    removeSymbol(myModuleName(),myPanelName(),\"HistoHO\");
    addSymbol(myModuleName(),myPanelName(),\"objects/sca/layerHistogram_STG.pnl\",\"HistoIP\",makeDynString(\"$xRef:\"+\"0\",\"$yRef:\"+\"500\",\"$side:\"+\"IP\"),0,500,0,1,1);
    
- 
+    
+   addSymbol(myModuleName(),myPanelName(),\"objects/sca/RIM.pnl\",\"RimPanel\",makeDynString(\"$xRef:\"+\"1400\",\"$yRef:\"+\"500\",\"$configurationMode:\"+FALSE),1400,500,0,1,1);
 }" 0
  E E E
 30 18
@@ -283,6 +288,7 @@ LANG:1 2 HO
    
     for(int layer=1;layer<=4;layer++)
     {
+            removeSymbol(myModuleName(),myPanelName(),\"ParamRouter_\"+\"Side\"+\"IP\"+\"Layer\"+layer);   
         for(int pcb=1;pcb<=6;pcb++)
    {
      if(pcb==1)
@@ -296,7 +302,8 @@ LANG:1 2 HO
    
        removeSymbol(myModuleName(),myPanelName(),\"eltx\"+\"IP\"+\"L\"+layer+\"STG\");                
   }
-
+       removeSymbol(myModuleName(),myPanelName(),\"ParamRim\");   
+       removeSymbol(myModuleName(),myPanelName(),\"ParamPad\");  
  }
  ipButton.enabled(TRUE); 
  
@@ -311,6 +318,8 @@ LANG:1 2 HO
  //Histo Per Layer 
    removeSymbol(myModuleName(),myPanelName(),\"HistoIP\");
    addSymbol(myModuleName(),myPanelName(),\"objects/sca/layerHistogram_STG.pnl\",\"HistoHO\",makeDynString(\"$xRef:\"+\"0\",\"$yRef:\"+\"500\",\"$side:\"+\"HO\"),0,500,0,1,1);
+   
+    addSymbol(myModuleName(),myPanelName(),\"objects/sca/RIM.pnl\",\"RimPanel\",makeDynString(\"$xRef:\"+\"1400\",\"$yRef:\"+\"500\",\"$configurationMode:\"+FALSE),1400,500,0,1,1);  
  
   
 }" 0

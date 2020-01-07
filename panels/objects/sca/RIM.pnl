@@ -1,16 +1,41 @@
 V 14
 1
 LANG:1 0 
-PANEL,-1 -1 155 167 N "FwAtlasBg" 2
+PANEL,-1 -1 219 338 N "FwAtlasBg" 3
 "$configurationMode"
-"$detector"
+"$xRef"
+"$yRef"
 "main()
 {
 //       addSymbol(myModuleName(),myPanelName(),\"objects/sca/valueScaELTX.pnl\",\"RIM_L1DDC\",makeDynString(\"$rightOrLeft:\"+\"\",\"$layer:\"+\"\",\"$sector:\"+\"\",\"$IPorHO:\"+\"\",\"$PCB:\"+\"\",\"$UpDown:\"+\"\",\"$detector:\"+detector,\"$L1Exception:\"+\"\",\"$configurationMode:\"+configurationMode,\"$PadRouterException:\"+\"\",\"$RimL1DDCException:\"+\"On\"),x,y,0,1,1);    
-}" 0
+
+
+  int xPrevious=$xRef; //55
+  int yPrevious=$yRef;  //10 
+  
+  
+    yPrevious=yPrevious+12;   
+    
+    for(int i=1;i<=4;i++)
+    {
+      
+    addSymbol(myModuleName(),myPanelName(),\"objects/sca/valueScaELTX.pnl\",\"ParamRouter_\"+\"Side\"+\"IP\"+\"Layer\"+i,makeDynString(\"$rightOrLeft:\"+\"Right\",\"$layer:\"+i,\"$sector:\"+\"1\",\"$IPorHO:\"+\"IP\",\"$PCB:\"+\"\",\"$UpDown:\"+\"\",\"$detector:\"+\"STG\",\"$L1Exception:\"+\"\",\"$configurationMode:\"+configurationMode,\"$PadRouterException:\"+\"On\",\"$RimL1DDCException:\"+\"\",\"$PadTriggerException:\"+\"\"),xPrevious,yPrevious,0,1,1);
+    yPrevious=yPrevious+29;   
+    addSymbol(myModuleName(),myPanelName(),\"objects/sca/valueScaELTX.pnl\",\"ParamRouter_\"+\"Side\"+\"HO\"+\"Layer\"+i,makeDynString(\"$rightOrLeft:\"+\"Right\",\"$layer:\"+i,\"$sector:\"+\"1\",\"$IPorHO:\"+\"HO\",\"$PCB:\"+\"\",\"$UpDown:\"+\"\",\"$detector:\"+\"STG\",\"$L1Exception:\"+\"\",\"$configurationMode:\"+configurationMode,\"$PadRouterException:\"+\"On\",\"$RimL1DDCException:\"+\"\",\"$PadTriggerException:\"+\"\"),xPrevious,yPrevious,0,1,1);
+    yPrevious=yPrevious+29;  
+    }    
+    
+   
+    addSymbol(myModuleName(),myPanelName(),\"objects/sca/valueScaELTX.pnl\",\"ParamRim\",makeDynString(\"$rightOrLeft:\"+\"Right\",\"$layer:\"+\"\",\"$sector:\"+\"1\",\"$IPorHO:\"+\"IP\",\"$PCB:\"+\"\",\"$UpDown:\"+\"\",\"$detector:\"+\"STG\",\"$L1Exception:\"+\"\",\"$configurationMode:\"+configurationMode,\"$PadRouterException:\"+\"\",\"$RimL1DDCException:\"+\"On\",\"$PadTriggerException:\"+\"\"),xPrevious,yPrevious,0,1,1);
+    yPrevious=yPrevious+29;
+    
+    addSymbol(myModuleName(),myPanelName(),\"objects/sca/valueScaELTX.pnl\",\"ParamPad\",makeDynString(\"$rightOrLeft:\"+\"Right\",\"$layer:\"+\"\",\"$sector:\"+\"1\",\"$IPorHO:\"+\"IP\",\"$PCB:\"+\"\",\"$UpDown:\"+\"\",\"$detector:\"+\"STG\",\"$L1Exception:\"+\"\",\"$configurationMode:\"+configurationMode,\"$PadRouterException:\"+\"\",\"$RimL1DDCException:\"+\"\",\"$PadTriggerException:\"+\"On\"),xPrevious,yPrevious,0,1,1);
+    yPrevious=yPrevious+29;
+  
+  }" 0
  E E E E 1 -1 -1 0  31 15
 ""0  1
-E "string detector=$detector;
+E "// string detector=$detector;
 bool configurationMode=$configurationMode;" 0
  3
 "CBRef" "1"
@@ -37,11 +62,551 @@ LANG:1 0
 "layoutAlignment" "AlignNone"
 "dashclr"N "_Transparent"
 "antiAliased" "0"
-E E 0 1 3 2 1 E 0.6415094339622641 0 1 -9.886792452830187 -14 0 E 31 15 244 171
+E E 0 1 3 2 1 E 0.8726415094339622 0 2.07741935483871 -27.05188679245283 -28.16129032258064 0 E 31 15 244 171
 1
-LANG:1 31 Sans Serif,-1,12,5,50,0,0,0,0,0
+LANG:1 27 Utopia,-1,15,5,75,0,0,0,0,0
 0 1
-LANG:1 8 Rim Eltx
+LANG:1 14 Rim Crate Eltx
+6 1
+"RECTANGLE1"
+""
+1 31 39 E E E 1 E 1 E N {0,0,0} E N "FwAtlasFg" E E
+ E E
+1 0 0 0 0 0
+E E E
+0
+1
+LANG:1 0 
+
+3
+"layoutAlignment" "AlignNone"
+"dashclr"N "_Transparent"
+"antiAliased" "0"
+E E 0 1 3 2 1 E 0.4325068870523416 0 0.1070110701107011 0.5922865013774086 20.82656826568266 1 E 31 39 394 310
+7 19
+"PCB7_status"
+""
+1 450 506 E E E 1 E 1 E N {0,0,0} E N {255,255,255} E E
+ E E
+19 0 0 0 0 0
+E E E
+0
+1
+LANG:1 0 
+
+3
+"layoutAlignment" "AlignNone"
+"dashclr"N "_Transparent"
+"antiAliased" "1"
+E E 0 1 3 2 1 E 1 0 1 -418 -466 1 E 450 506 13 13
+2 20
+"PRIMITIVE_TEXT6"
+""
+1 26 26.99999999999995 E E E 1 E 1 E N "_WindowText" E N "_Window" E E
+ E E
+20 0 0 0 0 0
+E E E
+0
+1
+LANG:1 0 
+
+4
+"layoutAlignment" "AlignNone"
+"dashclr"N "_Transparent"
+"antiAliased" "0"
+"transformable" "0"
+E E 2 1 3 2 1 E U  0 E 26 26.99999999999995 40 52
+0 2 2 "0s" 0 0 0 192 0 0  26 26.99999999999995 1
+1
+LANG:1 27 Utopia,-1,21,5,75,0,0,0,0,0
+0 1
+LANG:1 1 1
+6 43
+"RECTANGLE23"
+""
+1 31 39 E E E 1 E 1 E N {0,0,0} E N "FwAtlasFg" E E
+ E E
+43 0 0 0 0 0
+E E E
+0
+1
+LANG:1 0 
+
+3
+"layoutAlignment" "AlignNone"
+"dashclr"N "_Transparent"
+"antiAliased" "0"
+E E 0 1 3 2 1 E 0.4325068870523416 0 0.1070110701107011 0.5922865013774086 49.82656826568265 1 E 31 39 394 310
+7 44
+"ELLIPSE8"
+""
+1 450 506 E E E 1 E 1 E N {0,0,0} E N {255,255,255} E E
+ E E
+44 0 0 0 0 0
+E E E
+0
+1
+LANG:1 0 
+
+3
+"layoutAlignment" "AlignNone"
+"dashclr"N "_Transparent"
+"antiAliased" "1"
+E E 0 1 3 2 1 E 1 0 1 -418 -437 1 E 450 506 13 13
+2 45
+"PRIMITIVE_TEXT14"
+""
+1 26 55.99999999999994 E E E 1 E 1 E N "_WindowText" E N "_Window" E E
+ E E
+45 0 0 0 0 0
+E E E
+0
+1
+LANG:1 0 
+
+4
+"layoutAlignment" "AlignNone"
+"dashclr"N "_Transparent"
+"antiAliased" "0"
+"transformable" "0"
+E E 2 1 3 2 1 E U  0 E 26 55.99999999999994 40 81
+0 2 2 "0s" 0 0 0 192 0 0  26 55.99999999999994 1
+1
+LANG:1 27 Utopia,-1,21,5,75,0,0,0,0,0
+0 1
+LANG:1 1 2
+6 46
+"RECTANGLE24"
+""
+1 31 39 E E E 1 E 1 E N {0,0,0} E N "FwAtlasFg" E E
+ E E
+46 0 0 0 0 0
+E E E
+0
+1
+LANG:1 0 
+
+3
+"layoutAlignment" "AlignNone"
+"dashclr"N "_Transparent"
+"antiAliased" "0"
+E E 0 1 3 2 1 E 0.4325068870523416 0 0.1070110701107011 0.5922865013774086 78.82656826568265 1 E 31 39 394 310
+7 47
+"ELLIPSE9"
+""
+1 450 506 E E E 1 E 1 E N {0,0,0} E N {255,255,255} E E
+ E E
+47 0 0 0 0 0
+E E E
+0
+1
+LANG:1 0 
+
+3
+"layoutAlignment" "AlignNone"
+"dashclr"N "_Transparent"
+"antiAliased" "1"
+E E 0 1 3 2 1 E 1 0 1 -418 -408 1 E 450 506 13 13
+2 48
+"PRIMITIVE_TEXT15"
+""
+1 26 84.99999999999994 E E E 1 E 1 E N "_WindowText" E N "_Window" E E
+ E E
+48 0 0 0 0 0
+E E E
+0
+1
+LANG:1 0 
+
+4
+"layoutAlignment" "AlignNone"
+"dashclr"N "_Transparent"
+"antiAliased" "0"
+"transformable" "0"
+E E 2 1 3 2 1 E U  0 E 26 84.99999999999994 40 110
+0 2 2 "0s" 0 0 0 192 0 0  26 84.99999999999994 1
+1
+LANG:1 27 Utopia,-1,21,5,75,0,0,0,0,0
+0 1
+LANG:1 1 3
+6 49
+"RECTANGLE25"
+""
+1 31 39 E E E 1 E 1 E N {0,0,0} E N "FwAtlasFg" E E
+ E E
+49 0 0 0 0 0
+E E E
+0
+1
+LANG:1 0 
+
+3
+"layoutAlignment" "AlignNone"
+"dashclr"N "_Transparent"
+"antiAliased" "0"
+E E 0 1 3 2 1 E 0.4325068870523416 0 0.1070110701107011 0.5922865013774086 107.8265682656827 1 E 31 39 394 310
+7 50
+"ELLIPSE10"
+""
+1 450 506 E E E 1 E 1 E N {0,0,0} E N {255,255,255} E E
+ E E
+50 0 0 0 0 0
+E E E
+0
+1
+LANG:1 0 
+
+3
+"layoutAlignment" "AlignNone"
+"dashclr"N "_Transparent"
+"antiAliased" "1"
+E E 0 1 3 2 1 E 1 0 1 -418 -379 1 E 450 506 13 13
+2 51
+"PRIMITIVE_TEXT16"
+""
+1 26 113.9999999999999 E E E 1 E 1 E N "_WindowText" E N "_Window" E E
+ E E
+51 0 0 0 0 0
+E E E
+0
+1
+LANG:1 0 
+
+4
+"layoutAlignment" "AlignNone"
+"dashclr"N "_Transparent"
+"antiAliased" "0"
+"transformable" "0"
+E E 2 1 3 2 1 E U  0 E 26 113.9999999999999 40 139
+0 2 2 "0s" 0 0 0 192 0 0  26 113.9999999999999 1
+1
+LANG:1 27 Utopia,-1,21,5,75,0,0,0,0,0
+0 1
+LANG:1 1 4
+6 52
+"RECTANGLE26"
+""
+1 31 39 E E E 1 E 1 E N {0,0,0} E N "FwAtlasFg" E E
+ E E
+52 0 0 0 0 0
+E E E
+0
+1
+LANG:1 0 
+
+3
+"layoutAlignment" "AlignNone"
+"dashclr"N "_Transparent"
+"antiAliased" "0"
+E E 0 1 3 2 1 E 0.4325068870523416 0 0.1070110701107011 0.5922865013774086 136.8265682656827 1 E 31 39 394 310
+7 53
+"ELLIPSE11"
+""
+1 450 506 E E E 1 E 1 E N {0,0,0} E N {255,255,255} E E
+ E E
+53 0 0 0 0 0
+E E E
+0
+1
+LANG:1 0 
+
+3
+"layoutAlignment" "AlignNone"
+"dashclr"N "_Transparent"
+"antiAliased" "1"
+E E 0 1 3 2 1 E 1 0 1 -418 -350 1 E 450 506 13 13
+2 54
+"PRIMITIVE_TEXT17"
+""
+1 27 143 E E E 1 E 1 E N "_WindowText" E N "_Window" E E
+ E E
+54 0 0 0 0 0
+E E E
+0
+1
+LANG:1 0 
+
+4
+"layoutAlignment" "AlignNone"
+"dashclr"N "_Transparent"
+"antiAliased" "0"
+"transformable" "0"
+E E 2 1 3 2 1 E U  0 E 27 143 41 168
+0 2 2 "0s" 0 0 0 192 0 0  27 143 1
+1
+LANG:1 27 Utopia,-1,21,5,75,0,0,0,0,0
+0 1
+LANG:1 1 5
+6 55
+"RECTANGLE27"
+""
+1 31 39 E E E 1 E 1 E N {0,0,0} E N "FwAtlasFg" E E
+ E E
+55 0 0 0 0 0
+E E E
+0
+1
+LANG:1 0 
+
+3
+"layoutAlignment" "AlignNone"
+"dashclr"N "_Transparent"
+"antiAliased" "0"
+E E 0 1 3 2 1 E 0.4325068870523416 0 0.1070110701107011 0.5922865013774086 165.8265682656827 1 E 31 39 394 310
+7 56
+"ELLIPSE12"
+""
+1 450 506 E E E 1 E 1 E N {0,0,0} E N {255,255,255} E E
+ E E
+56 0 0 0 0 0
+E E E
+0
+1
+LANG:1 0 
+
+3
+"layoutAlignment" "AlignNone"
+"dashclr"N "_Transparent"
+"antiAliased" "1"
+E E 0 1 3 2 1 E 1 0 1 -418 -321 1 E 450 506 13 13
+2 57
+"PRIMITIVE_TEXT18"
+""
+1 26 171.9999999999999 E E E 1 E 1 E N "_WindowText" E N "_Window" E E
+ E E
+57 0 0 0 0 0
+E E E
+0
+1
+LANG:1 0 
+
+4
+"layoutAlignment" "AlignNone"
+"dashclr"N "_Transparent"
+"antiAliased" "0"
+"transformable" "0"
+E E 2 1 3 2 1 E U  0 E 26 171.9999999999999 40 197
+0 2 2 "0s" 0 0 0 192 0 0  26 171.9999999999999 1
+1
+LANG:1 27 Utopia,-1,21,5,75,0,0,0,0,0
+0 1
+LANG:1 1 6
+6 58
+"RECTANGLE28"
+""
+1 31 39 E E E 1 E 1 E N {0,0,0} E N "FwAtlasFg" E E
+ E E
+58 0 0 0 0 0
+E E E
+0
+1
+LANG:1 0 
+
+3
+"layoutAlignment" "AlignNone"
+"dashclr"N "_Transparent"
+"antiAliased" "0"
+E E 0 1 3 2 1 E 0.4325068870523416 0 0.1070110701107011 0.5922865013774086 194.8265682656827 1 E 31 39 394 310
+7 59
+"ELLIPSE13"
+""
+1 450 506 E E E 1 E 1 E N {0,0,0} E N {255,255,255} E E
+ E E
+59 0 0 0 0 0
+E E E
+0
+1
+LANG:1 0 
+
+3
+"layoutAlignment" "AlignNone"
+"dashclr"N "_Transparent"
+"antiAliased" "1"
+E E 0 1 3 2 1 E 1 0 1 -418 -292 1 E 450 506 13 13
+2 60
+"PRIMITIVE_TEXT19"
+""
+1 26 200.9999999999999 E E E 1 E 1 E N "_WindowText" E N "_Window" E E
+ E E
+60 0 0 0 0 0
+E E E
+0
+1
+LANG:1 0 
+
+4
+"layoutAlignment" "AlignNone"
+"dashclr"N "_Transparent"
+"antiAliased" "0"
+"transformable" "0"
+E E 2 1 3 2 1 E U  0 E 26 200.9999999999999 40 226
+0 2 2 "0s" 0 0 0 192 0 0  26 200.9999999999999 1
+1
+LANG:1 27 Utopia,-1,21,5,75,0,0,0,0,0
+0 1
+LANG:1 1 7
+6 61
+"RECTANGLE29"
+""
+1 31 39 E E E 1 E 1 E N {0,0,0} E N "FwAtlasFg" E E
+ E E
+61 0 0 0 0 0
+E E E
+0
+1
+LANG:1 0 
+
+3
+"layoutAlignment" "AlignNone"
+"dashclr"N "_Transparent"
+"antiAliased" "0"
+E E 0 1 3 2 1 E 0.4325068870523416 0 0.1070110701107011 0.5922865013774086 223.8265682656827 1 E 31 39 394 310
+7 62
+"ELLIPSE14"
+""
+1 450 506 E E E 1 E 1 E N {0,0,0} E N {255,255,255} E E
+ E E
+62 0 0 0 0 0
+E E E
+0
+1
+LANG:1 0 
+
+3
+"layoutAlignment" "AlignNone"
+"dashclr"N "_Transparent"
+"antiAliased" "1"
+E E 0 1 3 2 1 E 1 0 1 -418 -263 1 E 450 506 13 13
+2 63
+"PRIMITIVE_TEXT20"
+""
+1 26 229.9999999999999 E E E 1 E 1 E N "_WindowText" E N "_Window" E E
+ E E
+63 0 0 0 0 0
+E E E
+0
+1
+LANG:1 0 
+
+4
+"layoutAlignment" "AlignNone"
+"dashclr"N "_Transparent"
+"antiAliased" "0"
+"transformable" "0"
+E E 2 1 3 2 1 E U  0 E 26 229.9999999999999 40 255
+0 2 2 "0s" 0 0 0 192 0 0  26 229.9999999999999 1
+1
+LANG:1 27 Utopia,-1,21,5,75,0,0,0,0,0
+0 1
+LANG:1 1 8
+6 64
+"RECTANGLE30"
+""
+1 31 39 E E E 1 E 1 E N {0,0,0} E N "FwAtlasFg" E E
+ E E
+64 0 0 0 0 0
+E E E
+0
+1
+LANG:1 0 
+
+3
+"layoutAlignment" "AlignNone"
+"dashclr"N "_Transparent"
+"antiAliased" "0"
+E E 0 1 3 2 1 E 0.4325068870523416 0 0.1070110701107011 0.5922865013774086 252.8265682656827 1 E 31 39 394 310
+7 65
+"ELLIPSE15"
+""
+1 450 506 E E E 1 E 1 E N {0,0,0} E N {255,255,255} E E
+ E E
+65 0 0 0 0 0
+E E E
+0
+1
+LANG:1 0 
+
+3
+"layoutAlignment" "AlignNone"
+"dashclr"N "_Transparent"
+"antiAliased" "1"
+E E 0 1 3 2 1 E 1 0 1 -418 -234 1 E 450 506 13 13
+2 66
+"PRIMITIVE_TEXT21"
+""
+1 26 258.9999999999999 E E E 1 E 1 E N "_WindowText" E N "_Window" E E
+ E E
+66 0 0 0 0 0
+E E E
+0
+1
+LANG:1 0 
+
+4
+"layoutAlignment" "AlignNone"
+"dashclr"N "_Transparent"
+"antiAliased" "0"
+"transformable" "0"
+E E 2 1 3 2 1 E U  0 E 26 258.9999999999999 40 284
+0 2 2 "0s" 0 0 0 192 0 0  26 258.9999999999999 1
+1
+LANG:1 27 Utopia,-1,21,5,75,0,0,0,0,0
+0 1
+LANG:1 1 9
+6 67
+"RECTANGLE31"
+""
+1 31 39 E E E 1 E 1 E N {0,0,0} E N "FwAtlasFg" E E
+ E E
+67 0 0 0 0 0
+E E E
+0
+1
+LANG:1 0 
+
+3
+"layoutAlignment" "AlignNone"
+"dashclr"N "_Transparent"
+"antiAliased" "0"
+E E 0 1 3 2 1 E 0.4325068870523416 0 0.1070110701107011 0.5922865013774086 281.8265682656827 1 E 31 39 394 310
+7 68
+"ELLIPSE16"
+""
+1 450 506 E E E 1 E 1 E N {0,0,0} E N {255,255,255} E E
+ E E
+68 0 0 0 0 0
+E E E
+0
+1
+LANG:1 0 
+
+3
+"layoutAlignment" "AlignNone"
+"dashclr"N "_Transparent"
+"antiAliased" "1"
+E E 0 1 3 2 1 E 1 0 1 -418 -205 1 E 450 506 13 13
+2 69
+"PRIMITIVE_TEXT22"
+""
+1 20 287 E E E 1 E 1 E N "_WindowText" E N "_Window" E E
+ E E
+69 0 0 0 0 0
+E E E
+0
+1
+LANG:1 0 
+
+4
+"layoutAlignment" "AlignNone"
+"dashclr"N "_Transparent"
+"antiAliased" "0"
+"transformable" "0"
+E E 2 1 3 2 1 E U  0 E 20 287 46 312
+0 2 2 "0s" 0 0 0 192 0 0  20 287 1
+1
+LANG:1 27 Utopia,-1,21,5,75,0,0,0,0,0
+0 1
+LANG:1 2 10
 0
 LAYER, 1 
 1

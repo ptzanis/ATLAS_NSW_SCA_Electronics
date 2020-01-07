@@ -31,10 +31,10 @@ PANEL,-1 -1 533 446 N "FwAtlasBg" 7
   if(pcb==1)  
     {
     UpDown=\"Up\";  
-    addSymbol(myModuleName(),myPanelName(),\"objects/sca/valueScaELTX.pnl\",\"L1Param_\"+\"Side\"+IPorHO+\"PCB\"+pcb+\"Layer\"+layer+\"Left\"+detector,makeDynString(\"$rightOrLeft:\"+\"Left\",\"$layer:\"+layer,\"$sector:\"+sector,\"$IPorHO:\"+IPorHO,\"$PCB:\"+pcbNumber,\"$UpDown:\"+UpDown,\"$detector:\"+detector,\"$L1Exception:\"+\"On\",\"$configurationMode:\"+configurationMode,\"$PadRouterException:\"+\"\"),x,yPrevious,0,1,1); 
+    addSymbol(myModuleName(),myPanelName(),\"objects/sca/valueScaELTX.pnl\",\"L1Param_\"+\"Side\"+IPorHO+\"PCB\"+pcb+\"Layer\"+layer+\"Left\"+detector,makeDynString(\"$rightOrLeft:\"+\"Left\",\"$layer:\"+layer,\"$sector:\"+sector,\"$IPorHO:\"+IPorHO,\"$PCB:\"+pcbNumber,\"$UpDown:\"+UpDown,\"$detector:\"+detector,\"$L1Exception:\"+\"On\",\"$configurationMode:\"+configurationMode,\"$PadRouterException:\"+\"\",\"$RimL1DDCException:\"+\"\",\"$PadTriggerException:\"+\"\"),x,yPrevious,0,1,1); 
     } 
 
-  addSymbol(myModuleName(),myPanelName(),\"objects/sca/valueScaELTX.pnl\",\"Param_\"+\"Side\"+IPorHO+\"PCB\"+pcb+\"Layer\"+layer+\"Left\"+detector,makeDynString(\"$rightOrLeft:\"+\"Left\",\"$layer:\"+layer,\"$sector:\"+sector,\"$IPorHO:\"+IPorHO,\"$PCB:\"+pcbNumber,\"$UpDown:\"+UpDown,\"$detector:\"+detector,\"$L1Exception:\"+\"\",\"$configurationMode:\"+configurationMode,\"$PadRouterException:\"+\"\"),x,y,0,1,1);
+  addSymbol(myModuleName(),myPanelName(),\"objects/sca/valueScaELTX.pnl\",\"Param_\"+\"Side\"+IPorHO+\"PCB\"+pcb+\"Layer\"+layer+\"Left\"+detector,makeDynString(\"$rightOrLeft:\"+\"Left\",\"$layer:\"+layer,\"$sector:\"+sector,\"$IPorHO:\"+IPorHO,\"$PCB:\"+pcbNumber,\"$UpDown:\"+UpDown,\"$detector:\"+detector,\"$L1Exception:\"+\"\",\"$configurationMode:\"+configurationMode,\"$PadRouterException:\"+\"\",\"$RimL1DDCException:\"+\"\",\"$PadTriggerException:\"+\"\"),x,y,0,1,1);
   x=x+13;
    y=y+36;
  if(pcb==2)
@@ -69,10 +69,10 @@ PANEL,-1 -1 533 446 N "FwAtlasBg" 7
     
     if(pcb==1)  
     {  
-    addSymbol(myModuleName(),myPanelName(),\"objects/sca/valueScaELTX.pnl\",\"L1Param_\"+\"Side\"+IPorHO+\"PCB\"+pcb+\"Layer\"+layer+\"Right\"+detector,makeDynString(\"$rightOrLeft:\"+\"Right\",\"$layer:\"+layer,\"$sector:\"+sector,\"$IPorHO:\"+IPorHO,\"$PCB:\"+pcbNumber,\"$UpDown:\"+UpDown,\"$detector:\"+detector,\"$L1Exception:\"+\"On\",\"$configurationMode:\"+configurationMode,\"$PadRouterException:\"+\"\"),x,yPrevious,0,1,1);  
+    addSymbol(myModuleName(),myPanelName(),\"objects/sca/valueScaELTX.pnl\",\"L1Param_\"+\"Side\"+IPorHO+\"PCB\"+pcb+\"Layer\"+layer+\"Right\"+detector,makeDynString(\"$rightOrLeft:\"+\"Right\",\"$layer:\"+layer,\"$sector:\"+sector,\"$IPorHO:\"+IPorHO,\"$PCB:\"+pcbNumber,\"$UpDown:\"+UpDown,\"$detector:\"+detector,\"$L1Exception:\"+\"On\",\"$configurationMode:\"+configurationMode,\"$PadRouterException:\"+\"\",\"$RimL1DDCException:\"+\"\",\"$PadTriggerException:\"+\"\"),x,yPrevious,0,1,1);  
      }
     
-  addSymbol(myModuleName(),myPanelName(),\"objects/sca/valueScaELTX.pnl\",\"Param_\"+\"Side\"+IPorHO+\"PCB\"+pcb+\"Layer\"+layer+\"Right\"+detector,makeDynString(\"$rightOrLeft:\"+\"Right\",\"$layer:\"+layer,\"$sector:\"+sector,\"$IPorHO:\"+IPorHO,\"$PCB:\"+pcbNumber,\"$UpDown:\"+UpDown,\"$detector:\"+detector,\"$L1Exception:\"+\"\",\"$configurationMode:\"+configurationMode,\"$PadRouterException:\"+\"\"),x,y,0,1,1);
+  addSymbol(myModuleName(),myPanelName(),\"objects/sca/valueScaELTX.pnl\",\"Param_\"+\"Side\"+IPorHO+\"PCB\"+pcb+\"Layer\"+layer+\"Right\"+detector,makeDynString(\"$rightOrLeft:\"+\"Right\",\"$layer:\"+layer,\"$sector:\"+sector,\"$IPorHO:\"+IPorHO,\"$PCB:\"+pcbNumber,\"$UpDown:\"+UpDown,\"$detector:\"+detector,\"$L1Exception:\"+\"\",\"$configurationMode:\"+configurationMode,\"$PadRouterException:\"+\"\",\"$RimL1DDCException:\"+\"\",\"$PadTriggerException:\"+\"\"),x,y,0,1,1);
   x=x-13;
    y=y+36;
  if(pcb==2)
@@ -92,7 +92,7 @@ PANEL,-1 -1 533 446 N "FwAtlasBg" 7
   
 
   // PadRouter Support
-    addSymbol(myModuleName(),myPanelName(),\"objects/sca/valueScaELTX.pnl\",\"Param_Router_\"+\"Side\"+IPorHO+\"Layer\"+layer,makeDynString(\"$rightOrLeft:\"+\"Right\",\"$layer:\"+layer,\"$sector:\"+sector,\"$IPorHO:\"+IPorHO,\"$PCB:\"+pcbNumber,\"$UpDown:\"+UpDown,\"$detector:\"+detector,\"$L1Exception:\"+\"\",\"$configurationMode:\"+configurationMode,\"$PadRouterException:\"+\"On\"),x-35,y+17,0,1,1);
+//     addSymbol(myModuleName(),myPanelName(),\"objects/sca/valueScaELTX.pnl\",\"Param_Router_\"+\"Side\"+IPorHO+\"Layer\"+layer,makeDynString(\"$rightOrLeft:\"+\"Right\",\"$layer:\"+layer,\"$sector:\"+sector,\"$IPorHO:\"+IPorHO,\"$PCB:\"+pcbNumber,\"$UpDown:\"+UpDown,\"$detector:\"+detector,\"$L1Exception:\"+\"\",\"$configurationMode:\"+configurationMode,\"$PadRouterException:\"+\"On\"),x-35,y+17,0,1,1);
   
 
   
@@ -173,7 +173,7 @@ LANG:1 0
   if(configurationMode)
     this.visible(0);
 }" 0
- E 2 1 3 2 1 E 1 0 1.102342211709233 -20 -264.1303762508443 0 E 235 568 322 595
+ E 2 1 3 2 1 E 1 0 1.102342211709233 -20 -301.1303762508443 0 E 235 568 322 595
 0 2 2 "0s" 0 0 0 192 0 0  235 568 1
 1
 LANG:1 27 Utopia,-1,24,5,75,0,0,0,0,0
@@ -376,7 +376,7 @@ LANG:1 1 3
 30 81
 "FRAME1"
 ""
-1 178 319 E E E 1 E 1 E N "white" E N {0,0,0} E E
+1 178 319 E E E 1 E 0 E N "white" E N {0,0,0} E E
  E E
 81 0 0 0 0 0
 E E E

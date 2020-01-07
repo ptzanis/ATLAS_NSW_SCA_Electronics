@@ -1,11 +1,13 @@
 V 14
 1
 LANG:1 0 
-PANEL,-1 -1 149 48 N "FwAtlasBg" 10
+PANEL,-1 -1 149 48 N "FwAtlasBg" 12
 "$IPorHO"
 "$L1Exception"
 "$PCB"
 "$PadRouterException"
+"$PadTriggerException"
+"$RimL1DDCException"
 "$UpDown"
 "$configurationMode"
 "$detector"
@@ -28,16 +30,12 @@ PANEL,-1 -1 149 48 N "FwAtlasBg" 10
   
     string dpeBoardPlace;
   
-
-  
-
 //      dpeBoardPlace=\"Side\"+side+\"PCB\"+PCB+\"Layer\"+layer+rightOrLeft+UpDown;
 //      value.name(\"Value_Side\"+side+\"PCB\"+PCB+\"Layer\"+layer+rightOrLeft+UpDown); 
-    
-          
+              
     
   shape shapeValue,shapeStatus; 
-  if(L1Exception==\"On\" || PadRouterException==\"On\")
+  if(L1Exception==\"On\" || PadRouterException==\"On\" || RimL1DDCException==\"On\" || PadTriggerException==\"On\")
      {  
     if(L1Exception==\"On\")
     {
@@ -75,11 +73,39 @@ PANEL,-1 -1 149 48 N "FwAtlasBg" 10
 
       shapeStatus=getShape(\"Stats_RouterBoardSide\"+side+\"Layer\"+layer);  
       shapeValue=getShape(\"Value_RouterBoardSide\"+side+\"Layer\"+layer);
-  } 
+    } 
      
+   
+   if(RimL1DDCException==\"On\")
+   { 
+      statusLEFT.visible(FALSE);      
+      statusRIGHT.visible(TRUE);
+      dpeBoardPlace=\"RimL1DDC\"; 
+      statusRIGHT.toolTipText(\"Stats_RimL1DDC\");
+      statusRIGHT.name(\"Stats_RimL1DDC\");  
+      value.name(\"Value_RimL1DDC\");
+      
+
+      shapeStatus=getShape(\"Stats_RimL1DDC\");  
+      shapeValue=getShape(\"Value_RimL1DDC\");
+    }  
+   
+   if(PadTriggerException==\"On\")
+   { 
+      statusLEFT.visible(FALSE);      
+      statusRIGHT.visible(TRUE);
+      dpeBoardPlace=\"PadTrigger\"; 
+      statusRIGHT.toolTipText(\"Stats_PadTrigger\");
+      statusRIGHT.name(\"Stats_PadTrigger\");  
+      value.name(\"Value_PadTrigger\");
+      
+      shapeStatus=getShape(\"Stats_PadTrigger\");  
+      shapeValue=getShape(\"Value_PadTrigger\");
+    }   
+      
    }
   else
-     {
+  {
     
     
      dpeBoardPlace=\"Side\"+side+\"PCB\"+PCB+\"Layer\"+layer+rightOrLeft+UpDown;
@@ -216,7 +242,11 @@ E "  string rightOrLeft=$rightOrLeft;
   string detector=$detector;
   string L1Exception=$L1Exception;
   bool configurationMode=$configurationMode;
-  string PadRouterException=$PadRouterException;" 0
+  string PadRouterException=$PadRouterException;
+  
+  string RimL1DDCException=$RimL1DDCException;
+  string PadTriggerException=$PadTriggerException;
+" 0
  3
 "CBRef" "1"
 "EClose" E
@@ -289,6 +319,18 @@ LANG:1 27 Utopia,-1,15,5,75,0,0,0,0,0
    { 
     channel=\"RouterBoard_Side_\"+side+\"_Layer_\"+layer;  
    }
+   
+    if(RimL1DDCException==\"On\")
+   { 
+    channel=\"RimL1DDC\";  
+   }
+ 
+    if(PadTriggerException==\"On\")
+   { 
+    channel=\"PadTrigger\";  
+   }  
+   
+   
     
     if(!configurationMode)
   {
@@ -340,8 +382,8 @@ LANG:1 27 Utopia,-1,15,5,75,0,0,0,0,0
       }
      if(detector==\"STG\")
       {
-       typeBox.appendItem(\"sFEB\"); 
-       typeBox.appendItem(\"pFEB\");  
+       typeBox.appendItem(\"SFEB\"); 
+       typeBox.appendItem(\"PFEB\");  
        typeBox.appendItem(\"L1DDC\"); 
        typeBox.appendItem(\"RimL1DDC\");       
        typeBox.appendItem(\"PadTrigger\"); 

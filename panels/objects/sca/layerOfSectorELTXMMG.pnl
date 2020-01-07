@@ -35,7 +35,7 @@ PANEL,-1 -1 533 620 N "FwAtlasBg" 7
     else
       UpDown=\"Down\";    
     
-  addSymbol(myModuleName(),myPanelName(),\"objects/sca/valueScaELTX.pnl\",\"Param_\"+\"Side\"+IPorHO+\"PCB\"+pcb+\"Layer\"+layer+\"Left\"+detector,makeDynString(\"$rightOrLeft:\"+\"Left\",\"$layer:\"+layer,\"$sector:\"+sector,\"$IPorHO:\"+IPorHO,\"$PCB:\"+pcbNumber,\"$UpDown:\"+UpDown,\"$detector:\"+detector,\"$L1Exception:\"+\"\",\"$configurationMode:\"+configurationMode,\"$PadRouterException:\"+\"\"),x,y,0,1,1);
+  addSymbol(myModuleName(),myPanelName(),\"objects/sca/valueScaELTX.pnl\",\"Param_\"+\"Side\"+IPorHO+\"PCB\"+pcb+\"Layer\"+layer+\"Left\"+detector,makeDynString(\"$rightOrLeft:\"+\"Left\",\"$layer:\"+layer,\"$sector:\"+sector,\"$IPorHO:\"+IPorHO,\"$PCB:\"+pcbNumber,\"$UpDown:\"+UpDown,\"$detector:\"+detector,\"$L1Exception:\"+\"\",\"$configurationMode:\"+configurationMode,\"$PadRouterException:\"+\"\",\"$RimL1DDCException:\"+\"\",\"$PadTriggerException:\"+\"\"),x,y,0,1,1);
   x=x+7;
   if(pcb<=6)
    y=y+36;
@@ -64,7 +64,7 @@ PANEL,-1 -1 533 620 N "FwAtlasBg" 7
     else
       UpDown=\"Down\"; 
     
-    addSymbol(myModuleName(),myPanelName(),\"objects/sca/valueScaELTX.pnl\",\"Param_\"+\"Side\"+IPorHO+\"PCB\"+pcb+\"Layer\"+layer+\"Right\"+detector,makeDynString(\"$rightOrLeft:\"+\"Right\",\"$layer:\"+layer,\"$sector:\"+sector,\"$IPorHO:\"+IPorHO,\"$PCB:\"+pcbNumber,\"$UpDown:\"+UpDown,\"$detector:\"+detector,\"$L1Exception:\"+\"\",\"$configurationMode:\"+configurationMode,\"$PadRouterException:\"+\"\"),x,y,0,1,1);    
+    addSymbol(myModuleName(),myPanelName(),\"objects/sca/valueScaELTX.pnl\",\"Param_\"+\"Side\"+IPorHO+\"PCB\"+pcb+\"Layer\"+layer+\"Right\"+detector,makeDynString(\"$rightOrLeft:\"+\"Right\",\"$layer:\"+layer,\"$sector:\"+sector,\"$IPorHO:\"+IPorHO,\"$PCB:\"+pcbNumber,\"$UpDown:\"+UpDown,\"$detector:\"+detector,\"$L1Exception:\"+\"\",\"$configurationMode:\"+configurationMode,\"$PadRouterException:\"+\"\",\"$RimL1DDCException:\"+\"\",\"$PadTriggerException:\"+\"\"),x,y,0,1,1);    
   x=x-7;
   if(pcb<=6)
    y=y+36;
