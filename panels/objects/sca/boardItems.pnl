@@ -46,7 +46,7 @@ void updateTable()
   for(int i=1;i<=dynlen(aiChannels);i++)
   {
     dpGet(aiChannels[i]+\".value\",value);
-    strreplace(aiChannels[i],channel+\"/ai/\",\"\");
+    strreplace(aiChannels[i],getSystemName()+channel+\"/ai/\",\"\");
 
     
     itemsTable.appendLine(\"Item\",aiChannels[i],\"Value\",value);
