@@ -878,14 +878,14 @@ void EP_textFieldIn()
 {
   dyn_errClass err;
 
-  if( !dpExists(returnValue()+\"/ai/vmmPdo7.temperature:_online.._value\"))
+  if( !dpExists(returnValue()+\"/ai/vmmPdo6.temperature:_online.._value\"))
   {
     setValue(\"\", \"color\", \"_dpdoesnotexist\");
     return;
   }
 
   dpConnect(\"EP_textFieldInCB\",
-            returnValue()+\"/ai/vmmPdo7.temperature:_online.._value\");
+            returnValue()+\"/ai/vmmPdo6.temperature:_online.._value\");
   err = getLastError();
   if (dynlen(err) > 0)
     setValue(\"\", \"color\", \"_dpdoesnotexist\");
